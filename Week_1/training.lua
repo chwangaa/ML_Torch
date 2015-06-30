@@ -41,7 +41,13 @@ local opt = lapp[[
    --coefL1           (default 0)           L1 penalty on the weights
    --coefL2           (default 0)           L2 penalty on the weights
    -t,--threads       (default 4)           number of threads
+   --cuda             (default false)        deployee using cuda
 ]]
+
+if opt.cuda == true then
+	print('Using CUDA')
+	require 'cunn'
+end
 
 -- fix seed
 torch.manualSeed(1)
@@ -350,6 +356,12 @@ end
 
 while true do
    -- train/test
+   if opt.cuda == true then
+	trainData:cuda()
+	testData:cuda()
+	model:cuda()
+	criterion:cuda()
+   end
    train(trainData)
    test(testData)
 
