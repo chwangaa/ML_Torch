@@ -3,17 +3,16 @@ import os.path
 
 # import caffe
 import sys
-sys.path.append('/home/tom/Workspace/caffe/python/')
+CAFFE_PATH = '/home/tom/Workspace/caffe/python/'
+sys.path.append(CAFFE_PATH)
 import caffe
 import numpy
 import time
 import datetime
 
 
-LOG_FILE_NAME = 'log.csv' # not used
-
-MACHINE_NAME = 'Chihang Laptop'
 DEFAULT_FIELDS = ['MACHINE', 'MODE', 'BATCH_SIZE', 'OPERATION', 'RUNNING TIME', 'LOG TIME', 'NOTE']
+
 
 class LogFile:
 	def __init__(self, file_name, fields=DEFAULT_FIELDS):
@@ -60,69 +59,6 @@ class LogFile:
 		# if fields is specified, only return those data
 		pass
 
-
-
-from caffe import layers as L
-from caffe import params as P
-
-def lenet(lmdb, batch_size):
-    # our version of LeNet: a series of linear and simple nonlinear transformations
-    n = caffe.NetSpec()
-    n.data, n.label = L.Data(batch_size=batch_size, backend=P.Data.LMDB, source=lmdb,
-                             transform_param=dict(scale=1./255), ntop=2)
-    n.conv1 = L.Convolution(n.data, kernel_size=5, num_output=20, weight_filler=dict(type='xavier'))
-    n.pool1 = L.Pooling(n.conv1, kernel_size=2, stride=2, pool=P.Pooling.MAX)
-    n.conv2 = L.Convolution(n.pool1, kernel_size=5, num_output=50, weight_filler=dict(type='xavier'))
-    n.pool2 = L.Pooling(n.conv2, kernel_size=2, stride=2, pool=P.Pooling.MAX)
-    n.ip1 = L.InnerProduct(n.pool2, num_output=500, weight_filler=dict(type='xavier'))
-    n.relu1 = L.ReLU(n.ip1, in_place=True)
-    n.ip2 = L.InnerProduct(n.relu1, num_output=10, weight_filler=dict(type='xavier'))
-    n.loss = L.SoftmaxWithLoss(n.ip2, n.label)
-    # return n.to_proto()
-    return n.to_proto()
-
-
-def createLenet(batch_size):
-	with open('examples/mnist/lenet_auto_train.prototxt', 'w') as f:
-		f.write(str(lenet('examples/mnist/mnist_train_lmdb', batch_size)))
-	# with open('examples/mnist/lenet_auto_test.prototxt', 'w') as f:
-	# 	f.write(str(lenet('examples/mnist/mnist_test_lmdb', 100)))
-
-
-def cifarnet(lmdb, batch_size):
-    # our version of LeNet: a series of linear and simple nonlinear transformations
-    n = caffe.NetSpec()
-    n.data, n.label = L.Data(batch_size=batch_size, backend=P.Data.LMDB, source=lmdb,
-                             transform_param=dict(mean_file="examples/cifar10/mean.binaryproto"), ntop=2)
-
-    n.conv1 = L.Convolution(n.data, kernel_size=5, num_output=32, pad=2, stride=1, weight_filler=dict(type='gaussian', std=0.0001),
-    						bias_filler=dict(type='constant'))
-
-    n.pool1 = L.Pooling(n.conv1, kernel_size=3, stride=2, pool=P.Pooling.MAX)
-    n.relu1 = L.ReLU(n.pool1, in_place=True)
-    n.norm1 = L.LRN(n.pool1, lrn_param=dict(local_size=3, alpha=5e-05, beta=0.75, norm_region=P.LRN.WITHIN_CHANNEL))
-    n.conv2 = L.Convolution(n.pool1, kernel_size=5, pad=2, num_output=32, weight_filler=dict(type='gaussian', std=0.01),
-    						bias_filler=dict(type='constant'))
-    n.relu2 = L.ReLU(n.conv2, in_place=True)
-    n.pool2 = L.Pooling(n.conv2, kernel_size=3, stride=2, pool=P.Pooling.AVE)
-    n.norm2 = L.LRN(n.pool2, lrn_param=dict(local_size=3, alpha=5e-05, beta=0.75, norm_region=P.LRN.WITHIN_CHANNEL))
-    n.conv3 = L.Convolution(n.norm2, kernel_size=5, pad=2, num_output=64, stride=1, weight_filler=dict(type='gaussian', std=0.01),
-    						bias_filler=dict(type='constant'))
-    n.relu3 = L.ReLU(n.conv3, in_place=True)
-    n.pool3 = L.Pooling(n.conv3, kernel_size=3, stride=2, pool=P.Pooling.AVE)
-
-    n.ip1 = L.InnerProduct(n.pool3, num_output=10, weight_filler=dict(type='gaussian', std=0.01),
-    						bias_filler=dict(type='constant'))
-    n.loss = L.SoftmaxWithLoss(n.ip1, n.label)
-    return n.to_proto()
-
-
-def createCifarnet(batch_size):
-	with open('examples/cifar10/cifar10_auto_train.prototxt', 'w') as f:
-		f.write(str(cifarnet('examples/cifar10/cifar10_train_lmdb', batch_size)))
-	# with open('examples/cifar10/cifar10_auto_test.prototxt', 'w') as f:
-	# 	f.write(str(cifarnet('examples/cifar10/cifar10_test_lmdb', 32)))
-
 def makeLog(log_raw, machine, mode, batch_size):
 	logs = []
 	log_time = datetime.datetime.now()
@@ -138,11 +74,11 @@ def makeLog(log_raw, machine, mode, batch_size):
 	return logs
 
 
-def run(solver_file, use_gpu=True):
+def collectData(solver_file, gpu=True):
 	NUM_REPEAT = 2
 	UNITS = 1000 # change s to ms
 
-	if use_gpu:
+	if gpu:
 		caffe.set_mode_gpu()
 	else:
 		caffe.set_mode_cpu()
@@ -152,6 +88,7 @@ def run(solver_file, use_gpu=True):
 	solver = caffe.SGDSolver(solver_file)
 	# initialize log dictionary
 	log = {}
+	print "here"
 	
 	# record step time (with backpropagation)
 	# record the first time
@@ -159,7 +96,7 @@ def run(solver_file, use_gpu=True):
 	solver.step(1)
 	step_time = time.time() - step_start_time
 	log['first step time'] = step_time * UNITS
-	
+	print "hereerere"
 	# record the new 3 times and take the average
 	step_time_record = []
 	for i in range(NUM_REPEAT):
@@ -186,29 +123,20 @@ def run(solver_file, use_gpu=True):
 	return log
 
 
-def collectLenetData(batch_sizes, log_file_name):
-	log_file = LogFile(log_file_name)
-	for batch_size in batch_sizes:
-		createLenet(batch_size)
-		# run in GPU
-		log_raw = run('examples/mnist/lenet_auto_solver.prototxt')
-		log_entries = makeLog(log_raw, machine=MACHINE_NAME, mode='GPU', batch_size=batch_size)
-		log_file.writeLogs(log_entries)
-		# run in CPU
-		log_raw = run('examples/mnist/lenet_auto_solver.prototxt', False)
-		log_entries = makeLog(log_raw, machine=MACHINE_NAME, mode='CPU', batch_size=batch_size)
-		log_file.writeLogs(log_entries)
+def setBatchSize(input_file_name, batch_size):
+	filedata = None
+	# make a dummy output_file_path
+	import os.path
+	directory_name = os.path.dirname(input_file_name)
+	file_name = os.path.basename(input_file_name)
+	model_path = directory_name + '/dummy_'+file_name
+	with open(input_file_name, 'r') as f:
+		filedata = f.read()
 
+	batch_size = str(batch_size)
+	filedata = filedata.replace('TRAIN_BATCH_SIZE', batch_size)
 
-def collectCifar10Data(batch_sizes, log_file_name):
-	log_file = LogFile(log_file_name)
-	for batch_size in batch_sizes:
-		createCifarnet(batch_size)
-		# run in GPU
-		log_raw = run('examples/cifar10/cifar10_auto_solver.prototxt')
-		log_entries = makeLog(log_raw, machine=MACHINE_NAME, mode='GPU', batch_size=batch_size)
-		log_file.writeLogs(log_entries)
-		# run in CPU
-		log_raw = run('examples/cifar10/cifar10_auto_solver.prototxt', False)
-		log_entries = makeLog(log_raw, machine=MACHINE_NAME, mode='CPU', batch_size=batch_size)
-		log_file.writeLogs(log_entries)
+	with open(model_path, 'w') as f:
+		f.write(filedata)
+
+	return model_path
