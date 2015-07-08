@@ -11,54 +11,6 @@ import time
 import datetime
 
 
-DEFAULT_FIELDS = ['MACHINE', 'MODE', 'BATCH_SIZE', 'OPERATION', 'RUNNING TIME', 'LOG TIME', 'NOTE']
-
-
-class LogFile:
-	def __init__(self, file_name, fields=DEFAULT_FIELDS):
-		# if the file exists, then read the header and construct an instance
-		if os.path.isfile(file_name):
-			print "File already exists, will append onwards"
-			
-			with open(file_name, 'r') as log_file:
-				reader = csv.DictReader(log_file)
-				self.file_name = file_name
-				self.fields = reader.fieldnames
-				if self.fields == None:
-					# if the header is absent, use the default header
-					self.fields = fields
-					self._create_header()
-		# else, build a new instance
-		else:
-			self.file_name = file_name
-			self.fields = fields
-			# initialize the log file
-			self._create_header()
-
-	def writeLog(self, log):
-		file_name = self.file_name
-		fields = self.fields
-		with open(file_name, 'a') as log_file:
-			writer = csv.DictWriter(log_file, fieldnames=fields)
-			writer.writerow(log)
-
-	def writeLogs(self, logs):
-		file_name = self.file_name
-		fields = self.fields
-		with open(file_name, 'a') as log_file:
-			writer = csv.DictWriter(log_file, fieldnames=fields)
-			writer.writerows(logs)
-
-	def _create_header(self):
-		file_name = self.file_name
-		with open(file_name, 'w') as log_file:
-			writer = csv.DictWriter(log_file, fieldnames=self.fields)
-			writer.writeheader()
-
-	def readLogAsDict(self, fields=None):
-		# if fields is specified, only return those data
-		pass
-
 def makeLog(log_raw, machine, mode, batch_size):
 	logs = []
 	log_time = datetime.datetime.now()

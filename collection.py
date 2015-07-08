@@ -1,5 +1,6 @@
 import os.path
 import utils
+import log
 
 
 MACHINE_NAME = 'Chihang Laptop'
@@ -8,7 +9,7 @@ def collectDatas(solver_file_name, net_file, log_file_name, batch_sizes):
 	if not os.path.isfile(solver_file_name):
 		raise Exception("Solver file does not exist")
 
-	log_file = utils.LogFile(log_file_name)
+	log_file = log.LogFile(log_file_name)
 	if type(batch_sizes) == list:
 		for batch_size in batch_sizes:
 			utils.setBatchSize(net_file, batch_size)
