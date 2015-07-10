@@ -1,0 +1,92 @@
+// FC Layer -------------------------------------------------------------------
+
+typedef struct fc_layer {
+  // required
+  int out_depth;
+  int in_depth;
+  int in_sx;
+  int in_sy;
+
+  // optional
+  double l1_decay_mul;
+  double l2_decay_mul;
+
+  // computed
+  int out_sx;
+  int out_sy;
+  int num_inputs;
+  double bias;
+  vol_t* biases;
+  vol_t** filters;
+} fc_layer_t;
+
+fc_layer_t* make_fc_layer(int in_sx, int in_sy, int in_depth,
+                          int num_neurons) {
+  fc_layer_t* l = (fc_layer_t*)malloc(sizeof(fc_layer_t));
+
+  // required
+  l->out_depth = num_neurons;
+  l->in_depth = in_depth;
+  l->in_sx = in_sx;
+  l->in_sy = in_sy;
+    
+  // optional
+  l->l1_decay_mul = 0.0;
+  l->l2_decay_mul = 1.0;
+
+  // computed
+  l->num_inputs = l->in_sx * l->in_sy * l->in_depth;
+  l->out_sx = 1;
+  l->out_sy = 1;
+
+  l->filters = (vol_t**)malloc(sizeof(vol_t*)*num_neurons);
+  for (int i = 0; i < l->out_depth; i++) {
+    l->filters[i] = make_vol(1, 1, l->num_inputs, 0.0);
+  }
+
+  l->bias = 0.0;
+  l->biases = make_vol(1, 1, l->out_depth, l->bias);
+
+  return l;
+}
+
+void fc_forward(fc_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
+  for (int j = start; j <= end; j++) {
+    vol_t* V = in[j];
+    vol_t* A = out[j];
+        
+    for(int i=0;i<l->out_depth;i++) {
+      double a = 0.0;
+      for(int d=0;d<l->num_inputs;d++) {
+        a += V->w[d] * l->filters[i]->w[d];
+      }
+      a += l->biases->w[i];
+      A->w[i] = a;
+    }
+  }
+}
+
+void fc_load(fc_layer_t* l, const char* fn) {
+  FILE* fin = fopen(fn, "r");
+
+  int num_inputs;
+  int out_depth;
+  fscanf(fin, "%d %d", &num_inputs, &out_depth);
+  assert(out_depth == l->out_depth);
+  assert(num_inputs == l->num_inputs);
+
+  for(int i = 0; i < l->out_depth; i++)
+    for(int d = 0; d < l->num_inputs; d++) {
+      double val;
+      fscanf(fin, "%lf", &val);
+      l->filters[i]->w[d] = val;
+    }
+
+  for(int i = 0; i < l->out_depth; i++) {
+    double val;
+    fscanf(fin, "%lf", &val);
+    l->biases->w[i] = val;
+  }
+
+  fclose(fin);
+}
