@@ -16,14 +16,6 @@
 #include "network.h"
 #include "util.h"
 // Neural Network -------------------------------------------------------------
-
-void net_classify_cats(Network* net, vol_t** input, int n) {
-  for (int i = 0; i < n; i++) {
-    copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
-    net_forward(net);      // run_forward
-  }
-}
-
 // Load the snapshot of the CNN we are going to run.
 Network* construct_cifar_net() {
   Network* net = make_network(11);
@@ -50,32 +42,33 @@ Network* construct_cifar_net() {
 
 // Load an entire batch of images from the cifar10 data set (which is divided
 // into 5 batches with 10,000 images each).
-vol_t** load_cifar_data(int size) {
+void load_cifar_data(vol_t** data, label_t* label, int size) {
 
+  assert(size <= 10000);  // the size must be smaller than 10'000
   char fn[] = "data/cifar/data_batch_1.bin";
   FILE* fin = fopen(fn, "rb");
   assert(fin != NULL);
 
-  vol_t** batchdata = (vol_t**)malloc(sizeof(vol_t*) * size);
+  // vol_t** batchdata = (vol_t**)malloc(sizeof(vol_t*) * size);
 
   for (int i = 0; i < size; i++) {
-    batchdata[i] = make_vol(32, 32, 3, 0.0);
+    uint8_t data_buffer[3073];
+    assert(fread(data_buffer, 1, 3073, fin) == 3073);
 
-    uint8_t data[3073];
-    assert(fread(data, 1, 3073, fin) == 3073);
+    int outp = 0;
 
-    int outp = 1;
+    data[i] = make_vol(32, 32, 3, 0.0);
+    label[i] = data_buffer[outp++];
+
     for (int z = 0; z < 3; z++)
       for (int y = 0; y < 32; y++)
         for (int x = 0; x < 32; x++) {
-          set_vol(batchdata[i], x, y, z, ((double)data[outp++])/255.0-0.5);
+          set_vol(data[i], x, y, z, ((double)data_buffer[outp++])/255.0-0.5);
         }
   }
 
   fclose(fin);
   fprintf(stderr, "input batch loaded successfully \n");
-
-  return batchdata;
 }
 
 
@@ -88,27 +81,28 @@ int performance_measure(int num_samples) {
   initialize_network(net, 1);
 
   fprintf(stderr, "Loading Data \n");
-  // vol_t** input = (vol_t**)malloc(sizeof(vol_t*)*n);
-  vol_t** input = load_cifar_data(num_samples);
-
+  
+  vol_t** input = (vol_t**)malloc(sizeof(vol_t*)*num_samples);
+  
+  label_t* labels = (label_t*)malloc(sizeof(label_t)*num_samples);
+  load_cifar_data(input, labels, num_samples);
+  
   fprintf(stderr, "Running classification...\n");
   uint64_t start_time = timestamp_us(); 
-  net_classify_cats(net, input, num_samples);
+  net_test(net, input, labels, num_samples);
   uint64_t end_time = timestamp_us();
 
   double dt = (double)(end_time-start_time) / 1000.0;
   fprintf(stderr, "TIME: %.2lf ms\n", dt);
   fprintf(stderr, "\nTime/Image %.2lf ms \n\n", (dt/ (double)num_samples));
 
+  // TODO: input not properly freed
   free_network(net);
   free(input);
+  free(labels);
 
   return 0;
 }
-
-/*
- * The actual main function.
- */
 
 int main(int argc, char** argv) {
   int BENCHMARK_SIZE = 1000;

@@ -104,13 +104,48 @@ void free_network(Network* net) {
 }
 
 void net_forward(Network* net) {
-  Layer **layers = net->layers;
-  Layer *layer;
-  int num_layers = net->num_layers;
-  for(int i = 0; i < num_layers; i++){
-    layer = layers[i];
-    (*layer->forward)(layer, net->buffer[i], net->buffer[i+1], 0, 0);
+    Layer **layers = net->layers;
+    Layer *layer;
+    int num_layers = net->num_layers;
+    for(int i = 0; i < num_layers; i++){
+        layer = layers[i];
+        (*layer->forward)(layer, net->buffer[i], net->buffer[i+1], 0, 0);
+    }
+}
+
+int net_num_category(Network* net){
+    // TODO
+    return 10;
+}
+
+label_t net_predict(Network* net){
+    net_forward(net);
+    batch_t prediction_vector = net->buffer[net->num_layers];
+    int num_category = net_num_category(net);
+    
+    label_t prediction = 0;
+    double max_prob = 0.0;
+    for(int i = 0; i < num_category; i++){
+        double prob = get_vol(prediction_vector[0], 0, 0, i);
+        // fprintf(stderr, "the prob for category %d is %f \n", i, prob);
+        if(prob > max_prob){
+            prediction = i;
+            max_prob = prob;
+        }
+    }
+    return prediction;
+}
+
+void net_test(Network* net, vol_t** input, label_t* labels, int n) {
+  int num_correct = 0;
+  for (int i = 0; i < n; i++) {
+    copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
+    label_t predicted = net_predict(net);      // run_prediction
+    label_t actual = labels[i];
+    if(predicted == actual){
+        num_correct +=1;
+    }
   }
+  fprintf(stderr, "%d of correct prediction out of %d trials \n", num_correct, n);
 }
 #endif
-

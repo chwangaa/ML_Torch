@@ -3,6 +3,8 @@
 
 #include "data_structure.h"
 
+typedef int label_t;
+
 typedef enum {
     CONVOLUTIONAL,
     POOLING,
