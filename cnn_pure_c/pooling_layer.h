@@ -1,45 +1,11 @@
 // Pool Layer -----------------------------------------------------------------
+#ifndef POOLING_LAYER_H
+#define POOLING_LAYER_H
 
-typedef struct pool_layer {
-  // required
-  int sx;
-  int in_depth;
-  int in_sx;
-  int in_sy;
+#include "layer.h"
 
-  // optional
-  int sy;
-  int stride;
-  int pad;
+typedef Layer pool_layer_t;
 
-  // computed
-  int out_depth;
-  int out_sx;
-  int out_sy;
-} pool_layer_t;
-
-pool_layer_t* make_pool_layer(int in_sx, int in_sy, int in_depth,
-                              int sx, int stride) {
-  pool_layer_t* l = (pool_layer_t*)malloc(sizeof(pool_layer_t));
-
-  // required
-  l->sx = sx;
-  l->in_depth = in_depth;
-  l->in_sx = in_sx;
-  l->in_sy = in_sy;
-
-  // optional
-  l->sy = l->sx;
-  l->stride = stride;
-  l->pad = 0;
-
-  // computed
-  l->out_depth = in_depth;
-  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
-  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
-
-  return l;
-}
 
 void pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int i = start; i <= end; i++) {
@@ -72,3 +38,30 @@ void pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
     }
   }
 }
+
+pool_layer_t* make_pool_layer(int in_sx, int in_sy, int in_depth,
+                              int sx, int stride) {
+  pool_layer_t* l = (pool_layer_t*)malloc(sizeof(pool_layer_t));
+
+  // required
+  l->sx = sx;
+  l->in_depth = in_depth;
+  l->in_sx = in_sx;
+  l->in_sy = in_sy;
+
+  // optional
+  l->sy = l->sx;
+  l->stride = stride;
+  l->pad = 0;
+
+  // computed
+  l->out_depth = in_depth;
+  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
+  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
+
+  l->forward = &pool_forward;
+
+  return l;
+}
+
+#endif

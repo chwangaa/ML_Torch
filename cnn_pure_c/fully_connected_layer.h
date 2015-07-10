@@ -1,24 +1,26 @@
 // FC Layer -------------------------------------------------------------------
+#ifndef FC_LAYER_H
+#define FC_LAYER_H
 
-typedef struct fc_layer {
-  // required
-  int out_depth;
-  int in_depth;
-  int in_sx;
-  int in_sy;
+#include "layer.h"
 
-  // optional
-  double l1_decay_mul;
-  double l2_decay_mul;
+typedef Layer fc_layer_t;
 
-  // computed
-  int out_sx;
-  int out_sy;
-  int num_inputs;
-  double bias;
-  vol_t* biases;
-  vol_t** filters;
-} fc_layer_t;
+void fc_forward(fc_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
+  for (int j = start; j <= end; j++) {
+    vol_t* V = in[j];
+    vol_t* A = out[j];
+        
+    for(int i=0;i<l->out_depth;i++) {
+      double a = 0.0;
+      for(int d=0;d<l->num_inputs;d++) {
+        a += V->w[d] * l->filters[i]->w[d];
+      }
+      a += l->biases->w[i];
+      A->w[i] = a;
+    }
+  }
+}
 
 fc_layer_t* make_fc_layer(int in_sx, int in_sy, int in_depth,
                           int num_neurons) {
@@ -47,23 +49,9 @@ fc_layer_t* make_fc_layer(int in_sx, int in_sy, int in_depth,
   l->bias = 0.0;
   l->biases = make_vol(1, 1, l->out_depth, l->bias);
 
-  return l;
-}
+  l->forward = &fc_forward;
 
-void fc_forward(fc_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
-  for (int j = start; j <= end; j++) {
-    vol_t* V = in[j];
-    vol_t* A = out[j];
-        
-    for(int i=0;i<l->out_depth;i++) {
-      double a = 0.0;
-      for(int d=0;d<l->num_inputs;d++) {
-        a += V->w[d] * l->filters[i]->w[d];
-      }
-      a += l->biases->w[i];
-      A->w[i] = a;
-    }
-  }
+  return l;
 }
 
 void fc_load(fc_layer_t* l, const char* fn) {
@@ -90,3 +78,5 @@ void fc_load(fc_layer_t* l, const char* fn) {
 
   fclose(fin);
 }
+
+#endif

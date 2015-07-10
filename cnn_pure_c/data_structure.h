@@ -1,3 +1,5 @@
+#ifndef DATA_H
+#define DATA_H
 /*
  * Represents a three-dimensional array of numbers, and its size. The numbers
  * at (x,y,d) are stored in array w at location ((v->sx * y)+x)*v->depth+d.
@@ -46,7 +48,6 @@ static vol_t* make_vol(int sx, int sy, int d, double v) {
 /*
  * Copy the contents of one Volume to another (assuming same dimensions).
  */
-
 static vol_t* copy_vol(vol_t* dest, vol_t* src) {
   for (int x = 0; x < dest->sx; x++)
     for (int y = 0; y < dest->sy; y++)
@@ -62,4 +63,15 @@ void free_vol(vol_t* v) {
   free(v);
 }
 
+// Function to dump the content of a volume for comparison.
+void dump_vol(vol_t* v) {
+  printf("%ld,%ld,%ld", v->sx, v->sy, v->depth);
+  for (int x = 0; x < v->sx; x++)
+    for (int y = 0; y < v->sy; y++)
+      for (int z = 0; z < v->depth; z++) {
+        printf(",%.20lf", get_vol(v, x, y, z));
+      }
+  printf("\n");
+}
 
+#endif

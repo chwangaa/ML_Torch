@@ -1,38 +1,14 @@
 // Softmax Layer --------------------------------------------------------------
+#ifndef SOFTMAX_LAYER_H
+#define SOFTMAX_LAYER_H
+
+#include "layer.h"
+
+typedef Layer softmax_layer_t;
+
 
 // Maximum supported out_depth
 #define MAX_ES 16
-
-typedef struct softmax_layer {
-  // required
-  int in_depth;
-  int in_sx;
-  int in_sy;
-  double* es; 
-
-  // computed
-  int out_depth;
-  int out_sx;
-  int out_sy;
-} softmax_layer_t;
-
-softmax_layer_t* make_softmax_layer(int in_sx, int in_sy, int in_depth) {
-  softmax_layer_t* l = (softmax_layer_t*)malloc(sizeof(softmax_layer_t));
-
-  // required
-  l->in_depth = in_depth;
-  l->in_sx = in_sx;
-  l->in_sy = in_sy;
-
-  // computed
-  l->out_sx = 1;
-  l->out_sy = 1;
-  l->out_depth = l->in_sx * l->in_sy * l->in_depth;
-
-  l->es = (double*)malloc(sizeof(double)*l->out_depth);
-
-  return l;
-}
 
 void softmax_forward(softmax_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   double es[MAX_ES];
@@ -62,3 +38,23 @@ void softmax_forward(softmax_layer_t* l, vol_t** in, vol_t** out, int start, int
     }
   }
 }
+
+softmax_layer_t* make_softmax_layer(int in_sx, int in_sy, int in_depth) {
+  softmax_layer_t* l = (softmax_layer_t*)malloc(sizeof(softmax_layer_t));
+
+  // required
+  l->in_depth = in_depth;
+  l->in_sx = in_sx;
+  l->in_sy = in_sy;
+
+  // computed
+  l->out_sx = 1;
+  l->out_sy = 1;
+  l->out_depth = l->in_sx * l->in_sy * l->in_depth;
+
+  l->es = (double*)malloc(sizeof(double)*l->out_depth);
+  l->forward = &softmax_forward;
+  return l;
+}
+
+#endif

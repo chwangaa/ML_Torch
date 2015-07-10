@@ -1,59 +1,10 @@
 // Convolutional Layer --------------------------------------------------------
-typedef struct conv_layer {
-  // required
-  int out_depth;
-  int sx;
-  int in_depth;
-  int in_sx;
-  int in_sy;
+#ifndef CONVOLUTIONAL_LAYER_H
+#define CONVOLUTIONAL_LAYER_H
 
-  // optional
-  int sy;
-  int stride;
-  int pad;
-  double l1_decay_mul;
-  double l2_decay_mul;
+#include "layer.h"
 
-  // computed
-  int out_sx;
-  int out_sy;
-  double bias;
-  vol_t* biases;
-  vol_t** filters;
-} conv_layer_t;
-
-conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
-                              int sx, int filters, int stride, int pad) {
-  conv_layer_t* l = (conv_layer_t*)malloc(sizeof(conv_layer_t));
-
-  // required
-  l->out_depth = filters;
-  l->sx = sx;
-  l->in_depth = in_depth;
-  l->in_sx = in_sx;
-  l->in_sy = in_sy;
-    
-  // optional
-  l->sy = l->sx;
-  l->stride = stride;
-  l->pad = pad;
-  l->l1_decay_mul = 0.0;
-  l->l2_decay_mul = 1.0;
-
-  // computed
-  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
-  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
-
-  l->filters = (vol_t**)malloc(sizeof(vol_t*)*filters);
-  for (int i = 0; i < filters; i++) {
-    l->filters[i] = make_vol(l->sx, l->sy, l->in_depth, 0.0);
-  }
-
-  l->bias = 0.0;
-  l->biases = make_vol(1, 1, l->out_depth, l->bias);
-
-  return l;
-}
+typedef Layer conv_layer_t;
 
 void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int i = start; i <= end; i++) {
@@ -91,12 +42,45 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
   }
 }
 
+conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
+                              int sx, int filters, int stride, int pad) {
+  conv_layer_t* l = (conv_layer_t*)malloc(sizeof(conv_layer_t));
+
+  // required
+  l->out_depth = filters;
+  l->sx = sx;
+  l->in_depth = in_depth;
+  l->in_sx = in_sx;
+  l->in_sy = in_sy;
+    
+  // optional
+  l->sy = l->sx;
+  l->stride = stride;
+  l->pad = pad;
+  l->l1_decay_mul = 0.0;
+  l->l2_decay_mul = 1.0;
+
+  // computed
+  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
+  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
+
+  l->filters = (vol_t**)malloc(sizeof(vol_t*)*filters);
+  for (int i = 0; i < filters; i++) {
+    l->filters[i] = make_vol(l->sx, l->sy, l->in_depth, 0.0);
+  }
+
+  l->bias = 0.0;
+  l->biases = make_vol(1, 1, l->out_depth, l->bias);
+
+  l->forward = &conv_forward;
+  return l;
+}
+
 void conv_load(conv_layer_t* l, const char* fn) {
   int sx, sy, depth, filters;
   sx = sy = depth = filters = 0;
   FILE* fin = fopen(fn, "r");
   fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
-  printf("%d \n", filters);
   assert(sx == l->sx);
   assert(sy == l->sy);
   assert(depth == l->in_depth);
@@ -119,3 +103,5 @@ void conv_load(conv_layer_t* l, const char* fn) {
 
   fclose(fin);
 }
+
+#endif
