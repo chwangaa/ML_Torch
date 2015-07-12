@@ -1,3 +1,6 @@
+import caffe
+
+
 def saveConvLayerWeights(net, layer_name, file_name):
 	'''
 	save the weights & biases in the layer specified by
@@ -48,3 +51,18 @@ def saveFCLayerWeights(net, layer_name, file_name):
 		print >> file_handler, b
 
 	file_handler.close()
+
+
+def exportWeight(net_prototxt, net_weight, save_directory_name):
+	assert(os.path.exists(save_directory_name))
+	net = caffe.Net(net_prototxt, net_weight, caffe.TEST)
+	# here a little buggy, we assume any layer start with 'conv' is a conv layer, 'ip' is a ip layer
+	for i in net.params.keys():
+		file_name = os.path.join(save_directory_name, i);
+		if i.startswith('ip'):
+			saveFCLayerWeights(net, i, file_name)
+		else:
+			if i.startswith('conv'):
+				saveConvLayerWeights(net, i, file_name)
+			else:
+				raise Exception("Unknown layer definition")
