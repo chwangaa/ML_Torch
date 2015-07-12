@@ -12,12 +12,13 @@ void fc_forward(fc_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
     vol_t* A = out[j];
         
     for(int i=0;i<l->out_depth;i++) {
-      double a = 0.0;
+      // for each output
+      double a = 0.0; // initialize the accum
       for(int d=0;d<l->num_inputs;d++) {
         a += V->w[d] * l->filters[i]->w[d];
       }
       a += l->biases->w[i];
-      A->w[i] = a;
+      set_vol(A, 0, 0, i, a);
     }
   }
 }
@@ -56,7 +57,8 @@ fc_layer_t* make_fc_layer(int in_sx, int in_sy, int in_depth,
 
 void fc_load(fc_layer_t* l, const char* fn) {
   FILE* fin = fopen(fn, "r");
-
+  assert(fin);
+  
   int num_inputs;
   int out_depth;
   fscanf(fin, "%d %d", &num_inputs, &out_depth);

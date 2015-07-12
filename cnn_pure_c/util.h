@@ -1,3 +1,6 @@
+#ifndef UTIL_H
+#define UTIL_H
+
 #include <sys/time.h>
 
 
@@ -8,8 +11,20 @@
  * amount of time that has passed between them.
  */
 
+typedef short bool;
+
 static inline uint64_t timestamp_us() {
   struct timeval tv;
   gettimeofday(&tv,NULL);
   return 1000000L * tv.tv_sec + tv.tv_usec;
 }
+
+
+int is_little_endian(){
+  int x = 1;
+  char *y = (char*)&x;
+  printf("%c\n",*y+48);
+  return *y+48;
+}
+
+#endif

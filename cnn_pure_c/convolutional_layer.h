@@ -29,7 +29,8 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
               int ox = x + fx;
               if(oy >= 0 && oy < V_sy && ox >=0 && ox < V_sx) {
                 for(int fd=0;fd < f->depth; fd++) {
-                  a += f->w[((f->sx * fy)+fx)*f->depth+fd] * V->w[((V_sx * oy)+ox)*V->depth+fd];
+                  a += get_vol(f, fx, fy, fd) * get_vol(V, ox, oy, fd);
+                  // a += f->w[((f->sx * fy)+fx)*f->depth+fd] * V->w[((V_sx * oy)+ox)*V->depth+fd];
                 }
               }
             }
@@ -77,9 +78,11 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
 }
 
 void conv_load(conv_layer_t* l, const char* fn) {
+  FILE* fin = fopen(fn, "r");
+  assert(fin != NULL);
+  
   int sx, sy, depth, filters;
   sx = sy = depth = filters = 0;
-  FILE* fin = fopen(fn, "r");
   fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
   assert(sx == l->sx);
   assert(sy == l->sy);
@@ -87,13 +90,16 @@ void conv_load(conv_layer_t* l, const char* fn) {
   assert(filters == l->out_depth);
 
   for(int d = 0; d < l->out_depth; d++)
-    for (int x = 0; x < sx; x++)
-      for (int y = 0; y < sy; y++)
-        for (int z = 0; z < depth; z++) {
+    for (int z = 0; z < depth; z++)
+      for (int x = 0; x < sx; x++)
+        for (int y = 0; y < sy; y++){
           double val;
           fscanf(fin, "%lf", &val);
+          // fprintf(stderr, "value read is %f \n", val);
           set_vol(l->filters[d], x, y, z, val);
         }
+
+  // fprintf(stderr, "weights loaded correctly \n");
 
   for(int d = 0; d < l->out_depth; d++) {
     double val;

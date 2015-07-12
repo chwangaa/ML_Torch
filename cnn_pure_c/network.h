@@ -4,6 +4,7 @@
 
 #include "layer.h"
 #include "data_structure.h"
+#include "util.h"
 
 typedef vol_t** batch_t;
 
@@ -50,7 +51,6 @@ void initialize_network(Network* net, int batch_size){
     net->w = top_layer->in_sy;
     net->c = top_layer->in_depth;
     net->batch_size = batch_size;
-    fprintf(stderr, "the top data layer has dimension %d %d %d \n", net->h, net->w, net->c);
 
     int num_buffer_layers = num_layers + 1;
     
@@ -136,16 +136,42 @@ label_t net_predict(Network* net){
     return prediction;
 }
 
-void net_test(Network* net, vol_t** input, label_t* labels, int n) {
-  int num_correct = 0;
-  for (int i = 0; i < n; i++) {
-    copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
-    label_t predicted = net_predict(net);      // run_prediction
-    label_t actual = labels[i];
-    if(predicted == actual){
-        num_correct +=1;
+void net_predict_Multiple(Network* net, vol_t** input, int n){
+    fprintf(stderr, "Testing the speed of %d inferences...\n", n);
+    
+    uint64_t start_time = timestamp_us(); 
+    for (int i = 0; i < n; i++) {
+        copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
+        net_predict(net);
     }
-  }
-  fprintf(stderr, "%d of correct prediction out of %d trials \n", num_correct, n);
+    uint64_t end_time = timestamp_us();
+
+    double dt = (double)(end_time-start_time) / 1000.0;
+    fprintf(stderr, "\nTIME: %.2lf ms\n", dt);
+    fprintf(stderr, "\nTime/Image %.2lf ms \n\n", (dt/ (double)n));   
+}
+
+void net_test(Network* net, vol_t** input, label_t* labels, int n) {
+    fprintf(stderr, "Testing the accuracy of %d inferences...\n", n);
+    
+    uint64_t start_time = timestamp_us(); 
+
+    int num_correct = 0;
+    for (int i = 0; i < n; i++) {
+        copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
+        label_t predicted = net_predict(net);      // run_prediction
+        label_t actual = labels[i];
+        
+        if(predicted == actual){
+            num_correct +=1;
+        }
+    }
+
+    uint64_t end_time = timestamp_us();
+
+    fprintf(stderr, "%d of correct prediction out of %d trials \n", num_correct, n);
+    double dt = (double)(end_time-start_time) / 1000.0;
+    fprintf(stderr, "\nTIME: %.2lf ms\n", dt);
+    fprintf(stderr, "\nTime/Image %.2lf ms \n\n", (dt/ (double)n));
 }
 #endif

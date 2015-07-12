@@ -15,7 +15,9 @@ typedef struct vol {
  */
 
 static inline double get_vol(vol_t* v, int x, int y, int d) {
-  return v->w[((v->sx * y)+x)*v->depth+d];
+  // return v->w[((v->sx * y)+x)*v->depth+d];
+  int index = ((v->sx * d) +x)*(v->sy) + y;
+  return v->w[index];
 }
 
 /*
@@ -23,7 +25,10 @@ static inline double get_vol(vol_t* v, int x, int y, int d) {
  */
 
 static inline void set_vol(vol_t* v, int x, int y, int d, double val) {
-  v->w[((v->sx * y)+x)*v->depth+d] = val;
+  // v->w[((v->sx * y)+x)*v->depth+d] = val;
+  int index = ((v->sx * d) +x)*(v->sy) + y;
+  // fprintf(stderr, "the index is %d \n", index);
+  v->w[index] = val;
 }
 
 /*

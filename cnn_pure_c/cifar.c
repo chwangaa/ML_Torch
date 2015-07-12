@@ -18,6 +18,7 @@
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_cifar_net() {
+  fprintf(stderr, "Constructing Cifar Network \n");
   Network* net = make_network(11);
 
   network_add(net, make_conv_layer(32, 32, 3, 5, 16, 1, 2));
@@ -43,6 +44,7 @@ Network* construct_cifar_net() {
 // Load an entire batch of images from the cifar10 data set (which is divided
 // into 5 batches with 10,000 images each).
 void load_cifar_data(vol_t** data, label_t* label, int size) {
+  fprintf(stderr, "Loading Data \n");
 
   assert(size <= 10000);  // the size must be smaller than 10'000
   char fn[] = "data/cifar/data_batch_1.bin";
@@ -71,49 +73,37 @@ void load_cifar_data(vol_t** data, label_t* label, int size) {
   fprintf(stderr, "input batch loaded successfully \n");
 }
 
-
-int performance_measure(int num_samples) {
-
-  fprintf(stderr, "RUN INFERENCE ALGORITHM ON %d PICTURES...\n", num_samples);
-
-  fprintf(stderr, "Constructing Cifar Network \n");
-  Network* net = construct_cifar_net();
-  initialize_network(net, 1);
-
-  fprintf(stderr, "Loading Data \n");
-  
-  vol_t** input = (vol_t**)malloc(sizeof(vol_t*)*num_samples);
-  
-  label_t* labels = (label_t*)malloc(sizeof(label_t)*num_samples);
-  load_cifar_data(input, labels, num_samples);
-  
-  fprintf(stderr, "Running classification...\n");
-  uint64_t start_time = timestamp_us(); 
-  net_test(net, input, labels, num_samples);
-  uint64_t end_time = timestamp_us();
-
-  double dt = (double)(end_time-start_time) / 1000.0;
-  fprintf(stderr, "TIME: %.2lf ms\n", dt);
-  fprintf(stderr, "\nTime/Image %.2lf ms \n\n", (dt/ (double)num_samples));
-
-  // TODO: input not properly freed
-  free_network(net);
-  free(input);
-  free(labels);
-
-  return 0;
-}
-
 int main(int argc, char** argv) {
-  int BENCHMARK_SIZE = 1000;
-  if (argc < 2) {
-    printf("Using DEFAULT BENCHMARK OF %d \n", BENCHMARK_SIZE);
+  int NUM_PASSES = 100;
+  if (argc < 3) {
+    fprintf(stderr, "Usage: ./mnist <test|inference> [NUMBER_PASSES]\n");
+    return 2;
   }
   else{
-    BENCHMARK_SIZE = atoi(argv[1]);
+    NUM_PASSES = atoi(argv[2]);
   }
-  return performance_measure(BENCHMARK_SIZE);  
-  fprintf(stderr, "ERROR: Unknown command\n");
+
+  Network* net = construct_cifar_net();
+  initialize_network(net, 1);  
+  vol_t** input = (vol_t**)malloc(sizeof(vol_t*)*NUM_PASSES);
+  label_t* labels = (label_t*)malloc(sizeof(label_t)*NUM_PASSES);
+  load_cifar_data(input, labels, NUM_PASSES);
+  
+  if (!strcmp(argv[1], "inference")) {
+    net_predict_Multiple(net, input, NUM_PASSES);
+    return 1;
+  }
+  
+  if (!strcmp(argv[1], "test")){
+    net_test(net, input, labels, NUM_PASSES);
+  }
+
+  free_network(net);
+  for(int i = 0; i < NUM_PASSES; i++)
+    free(input[i]);
+  free(input);
+  free(labels);
+  fprintf(stderr, "ERROR: Unknown command \n");
 
   return 2;
 }
