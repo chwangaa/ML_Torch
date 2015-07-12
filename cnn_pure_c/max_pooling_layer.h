@@ -1,13 +1,13 @@
 // MaxPool Layer -----------------------------------------------------------------
-#ifndef POOLING_LAYER_H
-#define POOLING_LAYER_H
+#ifndef MAX_POOLING_LAYER_H
+#define MAX_POOLING_LAYER_H
 
 #include "layer.h"
 
 typedef Layer pool_layer_t;
 
 
-void pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
+void max_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int i = start; i <= end; i++) {
     vol_t* V = in[i];
     vol_t* A = out[i];
@@ -39,7 +39,7 @@ void pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
   }
 }
 
-pool_layer_t* make_pool_layer(int in_sx, int in_sy, int in_depth,
+pool_layer_t* make_max_pool_layer(int in_sx, int in_sy, int in_depth,
                               int sx, int stride) {
   pool_layer_t* l = (pool_layer_t*)malloc(sizeof(pool_layer_t));
 
@@ -59,7 +59,7 @@ pool_layer_t* make_pool_layer(int in_sx, int in_sy, int in_depth,
   l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
   l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
 
-  l->forward = &pool_forward;
+  l->forward = &max_pool_forward;
 
   return l;
 }

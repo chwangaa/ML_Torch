@@ -11,7 +11,7 @@
 #include "ReLU_layer.h"
 #include "convolutional_layer.h"
 #include "fully_connected_layer.h"
-#include "pooling_layer.h"
+#include "max_pooling_layer.h"
 #include "soft_max_layer.h"
 #include "network.h"
 #include "util.h"
@@ -21,9 +21,9 @@ Network* construct_mnist_net() {
   Network* net = make_network(8);
 
   network_add(net, make_conv_layer(28, 28, 1, 5, 6, 1, 0));
-  network_add(net, make_pool_layer(net->layers[0]->out_sx, net->layers[0]->out_sy, net->layers[0]->out_depth, 2, 2));
+  network_add(net, make_max_pool_layer(net->layers[0]->out_sx, net->layers[0]->out_sy, net->layers[0]->out_depth, 2, 2));
   network_add(net, make_conv_layer(net->layers[1]->out_sx, net->layers[1]->out_sy, net->layers[1]->out_depth, 5, 16, 1, 0));
-  network_add(net, make_pool_layer(net->layers[2]->out_sx, net->layers[2]->out_sy, net->layers[2]->out_depth, 2, 2));
+  network_add(net, make_max_pool_layer(net->layers[2]->out_sx, net->layers[2]->out_sy, net->layers[2]->out_depth, 2, 2));
   network_add(net, make_fc_layer(net->layers[3]->out_sx, net->layers[3]->out_sy, net->layers[3]->out_depth, 120));
   network_add(net, make_relu_layer(net->layers[4]->out_sx, net->layers[4]->out_sy, net->layers[4]->out_depth));
   network_add(net, make_fc_layer(net->layers[5]->out_sx, net->layers[5]->out_sy, net->layers[5]->out_depth, 10));
