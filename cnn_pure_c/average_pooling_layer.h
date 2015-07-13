@@ -1,11 +1,10 @@
-// MaxPool Layer -----------------------------------------------------------------
+// AvgPool Layer -----------------------------------------------------------------
 #ifndef AVERAGE_POOLING_LAYER_H
 #define AVERAGE_POOLING_LAYER_H
 
 #include "layer.h"
 
 typedef Layer pool_layer_t;
-
 
 void average_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int i = start; i <= end; i++) {
@@ -22,6 +21,19 @@ void average_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, i
         for(int ay=0; ay<l->out_sy; y+=l->stride,ay++) {
   
           double accum = 0
+	  int index = d * V->sx * V->sy;
+
+          for(int fy=0; fy<l->sy; fy++, index++) {
+            for(int fx=0;fx<l->sx; fx++, index++) {
+              int oy = y+fy;
+              int ox = x+fx;
+              if(oy>=0 && oy<V->sy && ox>=0 && ox<V->sx) {
+                accum += V->w[index];
+              }
+            }
+          }
+
+/*
           for(int fx=0;fx<l->sx;fx++) {
             for(int fy=0;fy<l->sy;fy++) {
               int oy = y+fy;
@@ -32,6 +44,7 @@ void average_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, i
               }
             }
           }
+*/
           n++;
           accum /= KERNEL_SIZE;
           set_vol(A, ax, ay, d, accum);

@@ -15,6 +15,9 @@
 #include "soft_max_layer.h"
 #include "network.h"
 #include "util.h"
+
+#include "models/cifar/model.h"
+
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_cifar_net() {
@@ -34,10 +37,10 @@ Network* construct_cifar_net() {
   network_add(net, make_softmax_layer(net->layers[9]->out_sx, net->layers[9]->out_sy, net->layers[9]->out_depth));
 
   // load pre-trained weights
-  conv_load(net->layers[0], "models/cifar/layer1_conv.txt");
-  conv_load(net->layers[3], "models/cifar/layer4_conv.txt");
-  conv_load(net->layers[6], "models/cifar/layer7_conv.txt");
-  fc_load(net->layers[9], "models/cifar/layer10_fc.txt");
+  conv_load(net->layers[0], layer1_conv_params, layer1_conv_data);
+  conv_load(net->layers[3], layer4_conv_params, layer4_conv_data);
+  conv_load(net->layers[6], layer7_conv_params, layer7_conv_data);
+  fc_load(net->layers[9], layer10_fc_params, layer10_fc_data);
   return net;
 }
 
@@ -65,7 +68,7 @@ void load_cifar_data(vol_t** data, label_t* label, int size) {
     for (int z = 0; z < 3; z++)
       for (int y = 0; y < 32; y++)
         for (int x = 0; x < 32; x++) {
-          set_vol(data[i], x, y, z, ((double)data_buffer[outp++])/255.0-0.5);
+          set_vol(data[i], x, y, z, ((storage_t)data_buffer[outp++])/255.0-0.5);
         }
   }
 

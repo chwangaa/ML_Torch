@@ -51,22 +51,44 @@ fc_layer_t* make_fc_layer(int in_sx, int in_sy, int in_depth,
   l->biases = make_vol(1, 1, l->out_depth, l->bias);
 
   l->forward = &fc_forward;
-
-  printf("fc: sx:N/A in_depth:%d in_sx:%d in_sy:%d out_depth:%d out_sx:%d out_sy:%d\n",
-   l->in_depth, l->in_sx, l->in_sy, l->out_depth, l->out_sx, l->out_sy);
    
   return l;
+}
+
+void fc_load_file(fc_layer_t* l, const char* fn) {
+  FILE* fin = fopen(fn, "r");
+  assert(fin);
+  
+  int num_inputs;
+  int out_depth;
+  fscanf(fin, "%d %d", &num_inputs, &out_depth);
+  assert(out_depth == l->out_depth);
+  assert(num_inputs == l->num_inputs);
+
+  for(int i = 0; i < l->out_depth; i++)
+    for(int d = 0; d < l->num_inputs; d++) {
+      double val;
+      fscanf(fin, "%lf", &val);
+      l->filters[i]->w[d] = val;
+    }
+
+  for(int i = 0; i < l->out_depth; i++) {
+    double val;
+    fscanf(fin, "%lf", &val);
+    l->biases->w[i] = val;
+  }
+
+  fclose(fin);
 }
 
 void fc_load(fc_layer_t* l, const int* params, const weight_t* weights) {
   
   int num_inputs = params[0];
   int out_depth = params[1];
-  printf("%d %d; %d %d\n", out_depth, l->out_depth, num_inputs, l->num_inputs);
   assert(out_depth == l->out_depth);
   assert(num_inputs == l->num_inputs);
 
-  int weight;
+  int weight = 0;
   for(int i = 0; i < l->out_depth; i++)
     for(int d = 0; d < l->num_inputs; d++) {
       double val = weights[weight++];

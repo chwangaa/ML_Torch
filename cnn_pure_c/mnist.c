@@ -17,6 +17,7 @@
 #include "util.h"
 
 #include "models/mnist/model.h"
+
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_mnist_net() {
@@ -35,7 +36,7 @@ Network* construct_mnist_net() {
   conv_load(net->layers[0], mnist_conv1_params, mnist_conv1_data);
   conv_load(net->layers[2], mnist_conv2_params, mnist_conv2_data);
   fc_load(net->layers[4], mnist_ip1_params, mnist_ip1_data);
-  fc_load(net->layers[6], mnist_ip2_params, mnist_ip2_data);  
+  fc_load(net->layers[6], mnist_ip2_params, mnist_ip2_data);
   fprintf(stderr, "loading data complete \n");
   return net;
 }
@@ -58,7 +59,7 @@ void load_mnist_data(vol_t** data, label_t* label, int size) {
         for (int y = 0; y < 28; y++) {
           int val;
           fscanf(fin, "%d", &val);
-          set_vol(data[i], x, y, z, ((double)val)/256);
+          set_vol(data[i], x, y, z, ((storage_t)val)/256);
           // fprintf(stderr, "the data read is %d \n", val);
         }
   }

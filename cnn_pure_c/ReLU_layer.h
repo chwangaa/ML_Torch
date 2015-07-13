@@ -8,8 +8,10 @@ typedef Layer relu_layer_t;
 
 void relu_forward(relu_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int j = start; j <= end; j++) {
+    vol_t* V = out[j];
+    vol_t* A = in[j];
     for (int i = 0; i < l->in_sx*l->in_sy*l->in_depth; i++) {
-      out[j]->w[i] = (in[j]->w[i] < 0.0) ? 0.0 : in[j]->w[i];
+      V->w[i] = (A->w[i] < 0.0) ? 0.0 : A->w[i];
     }
   }
 }

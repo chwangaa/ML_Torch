@@ -11,30 +11,44 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
     vol_t* V = in[i];
     vol_t* A = out[i];
         
-    int V_sx = V->sx;
-    int V_sy = V->sy;
-    int xy_stride = l->stride;
+    const int V_sx = V->sx;
+    const int V_sy = V->sy;
+    const int xy_stride = l->stride;
+    const int AREA = V_sx * V_sy;
   
+    int output_index = 0;
     for(int d = 0; d < l->out_depth; d++) {
       vol_t* f = l->filters[d];
       int x = -l->pad;
       int y = -l->pad;
-      for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
-        x = -l->pad;
+      int fsx = f->sx;    // filter width
+      int fsy = f->sy;    // filter height
+      int fdepth = f->depth;  // filter depth
+      int vdepth = V->depth;  // input depth
+      storage_t* weights = f->w;
+      storage_t* inputs = V->w;
+
+      storage_t* biases = l->biases->w;
+
         for(int ax=0; ax < l->out_sx; x += xy_stride, ax++) {
-          double a = 0.0;
-          
+          y = -l->pad;
+          for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
+            // x = -l->pad;
+          storage_t a = 0.0;
           int index_f = 0;
-          int index_v = x * (V->sy) + y;
+          int index_v = 0;
+          storage_t* w = weights;
           
-          for(int fd = 0; fd < f->depth; fd++){
-            for(int fx = 0, ox = x; fx < f->sx; fx++, ox++){
-              index_v = ((V->sx * fd) +ox)*(V->sy) + y;
-              for(int fy = 0, oy = y; fy < f->sy; fy++, index_v++, index_f++){
-                if(oy >= 0 && oy < V_sy && ox >= 0 && ox < V_sx){
-                  a+= f->w[index_f] * V->w[index_v];
-                }
+          for(int fd = 0; fd < fdepth; fd++){
+            int FDX = fd * AREA + y;
+            
+            for(int fx = 0, ox = x; fx < fsx && ox < V_sx; fx++, ox++){
+              index_v = FDX +ox * V_sy;
+              
+              for(int fy = 0; fy < fsy; fy++, index_v++, w++){
+                  a += (*w) * inputs[index_v];
               }
+
             }
           }
           // for(int fy = 0; fy < f->sy; fy++) {
@@ -51,8 +65,8 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
           //     }
           //   }
           // }
-          a += l->biases->w[d];
-          set_vol(A, ax, ay, d, a);
+          a += biases[d];
+          A->w[output_index++] = a;
         }
       }
     }
@@ -78,9 +92,8 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->l2_decay_mul = 1.0;
 
   // computed
-  l->out_sx = floor((double)(l->in_sx + l->pad * 2 - l->sx) / (double)(l->stride + 1));
-  l->out_sy = floor((double)(l->in_sy + l->pad * 2 - l->sy) / (double)(l->stride + 1));
-  printf("floor( (%d + %d*2 - %d) / (%d + 1) ) = %d\n", l->in_sx, l->pad, l->sx, l->stride, l->out_sx);
+  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
+  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
 
   l->filters = (vol_t**)malloc(sizeof(vol_t*)*filters);
   for (int i = 0; i < filters; i++) {
@@ -91,11 +104,41 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->biases = make_vol(1, 1, l->out_depth, l->bias);
 
   l->forward = &conv_forward;
-  
-  printf("conv: sx:%d in_depth:%d in_sx:%d in_sy:%d out_depth:%d out_sx:%d out_sy:%d\n",
-   l->sx, l->in_depth, l->in_sx, l->in_sy, l->out_depth, l->out_sx, l->out_sy);
    
   return l;
+}
+
+void conv_load_file(conv_layer_t* l, const char* fn) {
+  FILE* fin = fopen(fn, "r");
+  assert(fin != NULL);
+  
+  int sx, sy, depth, filters;
+  sx = sy = depth = filters = 0;
+  fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
+  assert(sx == l->sx);
+  assert(sy == l->sy);
+  assert(depth == l->in_depth);
+  assert(filters == l->out_depth);
+
+  for(int d = 0; d < l->out_depth; d++)
+    for (int z = 0; z < depth; z++)
+      for (int x = 0; x < sx; x++)
+        for (int y = 0; y < sy; y++){
+          double val;
+          fscanf(fin, "%lf", &val);
+          // fprintf(stderr, "value read is %f \n", val);
+          set_vol(l->filters[d], x, y, z, val);
+        }
+
+  // fprintf(stderr, "weights loaded correctly \n");
+
+  for(int d = 0; d < l->out_depth; d++) {
+    double val;
+    fscanf(fin, "%lf", &val);
+    set_vol(l->biases, 0, 0, d, val);
+  }
+
+  fclose(fin);
 }
 
 void conv_load(conv_layer_t* l, const int* params, const weight_t* weights) {  
