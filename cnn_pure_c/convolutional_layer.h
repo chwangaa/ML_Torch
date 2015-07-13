@@ -11,10 +11,12 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
     vol_t* V = in[i];
     vol_t* A = out[i];
         
-    int V_sx = V->sx;
-    int V_sy = V->sy;
-    int xy_stride = l->stride;
+    const int V_sx = V->sx;
+    const int V_sy = V->sy;
+    const int xy_stride = l->stride;
+    const int AREA = V_sx * V_sy;
   
+    int output_index = 0;
     for(int d = 0; d < l->out_depth; d++) {
       vol_t* f = l->filters[d];
       int x = -l->pad;
@@ -22,25 +24,27 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
       int fsx = f->sx;    // filter width
       int fsy = f->sy;    // filter height
       int fdepth = f->depth;  // filter depth
-      int vsx = V->sx;    // input width
-      int vsy = V->sy;    // input height
       int vdepth = V->depth;  // input depth
       storage_t* weights = f->w;
       storage_t* inputs = V->w;
-      
-      int AREA = vsx * vsy;
 
-      for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
-        x = -l->pad;
+      storage_t* biases = l->biases->w;
+
         for(int ax=0; ax < l->out_sx; x += xy_stride, ax++) {
+          y = -l->pad;
+          for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
+            // x = -l->pad;
           storage_t a = 0.0;
           int index_f = 0;
           int index_v = 0;
           storage_t* w = weights;
+          
           for(int fd = 0; fd < fdepth; fd++){
             int FDX = fd * AREA + y;
+            
             for(int fx = 0, ox = x; fx < fsx && ox < V_sx; fx++, ox++){
-              index_v = FDX +ox*vsy;
+              index_v = FDX +ox * V_sy;
+              
               for(int fy = 0; fy < fsy; fy++, index_v++, w++){
                   a += (*w) * inputs[index_v];
               }
@@ -61,8 +65,8 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
           //     }
           //   }
           // }
-          a += l->biases->w[d];
-          set_vol(A, ax, ay, d, a);
+          a += biases[d];
+          A->w[output_index++] = a;
         }
       }
     }
