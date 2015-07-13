@@ -21,19 +21,6 @@ void max_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int e
         for(int ay=0; ay<l->out_sy; y+=l->stride,ay++) {
   
           double a = -99999;
-          int index = d * V->sx * V->sy;
-
-          for(int fy=0; fy<l->sy; fy++, index++) {
-            for(int fx=0; fx<l->sx; fx++, index++) {
-              int oy = y+fy;
-              int ox = x+fx;
-              if(oy>=0 && oy<V->sy && ox>=0 && ox<V->sx) {
-                double v = V->w[index];
-                if(v > a) { a = v; }
-              }
-            }
-          }
-/*
           for(int fx=0;fx<l->sx;fx++) {
             for(int fy=0;fy<l->sy;fy++) {
               int oy = y+fy;
@@ -44,7 +31,6 @@ void max_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, int e
               }
             }
           }
-*/
           n++;
           set_vol(A, ax, ay, d, a);
         }

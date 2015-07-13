@@ -22,8 +22,13 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
       int fsx = f->sx;    // filter width
       int fsy = f->sy;    // filter height
       int fdepth = f->depth;  // filter depth
-      const storage_t* weights = f->w;
+      int vsx = V->sx;    // input width
+      int vsy = V->sy;    // input height
+      int vdepth = V->depth;  // input depth
+      storage_t* weights = f->w;
       storage_t* inputs = V->w;
+      
+      int AREA = vsx * vsy;
 
       for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
         x = -l->pad;
@@ -31,14 +36,13 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
           storage_t a = 0.0;
           int index_f = 0;
           int index_v = 0;
-
+          storage_t* w = weights;
           for(int fd = 0; fd < fdepth; fd++){
-            int FDX = V->sx * fd * V->sy + y;
+            int FDX = fd * AREA + y;
             for(int fx = 0, ox = x; fx < fsx && ox < V_sx; fx++, ox++){
-              index_v = FDX +ox*(V->sy);
-              
-              for(int fy = 0, oy = y; fy < fsy && oy < V_sy; fy++, oy++, index_v++, index_f++){
-                  a+= weights[index_f] * inputs[index_v];
+              index_v = FDX +ox*vsy;
+              for(int fy = 0; fy < fsy; fy++, index_v++, w++){
+                  a += (*w) * inputs[index_v];
               }
 
             }
