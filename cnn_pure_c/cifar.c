@@ -65,7 +65,7 @@ void load_cifar_data(vol_t** data, label_t* label, int size) {
     for (int z = 0; z < 3; z++)
       for (int y = 0; y < 32; y++)
         for (int x = 0; x < 32; x++) {
-          set_vol(data[i], x, y, z, ((double)data_buffer[outp++])/255.0-0.5);
+          set_vol(data[i], x, y, z, ((storage_t)data_buffer[outp++])/255.0-0.5);
         }
   }
 

@@ -19,22 +19,28 @@ void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) 
       vol_t* f = l->filters[d];
       int x = -l->pad;
       int y = -l->pad;
+      int fsx = f->sx;    // filter width
+      int fsy = f->sy;    // filter height
+      int fdepth = f->depth;  // filter depth
+      const storage_t* weights = f->w;
+      storage_t* inputs = V->w;
+
       for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
         x = -l->pad;
         for(int ax=0; ax < l->out_sx; x += xy_stride, ax++) {
-          double a = 0.0;
-          
+          storage_t a = 0.0;
           int index_f = 0;
-          int index_v = x * (V->sy) + y;
-          
-          for(int fd = 0; fd < f->depth; fd++){
-            for(int fx = 0, ox = x; fx < f->sx; fx++, ox++){
-              index_v = ((V->sx * fd) +ox)*(V->sy) + y;
-              for(int fy = 0, oy = y; fy < f->sy; fy++, index_v++, index_f++){
-                if(oy >= 0 && oy < V_sy && ox >= 0 && ox < V_sx){
-                  a+= f->w[index_f] * V->w[index_v];
-                }
+          int index_v = 0;
+
+          for(int fd = 0; fd < fdepth; fd++){
+            int FDX = V->sx * fd * V->sy + y;
+            for(int fx = 0, ox = x; fx < fsx && ox < V_sx; fx++, ox++){
+              index_v = FDX +ox*(V->sy);
+              
+              for(int fy = 0, oy = y; fy < fsy && oy < V_sy; fy++, oy++, index_v++, index_f++){
+                  a+= weights[index_f] * inputs[index_v];
               }
+
             }
           }
           // for(int fy = 0; fy < f->sy; fy++) {

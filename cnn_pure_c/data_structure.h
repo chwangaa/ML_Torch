@@ -5,16 +5,18 @@
  * at (x,y,d) are stored in array w at location ((v->sx * y)+x)*v->depth+d.
  */
 
+typedef double storage_t;
+
 typedef struct vol {
   uint64_t sx,sy,depth;
-  double* w;
+  storage_t* w;
 } vol_t;
 
 /*
  * Set the value at a specific entry of the array.
  */
 
-static inline double get_vol(vol_t* v, int x, int y, int d) {
+static inline storage_t get_vol(vol_t* v, int x, int y, int d) {
   // int index = ((v->sx * y)+x)*v->depth + d;
   // int index = ((v->sx * d) +x)*(v->sy) + y;
   return v->w[((v->sx * d) +x)*(v->sy) + y];
@@ -24,7 +26,7 @@ static inline double get_vol(vol_t* v, int x, int y, int d) {
  * Get the value at a specific entry of the array.
  */
 
-static inline void set_vol(vol_t* v, int x, int y, int d, double val) {
+static inline void set_vol(vol_t* v, int x, int y, int d, storage_t val) {
   // int index = ((v->sx * y)+x)*v->depth + d;
   // int index = ((v->sx * d) +x)*(v->sy) + y;
   // fprintf(stderr, "the index is %d \n", index);
@@ -35,9 +37,9 @@ static inline void set_vol(vol_t* v, int x, int y, int d, double val) {
  * Allocate a new array with specific dimensions and default value v.
  */
 
-static vol_t* make_vol(int sx, int sy, int d, double v) {
+static vol_t* make_vol(int sx, int sy, int d, storage_t v) {
   vol_t* out = (vol_t*)malloc(sizeof(struct vol));
-  out->w = (double*)malloc(sizeof(double)*(sx*sy*d));
+  out->w = (storage_t*)malloc(sizeof(storage_t)*(sx*sy*d));
   out->sx = sx;
   out->sy = sy;
   out->depth = d;

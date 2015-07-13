@@ -56,7 +56,7 @@ void load_mnist_data(vol_t** data, label_t* label, int size) {
         for (int y = 0; y < 28; y++) {
           int val;
           fscanf(fin, "%d", &val);
-          set_vol(data[i], x, y, z, ((double)val)/256);
+          set_vol(data[i], x, y, z, ((storage_t)val)/256);
           // fprintf(stderr, "the data read is %d \n", val);
         }
   }
