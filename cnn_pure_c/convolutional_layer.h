@@ -64,11 +64,11 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   conv_layer_t* l = (conv_layer_t*)malloc(sizeof(conv_layer_t));
 
   // required
-  l->out_depth = filters;
   l->sx = sx;
   l->in_depth = in_depth;
   l->in_sx = in_sx;
   l->in_sy = in_sy;
+  l->out_depth = filters;
     
   // optional
   l->sy = l->sx;
@@ -78,8 +78,9 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->l2_decay_mul = 1.0;
 
   // computed
-  l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
-  l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
+  l->out_sx = floor((double)(l->in_sx + l->pad * 2 - l->sx) / (double)(l->stride + 1));
+  l->out_sy = floor((double)(l->in_sy + l->pad * 2 - l->sy) / (double)(l->stride + 1));
+  printf("floor( (%d + %d*2 - %d) / (%d + 1) ) = %d\n", l->in_sx, l->pad, l->sx, l->stride, l->out_sx);
 
   l->filters = (vol_t**)malloc(sizeof(vol_t*)*filters);
   for (int i = 0; i < filters; i++) {
@@ -90,27 +91,27 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->biases = make_vol(1, 1, l->out_depth, l->bias);
 
   l->forward = &conv_forward;
+  
+  printf("conv: sx:%d in_depth:%d in_sx:%d in_sy:%d out_depth:%d out_sx:%d out_sy:%d\n",
+   l->sx, l->in_depth, l->in_sx, l->in_sy, l->out_depth, l->out_sx, l->out_sy);
+   
   return l;
 }
 
-void conv_load(conv_layer_t* l, const char* fn) {
-  FILE* fin = fopen(fn, "r");
-  assert(fin != NULL);
-  
+void conv_load(conv_layer_t* l, const int* params, const weight_t* weights) {  
   int sx, sy, depth, filters;
-  sx = sy = depth = filters = 0;
-  fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
+  sx = params[0]; sy = params[1]; depth = params[2]; filters = params[3];
   assert(sx == l->sx);
   assert(sy == l->sy);
   assert(depth == l->in_depth);
   assert(filters == l->out_depth);
 
+  int i=0;
   for(int d = 0; d < l->out_depth; d++)
     for (int z = 0; z < depth; z++)
       for (int x = 0; x < sx; x++)
         for (int y = 0; y < sy; y++){
-          double val;
-          fscanf(fin, "%lf", &val);
+          weight_t val = weights[i++];
           // fprintf(stderr, "value read is %f \n", val);
           set_vol(l->filters[d], x, y, z, val);
         }
@@ -118,12 +119,10 @@ void conv_load(conv_layer_t* l, const char* fn) {
   // fprintf(stderr, "weights loaded correctly \n");
 
   for(int d = 0; d < l->out_depth; d++) {
-    double val;
-    fscanf(fin, "%lf", &val);
+    weight_t val = weights[i++];
     set_vol(l->biases, 0, 0, d, val);
   }
 
-  fclose(fin);
 }
 
 #endif

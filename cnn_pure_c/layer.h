@@ -4,6 +4,7 @@
 #include "data_structure.h"
 
 typedef int label_t;
+typedef double weight_t;
 
 typedef enum {
     CONVOLUTIONAL,

@@ -15,6 +15,8 @@
 #include "soft_max_layer.h"
 #include "network.h"
 #include "util.h"
+
+#include "models/mnist/model.h"
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_mnist_net() {
@@ -30,10 +32,10 @@ Network* construct_mnist_net() {
   network_add(net, make_softmax_layer(net->layers[6]->out_sx, net->layers[6]->out_sy, net->layers[6]->out_depth));
 
   // load pre-trained weights
-  conv_load(net->layers[0], "models/mnist/mnist_conv1.txt");
-  conv_load(net->layers[2], "models/mnist/mnist_conv2.txt");
-  fc_load(net->layers[4], "models/mnist/mnist_ip1.txt");
-  fc_load(net->layers[6], "models/mnist/mnist_ip2.txt");  
+  conv_load(net->layers[0], mnist_conv1_params, mnist_conv1_data);
+  conv_load(net->layers[2], mnist_conv2_params, mnist_conv2_data);
+  fc_load(net->layers[4], mnist_ip1_params, mnist_ip1_data);
+  fc_load(net->layers[6], mnist_ip2_params, mnist_ip2_data);  
   fprintf(stderr, "loading data complete \n");
   return net;
 }

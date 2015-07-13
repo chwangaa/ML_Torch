@@ -60,6 +60,9 @@ pool_layer_t* make_max_pool_layer(int in_sx, int in_sy, int in_depth,
   l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
 
   l->forward = &max_pool_forward;
+  
+  printf("pool: sx:%d in_depth:%d in_sx:%d in_sy:%d out_depth:%d out_sx:%d out_sy:%d\n",
+   l->sx, l->in_depth, l->in_sx, l->in_sy, l->out_depth, l->out_sx, l->out_sy);
 
   return l;
 }
