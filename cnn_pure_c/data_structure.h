@@ -33,6 +33,17 @@ static inline void set_vol(vol_t* v, int x, int y, int d, storage_t val) {
   v->w[((v->sx * d) +x)*(v->sy) + y] = val;
 }
 
+static inline void print_vol(vol_t* v, int depth){
+  int sx = v->sx;
+  int sy = v->sy;
+  for(int x =0; x < sx; x++){
+    for(int y =0; y < sy; y++){
+      fprintf(stderr, "%lf  ", get_vol(v, x, y, depth));
+    }
+    fprintf(stderr, "\n\n");
+  }
+}
+
 /*
  * Allocate a new array with specific dimensions and default value v.
  */
