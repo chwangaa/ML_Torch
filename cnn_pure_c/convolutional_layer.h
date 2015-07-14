@@ -6,41 +6,226 @@
 
 typedef Layer conv_layer_t;
 
-void conv_forward(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
+void conv_forward_with_padding(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   for (int i = start; i <= end; i++) {
     vol_t* V = in[i];
     vol_t* A = out[i];
         
-    int V_sx = V->sx;
-    int V_sy = V->sy;
-    int xy_stride = l->stride;
+    const int V_sx = V->sx;
+    const int V_sy = V->sy;
+    const int xy_stride = l->stride;
+
+    const int outx = l->out_sx;
+    const int outy = l->out_sy;
   
     for(int d = 0; d < l->out_depth; d++) {
-      vol_t* f = l->filters[d];
-      int x = -l->pad;
+      const vol_t* f = l->filters[d];
+      const storage_t bias = l->biases->w[d];
+      const int width = f->sx;
+      const int height = f->sy;
+      const int depth = f->depth;
+      
+
+
+      // used to track the top-left of input matrix currently under computation
+      const int reset_x = -l->pad;
+      int x;
       int y = -l->pad;
-      for(int ay = 0; ay < l->out_sy; y += xy_stride, ay++) {
-        x = -l->pad;
-        for(int ax=0; ax < l->out_sx; x += xy_stride, ax++) {
-          double a = 0.0;
-          for(int fy = 0; fy < f->sy; fy++) {
-            int oy = y + fy;
-            for(int fx = 0; fx < f->sx; fx++) {
-              int ox = x + fx;
-              if(oy >= 0 && oy < V_sy && ox >=0 && ox < V_sx) {
-                for(int fd=0;fd < f->depth; fd++) {
-                  a += get_vol(f, fx, fy, fd) * get_vol(V, ox, oy, fd);
-                }
+
+      // used to track the output coordinate
+      int ax = 0;
+      int ay = 0;
+
+      // used to accumulate matrix sum
+      storage_t a; 
+
+      /*
+      start doing the computation
+      the code is divided into 3 sections
+      1): where y is padded lower than 0
+      2): normal y
+      3): where y is padded over the height
+      */
+      
+      // first section
+      for(; y < 0; y+=xy_stride, ay++){
+        x = reset_x;
+        for(ax=0; ax < outx; x += xy_stride, ax++) {
+          
+          a = 0.0;
+          int index = 0;
+          for(int fd=0;fd < depth; fd++) {
+            for(int fx = x; fx < x + width; fx++) {
+                
+                for(int fy = y; fy < y + height; fy++, index++) {
+                  
+                  if(fy >= 0 && fx >=0 && fx < V_sx) {
+                    a += f->w[index] * get_vol(V, fx, fy, fd);
+                  }
               }
             }
           }
-          a += l->biases->w[d];
+          a += bias;
+          set_vol(A, ax, ay, d, a);
+        }
+      }
+
+
+      /* second section is further divided into three sub sections
+      2.1): where x is padded lower than 0
+      2.2): normal x
+      2.3): where x is padded over the width
+      */
+        // note down the reference locations first
+        int reset_y = y;
+        int reset_ay = ay;
+
+        x = reset_x;
+        
+        // section 2.1
+        for(ax=0; x < 0 && ax < outx; x += xy_stride, ax++) {
+          ay = reset_ay;
+          for(y=reset_y; ay < outy && y <= V_sy - height; y += xy_stride, ay++) {
+            a = 0.0;
+            int index = 0;
+            for(int fd=0;fd < depth; fd++) {
+              for(int fx = x; fx < x + width; fx++) {
+                  
+                  for(int fy = y; fy < y + height; fy++, index++) {
+                    
+                    if(fx >=0) {
+                      a += f->w[index] * get_vol(V, fx, fy, fd);
+                    }
+                }
+              }
+            }
+            a += bias;
+            set_vol(A, ax, ay, d, a);
+          }
+        }
+
+        // section 2.2
+        for(; x < V_sx - width; x += xy_stride, ax++) {
+          ay = reset_ay;
+          for(y=reset_y; ay < outy && y <= V_sy - height; y += xy_stride, ay++) {
+            a = 0.0;
+            int index = 0;
+            
+            for(int fd=0;fd < depth; fd++) {
+              for(int fx = x; fx < x + width; fx++) {
+                for(int fy = y; fy < y + height; fy++, index++) {
+                  a += f->w[index] * get_vol(V, fx, fy, fd);
+                }
+              }
+            }
+
+            a += bias;
+            set_vol(A, ax, ay, d, a);
+          }
+        }
+
+        // section 2.3
+        for(; ax < outx; x += xy_stride, ax++) {
+          ay = reset_ay;
+          for(y=reset_y; ay < outy && y <= V_sy - height; y += xy_stride, ay++) {
+            a = 0.0;
+            int index = 0;
+            for(int fd=0;fd < depth; fd++) {
+              for(int fx = x; fx < x + width; fx++) {
+                  for(int fy = y; fy < y + height; fy++, index++) {
+                    if(fx < V_sx) {
+                      a += f->w[index] * get_vol(V, fx, fy, fd);
+                    }
+                }
+              }
+            }
+            a += bias;
+            set_vol(A, ax, ay, d, a);
+          }
+        }
+
+
+      // third section
+      for(; ay < outy; y += xy_stride, ay++) {
+        x = reset_x;
+        for(ax=0; ax < outx; x += xy_stride, ax++) {
+          
+          a = 0.0;
+          int index = 0;
+          for(int fd=0;fd < depth; fd++) {
+            for(int fx = x; fx < x + width; fx++) {
+                for(int fy = y; fy < y + height; fy++, index++) {
+                  if(fy >= 0 && fy < V_sy && fx >=0 && fx < V_sx) {
+                    a += f->w[index] * get_vol(V, fx, fy, fd);
+                  }
+              }
+            }
+          }
+          a += bias;
+          set_vol(A, ax, ay, d, a);
+        }
+      }
+
+    }
+  }
+}
+
+
+void conv_forward_without_padding(conv_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
+  for (int i = start; i <= end; i++) {
+    vol_t* V = in[i];
+    vol_t* A = out[i];
+        
+    const int V_sx = V->sx;
+    const int V_sy = V->sy;
+    const int xy_stride = l->stride;
+
+    const int outx = l->out_sx;
+    const int outy = l->out_sy;
+  
+    for(int d = 0; d < l->out_depth; d++) {
+
+      const vol_t* f = l->filters[d];
+      const storage_t bias = l->biases->w[d];
+      const int width = f->sx;
+      const int height = f->sy;
+      const int depth = f->depth;
+      
+
+
+      // used to track the top-left of input matrix currently under computation
+      const int reset_x = -l->pad;
+      int x;
+      int y = -l->pad;
+
+      // used to track the output coordinate
+      int ax = 0;
+      int ay = 0;
+
+      // used to accumulate matrix sum
+      storage_t a;
+
+      for(; ay < outy; y += xy_stride, ay++) {
+        x = reset_x;
+        for(ax=0; ax < outx; x += xy_stride, ax++) {
+          
+          a = 0.0;
+          int index = 0;
+          for(int fd=0;fd < depth; fd++) {
+            for(int fx = x; fx < x + width; fx++) {
+                for(int fy = y; fy < y + height; fy++, index++) {
+                    a += f->w[index] * get_vol(V, fx, fy, fd);
+              }
+            }
+          }
+          a += bias;
           set_vol(A, ax, ay, d, a);
         }
       }
     }
   }
 }
+
 
 conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
                               int sx, int filters, int stride, int pad) {
@@ -60,6 +245,9 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->l1_decay_mul = 0.0;
   l->l2_decay_mul = 1.0;
 
+  //
+  assert(l->pad >=0);
+
   // computed
   l->out_sx = floor((l->in_sx + l->pad * 2 - l->sx) / l->stride + 1);
   l->out_sy = floor((l->in_sy + l->pad * 2 - l->sy) / l->stride + 1);
@@ -72,8 +260,12 @@ conv_layer_t* make_conv_layer(int in_sx, int in_sy, int in_depth,
   l->bias = 0.0;
   l->biases = make_vol(1, 1, l->out_depth, l->bias);
 
-  l->forward = &conv_forward;
-   
+  if(l->pad != 0){
+    l->forward = &conv_forward_with_padding;
+  }
+  else{
+    l->forward = &conv_forward_without_padding;   
+  }
   return l;
 }
 
