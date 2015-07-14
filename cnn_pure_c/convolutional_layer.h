@@ -107,6 +107,19 @@ void conv_forward_with_padding(conv_layer_t* l, vol_t** in, vol_t** out, int sta
         // section 2.2
         for(; x < V_sx - width; x += xy_stride, ax++) {
           ay = reset_ay;
+
+          // // initalize a set of input
+          // const int input_size = depth*width*height;
+          // double* input_values = (double*)malloc(sizeof(double)*input_size)
+          // int temp = 0;
+          // for(int fd = 0; fd < depth; fd++){
+          //   for(int fx = x; fx < x + width; fx++){
+          //     for(int fy = y; fy < y + height; fy++){
+          //       input_values[temp++] = get_vol(V, fx, fy, fd);
+          //     }
+          //   }
+          // }
+          //apply convolution across the height dimension
           for(y=reset_y; ay < outy && y <= V_sy - height; y += xy_stride, ay++) {
             a = 0.0;
             int index = 0;
@@ -118,7 +131,6 @@ void conv_forward_with_padding(conv_layer_t* l, vol_t** in, vol_t** out, int sta
                 }
               }
             }
-
             a += bias;
             set_vol(A, ax, ay, d, a);
           }
