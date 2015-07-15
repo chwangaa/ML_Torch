@@ -18,6 +18,12 @@
 
 #include "models/mnist/model.h"
 
+// Embed the input data into the executable and access using these locations.
+extern char _binary_data_mnist_data_bin_start;
+extern char _binary_data_mnist_data_bin_end;
+extern char _binary_data_mnist_labels_bin_start;
+extern char _binary_data_mnist_labels_bin_end;
+
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_mnist_net() {
@@ -45,39 +51,30 @@ Network* construct_mnist_net() {
 void load_mnist_data(vol_t** data, label_t* label, int size) {
 
   assert(size <= 10000);  // the size must be smaller than 10'000
-  char fn[] = "data/mnist/data.txt";
-  FILE* fin = fopen(fn, "rb");
-  assert(fin != NULL);
-
+  char* data_buffer = &_binary_data_mnist_data_bin_start;
+  int outp = 0;
+    
   for (int i = 0; i < size; i++) {
-    int outp = 0;
 
     data[i] = make_vol(28, 28, 1, 0.0);
 
     for (int z = 0; z < 1; z++)
       for (int x = 0; x < 28; x++)
         for (int y = 0; y < 28; y++) {
-          int val;
-          int items_read = fscanf(fin, "%d", &val);
-          assert(items_read == 1);
+          unsigned char val = data_buffer[outp++];
           set_vol(data[i], x, y, z, ((storage_t)val)/256);
           // fprintf(stderr, "the data read is %d \n", val);
         }
   }
-  fclose(fin);
 
-  char fn2[] = "data/mnist/labels.txt";
-  fin = fopen(fn2, "rb");
-  assert(fin != NULL);
+  char* label_buffer = &_binary_data_mnist_labels_bin_start;
+  outp = 0;
 
   for(int i = 0; i < size; i++){
-    label_t val;
-    int items_read = fscanf(fin, "%d", &val);
-    assert(items_read == 1);
+    unsigned char val = label_buffer[outp++];
     label[i] = val;
   }
 
-  fclose(fin);
   fprintf(stderr, "input batch loaded successfully \n");
 }
 

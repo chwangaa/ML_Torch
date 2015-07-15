@@ -18,6 +18,10 @@
 
 #include "models/cifar/model.h"
 
+// Embed the input data into the executable and access using these locations.
+extern char _binary_data_cifar_data_batch_1_bin_start;
+extern char _binary_data_cifar_data_batch_1_bin_end;
+
 // Neural Network -------------------------------------------------------------
 // Load the snapshot of the CNN we are going to run.
 Network* construct_cifar_net() {
@@ -50,18 +54,11 @@ void load_cifar_data(vol_t** data, label_t* label, int size) {
   fprintf(stderr, "Loading Data \n");
 
   assert(size <= 10000);  // the size must be smaller than 10'000
-  char fn[] = "data/cifar/data_batch_1.bin";
-  FILE* fin = fopen(fn, "rb");
-  assert(fin != NULL);
-
-  // vol_t** batchdata = (vol_t**)malloc(sizeof(vol_t*) * size);
+  
+  uint8_t* data_buffer = &_binary_data_cifar_data_batch_1_bin_start;
+  int outp = 0;
 
   for (int i = 0; i < size; i++) {
-    uint8_t data_buffer[3073];
-    assert(fread(data_buffer, 1, 3073, fin) == 3073);
-
-    int outp = 0;
-
     data[i] = make_vol(32, 32, 3, 0.0);
     label[i] = data_buffer[outp++];
 
@@ -72,7 +69,6 @@ void load_cifar_data(vol_t** data, label_t* label, int size) {
         }
   }
 
-  fclose(fin);
   fprintf(stderr, "input batch loaded successfully \n");
 }
 
