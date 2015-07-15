@@ -58,7 +58,8 @@ void load_mnist_data(vol_t** data, label_t* label, int size) {
       for (int x = 0; x < 28; x++)
         for (int y = 0; y < 28; y++) {
           int val;
-          fscanf(fin, "%d", &val);
+          int items_read = fscanf(fin, "%d", &val);
+          assert(items_read == 1);
           set_vol(data[i], x, y, z, ((storage_t)val)/256);
           // fprintf(stderr, "the data read is %d \n", val);
         }
@@ -71,7 +72,8 @@ void load_mnist_data(vol_t** data, label_t* label, int size) {
 
   for(int i = 0; i < size; i++){
     label_t val;
-    fscanf(fin, "%d", &val);
+    int items_read = fscanf(fin, "%d", &val);
+    assert(items_read == 1);
     label[i] = val;
   }
 
@@ -107,7 +109,6 @@ int main(int argc, char** argv) {
     free(input[i]);
   free(input);
   free(labels);
-  fprintf(stderr, "ERROR: Unknown command \n");
 
-  return 2;
+  return 0;
 }

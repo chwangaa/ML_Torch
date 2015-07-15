@@ -285,9 +285,11 @@ void conv_load_file(conv_layer_t* l, const char* fn) {
   FILE* fin = fopen(fn, "r");
   assert(fin != NULL);
   
+  int items_read;
   int sx, sy, depth, filters;
   sx = sy = depth = filters = 0;
-  fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
+  items_read = fscanf(fin, "%d %d %d %d", &sx, &sy, &depth, &filters);
+  assert(items_read == 4);  
   assert(sx == l->sx);
   assert(sy == l->sy);
   assert(depth == l->in_depth);
@@ -298,7 +300,8 @@ void conv_load_file(conv_layer_t* l, const char* fn) {
       for (int x = 0; x < sx; x++)
         for (int y = 0; y < sy; y++){
           double val;
-          fscanf(fin, "%lf", &val);
+          items_read = fscanf(fin, "%lf", &val);
+          assert(items_read == 1);
           // fprintf(stderr, "value read is %f \n", val);
           set_vol(l->filters[d], x, y, z, val);
         }
@@ -307,7 +310,8 @@ void conv_load_file(conv_layer_t* l, const char* fn) {
 
   for(int d = 0; d < l->out_depth; d++) {
     double val;
-    fscanf(fin, "%lf", &val);
+    items_read = fscanf(fin, "%lf", &val);
+    assert(items_read == 1);
     set_vol(l->biases, 0, 0, d, val);
   }
 

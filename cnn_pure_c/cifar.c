@@ -106,7 +106,6 @@ int main(int argc, char** argv) {
     free(input[i]);
   free(input);
   free(labels);
-  fprintf(stderr, "ERROR: Unknown command \n");
 
-  return 2;
+  return 0;
 }

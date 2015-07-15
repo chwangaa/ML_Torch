@@ -66,7 +66,7 @@ static vol_t* make_vol(int sx, int sy, int d, storage_t v) {
 /*
  * Copy the contents of one Volume to another (assuming same dimensions).
  */
-static vol_t* copy_vol(vol_t* dest, vol_t* src) {
+static void copy_vol(vol_t* dest, vol_t* src) {
   for (int x = 0; x < dest->sx; x++)
     for (int y = 0; y < dest->sy; y++)
       for (int z = 0; z < dest->depth; z++)

@@ -60,20 +60,24 @@ void fc_load_file(fc_layer_t* l, const char* fn) {
   
   int num_inputs;
   int out_depth;
-  fscanf(fin, "%d %d", &num_inputs, &out_depth);
+  int items_read;
+  items_read = fscanf(fin, "%d %d", &num_inputs, &out_depth);
+  assert(items_read == 2);
   assert(out_depth == l->out_depth);
   assert(num_inputs == l->num_inputs);
 
   for(int i = 0; i < l->out_depth; i++)
     for(int d = 0; d < l->num_inputs; d++) {
       double val;
-      fscanf(fin, "%lf", &val);
+      items_read = fscanf(fin, "%lf", &val);
+      assert(items_read == 1);
       l->filters[i]->w[d] = val;
     }
 
   for(int i = 0; i < l->out_depth; i++) {
     double val;
-    fscanf(fin, "%lf", &val);
+    items_read = fscanf(fin, "%lf", &val);
+    assert(items_read == 1);
     l->biases->w[i] = val;
   }
 
