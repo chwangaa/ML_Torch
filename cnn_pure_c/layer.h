@@ -10,7 +10,9 @@ typedef enum {
     CONVOLUTIONAL,
     POOLING,
     SOFTMAX,
-    RELU
+    RELU,
+    FULLY_CONNECTED,
+    LRN
 } LAYER_TYPE;
 
 
@@ -36,6 +38,9 @@ typedef struct Layer{
 
     double l1_decay_mul;
     double l2_decay_mul;
+
+    double alpha;
+    double beta;
 
     double bias;
     vol_t* biases;
