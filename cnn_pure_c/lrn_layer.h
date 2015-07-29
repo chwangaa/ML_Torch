@@ -28,7 +28,7 @@ void lrn_accross_channel_forward(lrn_layer_t* l, vol_t** in,
 
           accum *= l->alpha / l->sx;
           accum++;
-          pow(accum, l->beta);
+          accum = pow(accum, l->beta);
           set_vol(A, ax, ay, d, get_vol(V,ax,ay,d)/accum);
         }
       }
@@ -38,33 +38,54 @@ void lrn_accross_channel_forward(lrn_layer_t* l, vol_t** in,
 
 void lrn_within_channel_forward(lrn_layer_t* l, vol_t** in, 
                 vol_t** out, int start, int end) {
+  const int KERNEL_SIZE = l->sx * l->sx;
+
   for(int i=start; i<=end; i++) {
     vol_t* V = in[i];
     vol_t* A = out[i];
 
+    for(int d=0;d<l->out_depth;d++) {
+      int x = -l->pad;
+      for(int ax=0; ax<l->out_sx; x++,ax++) {
+        int y = -l->pad;
+        for(int ay=0; ay<l->out_sy; y++,ay++) {
+  
+          storage_t accum = 0;
+
+          for(int fy=0; fy<l->sx; fy++) {
+            for(int fx=0; fx<l->sx; fx++) {
+              int oy = y+fy;
+              int ox = x+fx;
+              if(oy>=0 && oy<V->sy && ox>=0 && ox<V->sx) {
+                storage_t val = get_vol(V,ox,oy,d);
+                accum += val*val;
+              }
+            }
+          }
+/*/
     for(int d=0; d<l->out_depth; d++) {
       for(int ax=0; ax<l->out_sx; ax++) {
-        int start_x = ax-(l->sx)/2;
+        int start_x = ax-l->pad;
         start_x = fmax(0,start_x);
-        int end_x = ax+(l->sx)/2;
+        int end_x = ax+l->pad;
         end_x = fmin(l->out_sx-1,end_x);
         for(int ay=0; ay<l->out_sy; ay++) {
-          double accum = 0;
-          int start_y = ay-(l->sx)/2;
+          storage_t accum = 0;
+          int start_y = ay-l->pad;
           start_y = fmax(0,start_y);
-          int end_y = ay+(l->sx)/2;
+          int end_y = ay+l->pad;
           end_y = fmin(l->out_sy-1,end_y);
 
           for(int ox=start_x; ox<=end_x; ox++) {
             for(int oy=start_y; oy<=end_y; oy++) {
-              double val = get_vol(V, ox, oy, d);
+              storage_t val = get_vol(V, ox, oy, d);
               accum += val*val;
             }
           }
-
-          accum *= l->alpha / (l->sx * l->sx);
+*/
+          accum *= l->alpha / KERNEL_SIZE;
           accum++;
-          pow(accum, l->beta);
+          accum = pow(accum, l->beta);
           set_vol(A, ax, ay, d, get_vol(V,ax,ay,d)/accum);
         }
       }
@@ -95,6 +116,7 @@ lrn_layer_t* make_lrn_layer(int in_sx, int in_sy, int in_depth,
   l->type = LRN;
   l->l1_decay_mul = 0.0;
   l->l2_decay_mul = 1.0;
+  l->pad = l->sx/2;
 
   return l;
 }

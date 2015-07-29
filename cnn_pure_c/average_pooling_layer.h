@@ -20,15 +20,17 @@ void average_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, i
         y = -l->pad;
         for(int ay=0; ay<l->out_sy; y+=l->stride,ay++) {
   
-          double accum = 0;
-	  int index = d * V->sx * V->sy;
+          storage_t accum = 0;
+          int missed = 0;
 
-          for(int fy=0; fy<l->sy; fy++, index++) {
-            for(int fx=0;fx<l->sx; fx++, index++) {
+          for(int fy=0; fy<l->sy; fy++) {
+            for(int fx=0;fx<l->sx; fx++) {
               int oy = y+fy;
               int ox = x+fx;
               if(oy>=0 && oy<V->sy && ox>=0 && ox<V->sx) {
-                accum += V->w[index];
+                accum += get_vol(V,ox,oy,d);
+              } else {
+                missed++;
               }
             }
           }
@@ -46,7 +48,7 @@ void average_pool_forward(pool_layer_t* l, vol_t** in, vol_t** out, int start, i
           }
 */
           n++;
-          accum /= KERNEL_SIZE;
+          accum /= KERNEL_SIZE - missed;
           set_vol(A, ax, ay, d, accum);
         }
       }
@@ -72,8 +74,8 @@ pool_layer_t* make_average_pool_layer(int in_sx, int in_sy, int in_depth,
 
   // computed
   l->out_depth = in_depth;
-  l->out_sx = ceil((float)(l->in_sx + l->pad * 2 - l->sx) / l->stride) + 1;
-  l->out_sy = ceil((float)(l->in_sy + l->pad * 2 - l->sy) / l->stride) + 1;
+  l->out_sx = (l->in_sx + l->pad * 2 - l->sx + l->stride - 1) / l->stride + 1;
+  l->out_sy = (l->in_sy + l->pad * 2 - l->sy + l->stride - 1) / l->stride + 1;
 
   l->forward = &average_pool_forward;
 
