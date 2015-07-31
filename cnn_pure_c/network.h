@@ -109,13 +109,13 @@ void net_forward(Network* net) {
     int num_layers = net->num_layers;
     for(int i = 0; i < num_layers; i++){
         layer = layers[i];
-        (*layer->forward)(layer, net->buffer[i], net->buffer[i+1], 0, 0);
+        (*layer->forward)(layer, net->buffer[i], net->buffer[i+1], 0, net->batch_size - 1);
     }
 }
 
 int net_num_category(Network* net){
-    // TODO
-    return 10;
+  int num = net->layers[net->num_layers-1]->out_depth;
+  return num;
 }
 
 label_t net_predict(Network* net){
@@ -161,7 +161,9 @@ void net_test(Network* net, vol_t** input, label_t* labels, int n) {
         copy_vol(net->buffer[0][0], input[i]);    // everytime, set the input at data_layer
         label_t predicted = net_predict(net);      // run_prediction
         label_t actual = labels[i];
-        
+#ifdef DEBUG
+  printf("%d,%d\n",predicted,actual);
+#endif
         if(predicted == actual){
             num_correct +=1;
         }

@@ -3,7 +3,7 @@
 
 #include "data_structure.h"
 
-typedef int label_t;
+typedef uint8_t label_t;
 typedef double weight_t;
 
 typedef enum {

@@ -8,7 +8,7 @@ typedef Layer softmax_layer_t;
 
 
 // Maximum supported out_depth
-#define MAX_ES 16
+#define MAX_ES 64
 
 void softmax_forward(softmax_layer_t* l, vol_t** in, vol_t** out, int start, int end) {
   double es[MAX_ES];
