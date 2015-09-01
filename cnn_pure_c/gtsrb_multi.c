@@ -13,7 +13,7 @@
 
 #include "data_structure.h"
 #include "ReLU_layer.h"
-#include "convolutional_layer_s.h"
+#include "convolutional_layer_multi.h"
 #include "fully_connected_layer.h"
 #include "average_pooling_layer.h"
 #include "max_pooling_layer.h"
