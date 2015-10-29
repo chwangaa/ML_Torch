@@ -1,0 +1,111 @@
+\hypertarget{layer_8h}{}\section{src/layer.h File Reference}
+\label{layer_8h}\index{src/layer.\+h@{src/layer.\+h}}
+{\ttfamily \#include \char`\"{}data\+\_\+structure.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math\+\_\+functions.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structLayer}{Layer}
+\begin{DoxyCompactList}\small\item\em Forwarding layer definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{layer_8h_a2b2a1226894e9f27b848908f83310852}{label\+\_\+t}
+\item 
+typedef struct \hyperlink{structLayer}{Layer} \hyperlink{layer_8h_a51c1bd0e188612713dbaeb80d88daf35}{Layer}
+\begin{DoxyCompactList}\small\item\em Forwarding layer definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{layer_8h_a5f7e99058765b058df158c099200b154}{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE} \{ \\*
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154a58439c145f9707af4279108805b47497}{C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL} = 100, 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154a186bdcd8918d3a6dbb78594bc1b51ca3}{P\+O\+O\+L\+I\+NG}, 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154accf055ace46c985c0964ccd77c1204b1}{L\+RN}, 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154a67485a17426fc8333a1e5c4d50b50633}{A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG}, 
+\\*
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154ab511c653dc93fe58bc97983ae731bf9d}{S\+O\+F\+T\+M\+AX}, 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154a9b69aa04edddb5cade1fea783ef633a3}{R\+E\+LU}, 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154a60cec7fcfe0c5d34f4cdfe50fb4dca8a}{F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}
+ \}\begin{DoxyCompactList}\small\item\em layer types \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{layer_8h_a57c590e6ab698b18df9b54fd51f1bea5}{generic\+\_\+forward\+\_\+func} (\hyperlink{structLayer}{Layer} $\ast$l, const \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$input, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$output, const int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\begin{DoxyCompactList}\small\item\em generic forward function which calls layer\+\_\+wise specific forward function pointer and activation function pointer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+layer definition 
+
+\subsection{Typedef Documentation}
+\index{layer.\+h@{layer.\+h}!label\+\_\+t@{label\+\_\+t}}
+\index{label\+\_\+t@{label\+\_\+t}!layer.\+h@{layer.\+h}}
+\subsubsection[{label\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf label\+\_\+t}}\hypertarget{layer_8h_a2b2a1226894e9f27b848908f83310852}{}\label{layer_8h_a2b2a1226894e9f27b848908f83310852}
+\index{layer.\+h@{layer.\+h}!Layer@{Layer}}
+\index{Layer@{Layer}!layer.\+h@{layer.\+h}}
+\subsubsection[{Layer}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Layer}  {\bf Layer}}\hypertarget{layer_8h_a51c1bd0e188612713dbaeb80d88daf35}{}\label{layer_8h_a51c1bd0e188612713dbaeb80d88daf35}
+
+
+Forwarding layer definition. 
+
+Generic \hyperlink{structLayer}{Layer} definition, all other layers pointing to this 
+
+\subsection{Enumeration Type Documentation}
+\index{layer.\+h@{layer.\+h}!L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE@{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE}}
+\index{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE@{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE}!layer.\+h@{layer.\+h}}
+\subsubsection[{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE}}\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154}{}\label{layer_8h_a5f7e99058765b058df158c099200b154}
+
+
+layer types 
+
+For enumerate different layer types \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL@{C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL@{C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL}}\item[{\em 
+C\+O\+N\+V\+O\+L\+U\+T\+I\+O\+N\+AL\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154a58439c145f9707af4279108805b47497}{}\label{layer_8h_a5f7e99058765b058df158c099200b154a58439c145f9707af4279108805b47497}
+}]convolutional layer \index{P\+O\+O\+L\+I\+NG@{P\+O\+O\+L\+I\+NG}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!P\+O\+O\+L\+I\+NG@{P\+O\+O\+L\+I\+NG}}\item[{\em 
+P\+O\+O\+L\+I\+NG\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154a186bdcd8918d3a6dbb78594bc1b51ca3}{}\label{layer_8h_a5f7e99058765b058df158c099200b154a186bdcd8918d3a6dbb78594bc1b51ca3}
+}]spatial max pooling layer \index{L\+RN@{L\+RN}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!L\+RN@{L\+RN}}\item[{\em 
+L\+RN\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154accf055ace46c985c0964ccd77c1204b1}{}\label{layer_8h_a5f7e99058765b058df158c099200b154accf055ace46c985c0964ccd77c1204b1}
+}]Normalization layer \index{A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG@{A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG@{A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG}}\item[{\em 
+A\+V\+E\+\_\+\+P\+O\+O\+L\+I\+NG\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154a67485a17426fc8333a1e5c4d50b50633}{}\label{layer_8h_a5f7e99058765b058df158c099200b154a67485a17426fc8333a1e5c4d50b50633}
+}]spatial average pooling layer \index{S\+O\+F\+T\+M\+AX@{S\+O\+F\+T\+M\+AX}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!S\+O\+F\+T\+M\+AX@{S\+O\+F\+T\+M\+AX}}\item[{\em 
+S\+O\+F\+T\+M\+AX\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154ab511c653dc93fe58bc97983ae731bf9d}{}\label{layer_8h_a5f7e99058765b058df158c099200b154ab511c653dc93fe58bc97983ae731bf9d}
+}]softmax layer \index{R\+E\+LU@{R\+E\+LU}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!R\+E\+LU@{R\+E\+LU}}\item[{\em 
+R\+E\+LU\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154a9b69aa04edddb5cade1fea783ef633a3}{}\label{layer_8h_a5f7e99058765b058df158c099200b154a9b69aa04edddb5cade1fea783ef633a3}
+}]Re\+LU layer \index{F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED@{F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}!layer.\+h@{layer.\+h}}\index{layer.\+h@{layer.\+h}!F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED@{F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}}\item[{\em 
+F\+U\+L\+L\+Y\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED\hypertarget{layer_8h_a5f7e99058765b058df158c099200b154a60cec7fcfe0c5d34f4cdfe50fb4dca8a}{}\label{layer_8h_a5f7e99058765b058df158c099200b154a60cec7fcfe0c5d34f4cdfe50fb4dca8a}
+}]fully connected layer \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{layer.\+h@{layer.\+h}!generic\+\_\+forward\+\_\+func@{generic\+\_\+forward\+\_\+func}}
+\index{generic\+\_\+forward\+\_\+func@{generic\+\_\+forward\+\_\+func}!layer.\+h@{layer.\+h}}
+\subsubsection[{generic\+\_\+forward\+\_\+func(\+Layer $\ast$l, const vol\+\_\+t $\ast$$\ast$input, vol\+\_\+t $\ast$$\ast$output, const int start, const int end)}]{\setlength{\rightskip}{0pt plus 5cm}void generic\+\_\+forward\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf Layer} $\ast$}]{l, }
+\item[{const {\bf vol\+\_\+t} $\ast$$\ast$}]{input, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{output, }
+\item[{const int}]{start, }
+\item[{const int}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{layer_8h_a57c590e6ab698b18df9b54fd51f1bea5}{}\label{layer_8h_a57c590e6ab698b18df9b54fd51f1bea5}
+
+
+generic forward function which calls layer\+\_\+wise specific forward function pointer and activation function pointer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the layer \\
+\hline
+{\em in} & the input images buffer \\
+\hline
+{\em out} & the output images buffer \\
+\hline
+{\em start} & starting position from a batch of inputs, default to 0 \\
+\hline
+{\em end} & end position from a batch of inputs, default to 1 \\
+\hline
+\end{DoxyParams}

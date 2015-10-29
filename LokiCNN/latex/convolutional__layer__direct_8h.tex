@@ -1,0 +1,93 @@
+\hypertarget{convolutional__layer__direct_8h}{}\section{src/convolutional\+\_\+layer\+\_\+direct.h File Reference}
+\label{convolutional__layer__direct_8h}\index{src/convolutional\+\_\+layer\+\_\+direct.\+h@{src/convolutional\+\_\+layer\+\_\+direct.\+h}}
+
+
+direct (N\+A\+I\+VE) version of convolutional layer, no extra memory requirement  
+
+
+{\ttfamily \#include \char`\"{}layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math\+\_\+functions.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structLayer}{Layer} \hyperlink{convolutional__layer__direct_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{convolutional__layer__direct_8h_ab60cb43d6356ca5abbd560d2c35dad21}{conv\+\_\+forward\+\_\+with\+\_\+padding} (\hyperlink{convolutional__layer_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t} $\ast$l, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_ab943d53559ea6283e896bd8bf603b626}{in}, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_abc600ae3097d3509f83258671cf3701e}{out}, int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\item 
+void \hyperlink{convolutional__layer__direct_8h_a183d3c6a68d47acb9a41400c3b0f1e19}{conv\+\_\+forward\+\_\+without\+\_\+padding} (\hyperlink{convolutional__layer_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t} $\ast$l, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_ab943d53559ea6283e896bd8bf603b626}{in}, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_abc600ae3097d3509f83258671cf3701e}{out}, int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\item 
+\hyperlink{convolutional__layer_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t} $\ast$ \hyperlink{convolutional__layer__direct_8h_a2f87b735bc9ecbad728dcb06f4d46fcd}{make\+\_\+conv\+\_\+layer} (int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int sx, int filters, int stride, int pad)
+\item 
+void \hyperlink{convolutional__layer__direct_8h_a2527210999b7650f388f68a72cbe1e4a}{conv\+\_\+load\+\_\+file} (\hyperlink{convolutional__layer_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t} $\ast$l, const char $\ast$fn)
+\item 
+void \hyperlink{convolutional__layer__direct_8h_a7c2f2ea6b02d96d6324900844d4e535e}{conv\+\_\+load} (\hyperlink{convolutional__layer_8h_a9b6de429dd995cf6d499f1e9545910b5}{conv\+\_\+layer\+\_\+t} $\ast$l, const int $\ast$params, const \hyperlink{setting_8h_ac7889bf9b3596f63c57011af217212dd}{weight\+\_\+t} $\ast$weights)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+direct (N\+A\+I\+VE) version of convolutional layer, no extra memory requirement 
+
+
+
+\subsection{Typedef Documentation}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!conv\+\_\+layer\+\_\+t@{conv\+\_\+layer\+\_\+t}}
+\index{conv\+\_\+layer\+\_\+t@{conv\+\_\+layer\+\_\+t}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{conv\+\_\+layer\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Layer} {\bf conv\+\_\+layer\+\_\+t}}\hypertarget{convolutional__layer__direct_8h_a9b6de429dd995cf6d499f1e9545910b5}{}\label{convolutional__layer__direct_8h_a9b6de429dd995cf6d499f1e9545910b5}
+
+
+\subsection{Function Documentation}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!conv\+\_\+forward\+\_\+with\+\_\+padding@{conv\+\_\+forward\+\_\+with\+\_\+padding}}
+\index{conv\+\_\+forward\+\_\+with\+\_\+padding@{conv\+\_\+forward\+\_\+with\+\_\+padding}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{conv\+\_\+forward\+\_\+with\+\_\+padding(conv\+\_\+layer\+\_\+t $\ast$l, vol\+\_\+t $\ast$$\ast$in, vol\+\_\+t $\ast$$\ast$out, int start, int end)}]{\setlength{\rightskip}{0pt plus 5cm}void conv\+\_\+forward\+\_\+with\+\_\+padding (
+\begin{DoxyParamCaption}
+\item[{{\bf conv\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{in, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{out, }
+\item[{int}]{start, }
+\item[{int}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{convolutional__layer__direct_8h_ab60cb43d6356ca5abbd560d2c35dad21}{}\label{convolutional__layer__direct_8h_ab60cb43d6356ca5abbd560d2c35dad21}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!conv\+\_\+forward\+\_\+without\+\_\+padding@{conv\+\_\+forward\+\_\+without\+\_\+padding}}
+\index{conv\+\_\+forward\+\_\+without\+\_\+padding@{conv\+\_\+forward\+\_\+without\+\_\+padding}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{conv\+\_\+forward\+\_\+without\+\_\+padding(conv\+\_\+layer\+\_\+t $\ast$l, vol\+\_\+t $\ast$$\ast$in, vol\+\_\+t $\ast$$\ast$out, int start, int end)}]{\setlength{\rightskip}{0pt plus 5cm}void conv\+\_\+forward\+\_\+without\+\_\+padding (
+\begin{DoxyParamCaption}
+\item[{{\bf conv\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{in, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{out, }
+\item[{int}]{start, }
+\item[{int}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{convolutional__layer__direct_8h_a183d3c6a68d47acb9a41400c3b0f1e19}{}\label{convolutional__layer__direct_8h_a183d3c6a68d47acb9a41400c3b0f1e19}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!conv\+\_\+load@{conv\+\_\+load}}
+\index{conv\+\_\+load@{conv\+\_\+load}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{conv\+\_\+load(conv\+\_\+layer\+\_\+t $\ast$l, const int $\ast$params, const weight\+\_\+t $\ast$weights)}]{\setlength{\rightskip}{0pt plus 5cm}void conv\+\_\+load (
+\begin{DoxyParamCaption}
+\item[{{\bf conv\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{const int $\ast$}]{params, }
+\item[{const {\bf weight\+\_\+t} $\ast$}]{weights}
+\end{DoxyParamCaption}
+)}\hypertarget{convolutional__layer__direct_8h_a7c2f2ea6b02d96d6324900844d4e535e}{}\label{convolutional__layer__direct_8h_a7c2f2ea6b02d96d6324900844d4e535e}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!conv\+\_\+load\+\_\+file@{conv\+\_\+load\+\_\+file}}
+\index{conv\+\_\+load\+\_\+file@{conv\+\_\+load\+\_\+file}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{conv\+\_\+load\+\_\+file(conv\+\_\+layer\+\_\+t $\ast$l, const char $\ast$fn)}]{\setlength{\rightskip}{0pt plus 5cm}void conv\+\_\+load\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{{\bf conv\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{const char $\ast$}]{fn}
+\end{DoxyParamCaption}
+)}\hypertarget{convolutional__layer__direct_8h_a2527210999b7650f388f68a72cbe1e4a}{}\label{convolutional__layer__direct_8h_a2527210999b7650f388f68a72cbe1e4a}
+\index{convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}!make\+\_\+conv\+\_\+layer@{make\+\_\+conv\+\_\+layer}}
+\index{make\+\_\+conv\+\_\+layer@{make\+\_\+conv\+\_\+layer}!convolutional\+\_\+layer\+\_\+direct.\+h@{convolutional\+\_\+layer\+\_\+direct.\+h}}
+\subsubsection[{make\+\_\+conv\+\_\+layer(int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int sx, int filters, int stride, int pad)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf conv\+\_\+layer\+\_\+t}$\ast$ make\+\_\+conv\+\_\+layer (
+\begin{DoxyParamCaption}
+\item[{int}]{in\+\_\+sx, }
+\item[{int}]{in\+\_\+sy, }
+\item[{int}]{in\+\_\+depth, }
+\item[{int}]{sx, }
+\item[{int}]{filters, }
+\item[{int}]{stride, }
+\item[{int}]{pad}
+\end{DoxyParamCaption}
+)}\hypertarget{convolutional__layer__direct_8h_a2f87b735bc9ecbad728dcb06f4d46fcd}{}\label{convolutional__layer__direct_8h_a2f87b735bc9ecbad728dcb06f4d46fcd}

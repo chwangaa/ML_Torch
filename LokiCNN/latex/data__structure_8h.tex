@@ -1,0 +1,93 @@
+\hypertarget{data__structure_8h}{}\section{src/data\+\_\+structure.h File Reference}
+\label{data__structure_8h}\index{src/data\+\_\+structure.\+h@{src/data\+\_\+structure.\+h}}
+
+
+definition of images  
+
+
+{\ttfamily \#include \char`\"{}setting.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math\+\_\+functions.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structvol}{vol}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structvol}{vol} \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{data__structure_8h_adaeb0badf480241953397126c8b50245}{get\+\_\+vol} (const \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$v, int x, int y, int d)
+\begin{DoxyCompactList}\small\item\em return the value of pixel from specified location \end{DoxyCompactList}\item 
+void \hyperlink{data__structure_8h_ac5afa038cc78df8d0e2741dfacce5472}{print\+\_\+vol} (const \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$v, int depth)
+\begin{DoxyCompactList}\small\item\em print the image pixels at specified depth \end{DoxyCompactList}\item 
+void \hyperlink{data__structure_8h_acc01f95658c9e99208b7e8624154686f}{free\+\_\+vol} (\hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$v)
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+definition of images 
+
+
+
+\subsection{Typedef Documentation}
+\index{data\+\_\+structure.\+h@{data\+\_\+structure.\+h}!vol\+\_\+t@{vol\+\_\+t}}
+\index{vol\+\_\+t@{vol\+\_\+t}!data\+\_\+structure.\+h@{data\+\_\+structure.\+h}}
+\subsubsection[{vol\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf vol}  {\bf vol\+\_\+t}}\hypertarget{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{}\label{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}
+
+
+\subsection{Function Documentation}
+\index{data\+\_\+structure.\+h@{data\+\_\+structure.\+h}!free\+\_\+vol@{free\+\_\+vol}}
+\index{free\+\_\+vol@{free\+\_\+vol}!data\+\_\+structure.\+h@{data\+\_\+structure.\+h}}
+\subsubsection[{free\+\_\+vol(vol\+\_\+t $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+vol (
+\begin{DoxyParamCaption}
+\item[{{\bf vol\+\_\+t} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{data__structure_8h_acc01f95658c9e99208b7e8624154686f}{}\label{data__structure_8h_acc01f95658c9e99208b7e8624154686f}
+
+
+destructor 
+
+\index{data\+\_\+structure.\+h@{data\+\_\+structure.\+h}!get\+\_\+vol@{get\+\_\+vol}}
+\index{get\+\_\+vol@{get\+\_\+vol}!data\+\_\+structure.\+h@{data\+\_\+structure.\+h}}
+\subsubsection[{get\+\_\+vol(const vol\+\_\+t $\ast$v, int x, int y, int d)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} get\+\_\+vol (
+\begin{DoxyParamCaption}
+\item[{const {\bf vol\+\_\+t} $\ast$}]{v, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{data__structure_8h_adaeb0badf480241953397126c8b50245}{}\label{data__structure_8h_adaeb0badf480241953397126c8b50245}
+
+
+return the value of pixel from specified location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & the image pointer \\
+\hline
+{\em x} & specifies the width \\
+\hline
+{\em y} & specifies the height \\
+\hline
+{\em d} & specifies the channel number, or the depth\\
+\hline
+\end{DoxyParams}
+note that memory is row-\/major, as it is in Caffe\textquotesingle{}s implementation. So the last dimension changes fastest,
+
+index (x, y, d) physically correspond to (X$\ast$d + x)$\ast$Y + y \index{data\+\_\+structure.\+h@{data\+\_\+structure.\+h}!print\+\_\+vol@{print\+\_\+vol}}
+\index{print\+\_\+vol@{print\+\_\+vol}!data\+\_\+structure.\+h@{data\+\_\+structure.\+h}}
+\subsubsection[{print\+\_\+vol(const vol\+\_\+t $\ast$v, int depth)}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+vol (
+\begin{DoxyParamCaption}
+\item[{const {\bf vol\+\_\+t} $\ast$}]{v, }
+\item[{int}]{depth}
+\end{DoxyParamCaption}
+)}\hypertarget{data__structure_8h_ac5afa038cc78df8d0e2741dfacce5472}{}\label{data__structure_8h_ac5afa038cc78df8d0e2741dfacce5472}
+
+
+print the image pixels at specified depth 
+
+the printed value will be in double if F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+NT is used, values are converted to double for direct comparison 

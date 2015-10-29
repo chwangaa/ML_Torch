@@ -1,0 +1,41 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+Loki C\+NN is a light-\/weight Convolutional-\/\+Neural-\/\+Netork library.
+
+It is written in pure C, with no extra dependencies Although there are options to link with B\+L\+AS library for better performance in convolutional layer The library does only forwarding. It is assumed all the weights are pre-\/trained, for example, by framework like Caffe
+
+The library is created for performance benchmarking of a research processor Loki. Fixed-\/point arithmetic, as well as floating point arithmetic can be used.\hypertarget{index_example}{}\section{example}\label{index_example}
+\hypertarget{index_step1}{}\subsection{Construct a Network}\label{index_step1}
+the following gives a quick example of constructing a Le\+N\+E\+T-\/4 model
+
+
+\begin{DoxyCode}
+\hyperlink{structNetwork}{Network}* net = \hyperlink{network_8h_ac098d6b97e198ef0923b41129ea2a98f}{make\_network}(8);
+\hyperlink{network_8h_a394bf2bf3bc173512ddf3a2160b9aef4}{network\_add}(net, \hyperlink{convolutional__layer_8h_a2f87b735bc9ecbad728dcb06f4d46fcd}{make\_conv\_layer}(28, 28, 1, 5, 6, 1, 0));
+\hyperlink{network_8h_a394bf2bf3bc173512ddf3a2160b9aef4}{network\_add}(net, \hyperlink{max__pooling__layer_8h_a6248e55eebe95cc9b7413e0c431108d6}{make\_max\_pool\_layer}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[0]->
+      \hyperlink{structLayer_ac5003227f797ca48500d217d574a6c4a}{out\_sx}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[0]->\hyperlink{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{out\_sy}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[0]->
+      \hyperlink{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{out\_depth}, 2, 2));
+\hyperlink{network_8h_a394bf2bf3bc173512ddf3a2160b9aef4}{network\_add}(net, \hyperlink{convolutional__layer_8h_a2f87b735bc9ecbad728dcb06f4d46fcd}{make\_conv\_layer}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[1]->
+      \hyperlink{structLayer_ac5003227f797ca48500d217d574a6c4a}{out\_sx}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[1]->\hyperlink{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{out\_sy}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[1]->
+      \hyperlink{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{out\_depth}, 5, 16, 1, 0));
+......
+\hyperlink{network_8h_a394bf2bf3bc173512ddf3a2160b9aef4}{network\_add}(net, \hyperlink{fully__connected__layer_8h_a1fb2ac479851f37159b6bb76f77b3eb1}{make\_fc\_layer}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[5]->
+      \hyperlink{structLayer_ac5003227f797ca48500d217d574a6c4a}{out\_sx}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[5]->\hyperlink{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{out\_sy}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[5]->
+      \hyperlink{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{out\_depth}, 10));
+\hyperlink{network_8h_a394bf2bf3bc173512ddf3a2160b9aef4}{network\_add}(net, \hyperlink{soft__max__layer_8h_ac73fa86f92f02a39e39b0e29c22a4330}{make\_softmax\_layer}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[6]->
+      \hyperlink{structLayer_ac5003227f797ca48500d217d574a6c4a}{out\_sx}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[6]->\hyperlink{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{out\_sy}, net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[6]->
+      \hyperlink{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{out\_depth}));
+\hyperlink{convolutional__layer_8h_a7c2f2ea6b02d96d6324900844d4e535e}{conv\_load}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[0], mnist\_conv1\_params, mnist\_conv1\_data);
+......
+\hyperlink{fully__connected__layer_8h_a4dbba49846ec688f51a7db35d3694a84}{fc\_load}(net->\hyperlink{structNetwork_a409fd1196f91871f40465bc914c8469d}{layers}[6], mnist\_ip2\_params, mnist\_ip2\_data);
+\hyperlink{network_8h_a8156c41e6fa67372d63b81f603fb7415}{initialize\_network}(net, 1);
+\end{DoxyCode}
+
+
+once the model is constructed, and input data loaded, forwarding can be done like this\+: 
+\begin{DoxyCode}
+\hyperlink{structvol}{vol\_t}* input = ......
+\hyperlink{layer_8h_a2b2a1226894e9f27b848908f83310852}{label\_t} p = \hyperlink{network_8h_a15497ca5a2b37846434a620cf9688bcf}{net\_predict}(net, input);
+\end{DoxyCode}
+
+
+for a complete example, please see ./examples/ 

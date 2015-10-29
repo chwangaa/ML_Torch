@@ -1,0 +1,87 @@
+\hypertarget{gemm_8h}{}\section{src/gemm.h File Reference}
+\label{gemm_8h}\index{src/gemm.\+h@{src/gemm.\+h}}
+
+
+none-\/assembly version of G\+E\+MM algorithm for F\+I\+X\+E\+D-\/\+P\+O\+I\+NT datatype  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gemm_8h_a71d9e511e7e302cd831e83581219e70d}{MC}~512
+\begin{DoxyCompactList}\small\item\em packed height of A \end{DoxyCompactList}\item 
+\#define \hyperlink{gemm_8h_a73764abcca0b8bbf6bf355d9f1bab0b9}{KC}~1024
+\begin{DoxyCompactList}\small\item\em packed width of A, height of B \end{DoxyCompactList}\item 
+\#define \hyperlink{gemm_8h_a1fa2460e32327ade49189c95740bc1b5}{NC}~2048
+\begin{DoxyCompactList}\small\item\em packed width of B \end{DoxyCompactList}\item 
+\#define \hyperlink{gemm_8h_a9ecbd9f86f95534f1bcf71015d5ae81a}{MR}~4
+\begin{DoxyCompactList}\small\item\em width of micro kernel \end{DoxyCompactList}\item 
+\#define \hyperlink{gemm_8h_af146485306ae74a2edf18636300fd107}{NR}~4
+\begin{DoxyCompactList}\small\item\em height of micro kernel \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gemm_8h_a94c2d7059f7a6b3d1640d9e82449fa5b}{dgemm\+\_\+nn} (int m, int n, int k, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$A, int inc\+RowA, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$B, int inc\+RowB, \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$C, int inc\+RowC)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+none-\/assembly version of G\+E\+MM algorithm for F\+I\+X\+E\+D-\/\+P\+O\+I\+NT datatype 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{gemm.\+h@{gemm.\+h}!KC@{KC}}
+\index{KC@{KC}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{KC}]{\setlength{\rightskip}{0pt plus 5cm}\#define KC~1024}\hypertarget{gemm_8h_a73764abcca0b8bbf6bf355d9f1bab0b9}{}\label{gemm_8h_a73764abcca0b8bbf6bf355d9f1bab0b9}
+
+
+packed width of A, height of B 
+
+\index{gemm.\+h@{gemm.\+h}!MC@{MC}}
+\index{MC@{MC}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{MC}]{\setlength{\rightskip}{0pt plus 5cm}\#define MC~512}\hypertarget{gemm_8h_a71d9e511e7e302cd831e83581219e70d}{}\label{gemm_8h_a71d9e511e7e302cd831e83581219e70d}
+
+
+packed height of A 
+
+\index{gemm.\+h@{gemm.\+h}!MR@{MR}}
+\index{MR@{MR}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{MR}]{\setlength{\rightskip}{0pt plus 5cm}\#define MR~4}\hypertarget{gemm_8h_a9ecbd9f86f95534f1bcf71015d5ae81a}{}\label{gemm_8h_a9ecbd9f86f95534f1bcf71015d5ae81a}
+
+
+width of micro kernel 
+
+\index{gemm.\+h@{gemm.\+h}!NC@{NC}}
+\index{NC@{NC}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{NC}]{\setlength{\rightskip}{0pt plus 5cm}\#define NC~2048}\hypertarget{gemm_8h_a1fa2460e32327ade49189c95740bc1b5}{}\label{gemm_8h_a1fa2460e32327ade49189c95740bc1b5}
+
+
+packed width of B 
+
+\index{gemm.\+h@{gemm.\+h}!NR@{NR}}
+\index{NR@{NR}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{NR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NR~4}\hypertarget{gemm_8h_af146485306ae74a2edf18636300fd107}{}\label{gemm_8h_af146485306ae74a2edf18636300fd107}
+
+
+height of micro kernel 
+
+
+
+\subsection{Function Documentation}
+\index{gemm.\+h@{gemm.\+h}!dgemm\+\_\+nn@{dgemm\+\_\+nn}}
+\index{dgemm\+\_\+nn@{dgemm\+\_\+nn}!gemm.\+h@{gemm.\+h}}
+\subsubsection[{dgemm\+\_\+nn(int m, int n, int k, const Dtype $\ast$\+A, int inc\+Row\+A, const Dtype $\ast$\+B, int inc\+Row\+B, Dtype $\ast$\+C, int inc\+Row\+C)}]{\setlength{\rightskip}{0pt plus 5cm}void dgemm\+\_\+nn (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{k, }
+\item[{const {\bf Dtype} $\ast$}]{A, }
+\item[{int}]{inc\+RowA, }
+\item[{const {\bf Dtype} $\ast$}]{B, }
+\item[{int}]{inc\+RowB, }
+\item[{{\bf Dtype} $\ast$}]{C, }
+\item[{int}]{inc\+RowC}
+\end{DoxyParamCaption}
+)}\hypertarget{gemm_8h_a94c2d7059f7a6b3d1640d9e82449fa5b}{}\label{gemm_8h_a94c2d7059f7a6b3d1640d9e82449fa5b}
+this functions computes C += A$\ast$B note it\textquotesingle{}s not C = A$\ast$B, it is assumed C is initialized to some desired values hence, in convolution layer, C is first initialized with the bias value and then A$\ast$B is added to each pixel 

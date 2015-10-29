@@ -1,0 +1,44 @@
+\hypertarget{scene__labelling__net_8c}{}\section{src/scene\+\_\+labelling\+\_\+net.c File Reference}
+\label{scene__labelling__net_8c}\index{src/scene\+\_\+labelling\+\_\+net.\+c@{src/scene\+\_\+labelling\+\_\+net.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}data\+\_\+structure.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Re\+L\+U\+\_\+layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}convolutional\+\_\+layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fully\+\_\+connected\+\_\+layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}max\+\_\+pooling\+\_\+layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}soft\+\_\+max\+\_\+layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}network.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}models/mnist/model.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structNetwork}{Network} $\ast$ \hyperlink{scene__labelling__net_8c_a992f61f2fccb1aafdfef9756070697a5}{construct\+\_\+scene\+\_\+labeling\+\_\+net} ()
+\item 
+int \hyperlink{scene__labelling__net_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{scene\+\_\+labelling\+\_\+net.\+c@{scene\+\_\+labelling\+\_\+net.\+c}!construct\+\_\+scene\+\_\+labeling\+\_\+net@{construct\+\_\+scene\+\_\+labeling\+\_\+net}}
+\index{construct\+\_\+scene\+\_\+labeling\+\_\+net@{construct\+\_\+scene\+\_\+labeling\+\_\+net}!scene\+\_\+labelling\+\_\+net.\+c@{scene\+\_\+labelling\+\_\+net.\+c}}
+\subsubsection[{construct\+\_\+scene\+\_\+labeling\+\_\+net()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Network}$\ast$ construct\+\_\+scene\+\_\+labeling\+\_\+net (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{scene__labelling__net_8c_a992f61f2fccb1aafdfef9756070697a5}{}\label{scene__labelling__net_8c_a992f61f2fccb1aafdfef9756070697a5}
+\index{scene\+\_\+labelling\+\_\+net.\+c@{scene\+\_\+labelling\+\_\+net.\+c}!main@{main}}
+\index{main@{main}!scene\+\_\+labelling\+\_\+net.\+c@{scene\+\_\+labelling\+\_\+net.\+c}}
+\subsubsection[{main(int argc, char $\ast$$\ast$argv)}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{scene__labelling__net_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{scene__labelling__net_8c_a3c04138a5bfe5d72780bb7e82a18e627}

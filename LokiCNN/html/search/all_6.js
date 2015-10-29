@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['fc_5fforward',['fc_forward',['../fully__connected__layer_8h.html#aed008ae3fe5189b555fc57a0b2fe5207',1,'fully_connected_layer.h']]],
+  ['fc_5fforward_5fmulticore',['fc_forward_MultiCore',['../fully__connected__layer__MultiCore_8h.html#a7c31ad1ef3e27523d017f14651179355',1,'fully_connected_layer_MultiCore.h']]],
+  ['fc_5fforward_5fworker',['fc_forward_Worker',['../fully__connected__layer__MultiCore_8h.html#ac9edab8bb6b5aedbf42e58a428c584ac',1,'fully_connected_layer_MultiCore.h']]],
+  ['fc_5fforward_5fworkercore',['fc_forward_workerCore',['../fully__connected__layer__MultiCore_8h.html#aca71ed357409509866eedec6b7141108',1,'fully_connected_layer_MultiCore.h']]],
+  ['fc_5fglobal_5fdata',['fc_global_data',['../fully__connected__layer__MultiCore_8h.html#a6c7efa0e7e028fab66f4314c904c9aa4',1,'fully_connected_layer_MultiCore.h']]],
+  ['fc_5fglobal_5fdata_5f',['fc_global_data_',['../structfc__global__data__.html',1,'']]],
+  ['fc_5flayer',['fc_layer',['../structfc__global__data__.html#acc7f1357fa20bbbf814f38cf3cb9f106',1,'fc_global_data_']]],
+  ['fc_5flayer_5fnum_5fcore',['FC_LAYER_NUM_CORE',['../setting_8h.html#a4e9fcec10bfafbc72651bc3dfbbf6bd7',1,'setting.h']]],
+  ['fc_5flayer_5ft',['fc_layer_t',['../fully__connected__layer_8h.html#acda77f28c85b289bb787d3c78e0c51aa',1,'fc_layer_t():&#160;fully_connected_layer.h'],['../fully__connected__layer__MultiCore_8h.html#acda77f28c85b289bb787d3c78e0c51aa',1,'fc_layer_t():&#160;fully_connected_layer_MultiCore.h']]],
+  ['fc_5fload',['fc_load',['../fully__connected__layer_8h.html#a4dbba49846ec688f51a7db35d3694a84',1,'fc_load(fc_layer_t *l, const int *params, const weight_t *weights):&#160;fully_connected_layer.h'],['../fully__connected__layer__MultiCore_8h.html#a4dbba49846ec688f51a7db35d3694a84',1,'fc_load(fc_layer_t *l, const int *params, const weight_t *weights):&#160;fully_connected_layer_MultiCore.h']]],
+  ['fc_5fload_5ffile',['fc_load_file',['../fully__connected__layer__MultiCore_8h.html#a0bedadfa8f961145b70d380c86c5045b',1,'fully_connected_layer_MultiCore.h']]],
+  ['filters',['filters',['../structLayer.html#aa92f4f42e91e5a9e2fcf8370095e8b5a',1,'Layer']]],
+  ['filters_5fflat',['filters_flat',['../structLayer.html#ad33732c7bae16b97250b1a235a801937',1,'Layer']]],
+  ['float',['FLOAT',['../setting_8h.html#ae8690abbffa85934d64d545920e2b108',1,'setting.h']]],
+  ['for',['for',['../max__pooling__layer__MultiCore_8h.html#a8b52b36874c803c5c48783fe4544cc74',1,'max_pooling_layer_MultiCore.h']]],
+  ['forward',['forward',['../structLayer.html#aec5e26e4dd832a4434d0285802024fc1',1,'Layer']]],
+  ['free_5farr2',['free_arr2',['../data__structure2_8h.html#adf7f97671f497b3f8e939c1a1f556356',1,'data_structure2.h']]],
+  ['free_5fnetwork',['free_network',['../network_8h.html#a3fbfc99bdf0d9b7f756aa9ed4f1902a9',1,'network.h']]],
+  ['free_5fvol',['free_vol',['../data__structure_8h.html#acc01f95658c9e99208b7e8624154686f',1,'data_structure.h']]],
+  ['fully_5fconnected',['FULLY_CONNECTED',['../layer_8h.html#a5f7e99058765b058df158c099200b154a60cec7fcfe0c5d34f4cdfe50fb4dca8a',1,'layer.h']]],
+  ['fully_5fconnected_5flayer_2eh',['fully_connected_layer.h',['../fully__connected__layer_8h.html',1,'']]],
+  ['fully_5fconnected_5flayer_5fmulticore_2eh',['fully_connected_layer_MultiCore.h',['../fully__connected__layer__MultiCore_8h.html',1,'']]],
+  ['function_5fsummary',['function_summary',['../util_8h.html#a03c6ab5c6d388f36d56f45d119aea7c9',1,'util.h']]]
+];

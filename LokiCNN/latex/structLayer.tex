@@ -1,0 +1,137 @@
+\hypertarget{structLayer}{}\section{Layer Struct Reference}
+\label{structLayer}\index{Layer@{Layer}}
+
+
+Forwarding layer definition.  
+
+
+
+
+{\ttfamily \#include $<$layer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{layer_8h_a5f7e99058765b058df158c099200b154}{L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE} \hyperlink{structLayer_a4179463433524fb5ef7624f85d80241b}{type}
+\item 
+int \hyperlink{structLayer_a55c6cca33bde137cd47294fdb86c9ec3}{sx}
+\item 
+int \hyperlink{structLayer_a9852ef0522fef2248a0e8e0be2a5f7af}{sy}
+\item 
+int \hyperlink{structLayer_ae4b3280c4ba2b29c7ddc9ba9e834ad3b}{in\+\_\+sx}
+\item 
+int \hyperlink{structLayer_ac46fb025649047fafb2cb8206f954f31}{in\+\_\+sy}
+\item 
+int \hyperlink{structLayer_aeb96f45b8f41e8f9c7fa682110755339}{in\+\_\+depth}
+\item 
+int \hyperlink{structLayer_ad9bc3c0e21161b03f604272605d8fffd}{num\+\_\+inputs}
+\item 
+int \hyperlink{structLayer_a2a7d5301da0ed82b8d68b3400856ee00}{stride}
+\item 
+int \hyperlink{structLayer_a188060ee891fc16630afb232b86d4d39}{pad}
+\item 
+int \hyperlink{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{out\+\_\+depth}
+\item 
+int \hyperlink{structLayer_ac5003227f797ca48500d217d574a6c4a}{out\+\_\+sx}
+\item 
+int \hyperlink{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{out\+\_\+sy}
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} $\ast$ \hyperlink{structLayer_aa22466959721de60fac4e0ba73a5f5e1}{es}
+\item 
+double \hyperlink{structLayer_a4d732673af28831874e279bdfaf7c44d}{alpha}
+\item 
+double \hyperlink{structLayer_a30224d5e092e8740c22780a4dbeab06d}{beta}
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{structLayer_a2aa2297fa35dc56c6d03a10a3402067e}{bias}
+\item 
+\hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$ \hyperlink{structLayer_a670fe0bf57a84b104338661beb82a27c}{biases}
+\item 
+\hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$ \hyperlink{structLayer_aa92f4f42e91e5a9e2fcf8370095e8b5a}{filters}
+\item 
+\hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$ \hyperlink{structLayer_ad33732c7bae16b97250b1a235a801937}{filters\+\_\+flat}
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} $\ast$ \hyperlink{structLayer_a7f3d8c93228c92633f65e22878aed50e}{col\+\_\+inputs}
+\item 
+void($\ast$ \hyperlink{structLayer_aec5e26e4dd832a4434d0285802024fc1}{forward} )(const struct \hyperlink{structLayer}{Layer} $\ast$l, const \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_ab943d53559ea6283e896bd8bf603b626}{in}, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_abc600ae3097d3509f83258671cf3701e}{out}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\item 
+void($\ast$ \hyperlink{structLayer_ac500ea4fc58b3660b90a809a7a8e037a}{activation} )(const struct \hyperlink{structLayer}{Layer} $\ast$l, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$output, const int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Forwarding layer definition. 
+
+Generic \hyperlink{structLayer}{Layer} definition, all other layers pointing to this 
+
+\subsection{Member Data Documentation}
+\index{Layer@{Layer}!activation@{activation}}
+\index{activation@{activation}!Layer@{Layer}}
+\subsubsection[{activation}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Layer\+::activation) (const struct {\bf Layer} $\ast$l, {\bf vol\+\_\+t} $\ast$$\ast$output, const int {\bf start}, const int {\bf end})}\hypertarget{structLayer_ac500ea4fc58b3660b90a809a7a8e037a}{}\label{structLayer_ac500ea4fc58b3660b90a809a7a8e037a}
+function pointer to layer specific activation function \index{Layer@{Layer}!alpha@{alpha}}
+\index{alpha@{alpha}!Layer@{Layer}}
+\subsubsection[{alpha}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::alpha}\hypertarget{structLayer_a4d732673af28831874e279bdfaf7c44d}{}\label{structLayer_a4d732673af28831874e279bdfaf7c44d}
+parameter for L\+RN layer \index{Layer@{Layer}!beta@{beta}}
+\index{beta@{beta}!Layer@{Layer}}
+\subsubsection[{beta}]{\setlength{\rightskip}{0pt plus 5cm}double Layer\+::beta}\hypertarget{structLayer_a30224d5e092e8740c22780a4dbeab06d}{}\label{structLayer_a30224d5e092e8740c22780a4dbeab06d}
+parameter for L\+RN layer \index{Layer@{Layer}!bias@{bias}}
+\index{bias@{bias}!Layer@{Layer}}
+\subsubsection[{bias}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} Layer\+::bias}\hypertarget{structLayer_a2aa2297fa35dc56c6d03a10a3402067e}{}\label{structLayer_a2aa2297fa35dc56c6d03a10a3402067e}
+\index{Layer@{Layer}!biases@{biases}}
+\index{biases@{biases}!Layer@{Layer}}
+\subsubsection[{biases}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vol\+\_\+t}$\ast$ Layer\+::biases}\hypertarget{structLayer_a670fe0bf57a84b104338661beb82a27c}{}\label{structLayer_a670fe0bf57a84b104338661beb82a27c}
+used to hold biases \index{Layer@{Layer}!col\+\_\+inputs@{col\+\_\+inputs}}
+\index{col\+\_\+inputs@{col\+\_\+inputs}!Layer@{Layer}}
+\subsubsection[{col\+\_\+inputs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t}$\ast$ Layer\+::col\+\_\+inputs}\hypertarget{structLayer_a7f3d8c93228c92633f65e22878aed50e}{}\label{structLayer_a7f3d8c93228c92633f65e22878aed50e}
+buffer space for matrix expansion in convolutional layer \index{Layer@{Layer}!es@{es}}
+\index{es@{es}!Layer@{Layer}}
+\subsubsection[{es}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t}$\ast$ Layer\+::es}\hypertarget{structLayer_aa22466959721de60fac4e0ba73a5f5e1}{}\label{structLayer_aa22466959721de60fac4e0ba73a5f5e1}
+used to hold intermediate values in softmax layer \index{Layer@{Layer}!filters@{filters}}
+\index{filters@{filters}!Layer@{Layer}}
+\subsubsection[{filters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vol\+\_\+t}$\ast$$\ast$ Layer\+::filters}\hypertarget{structLayer_aa92f4f42e91e5a9e2fcf8370095e8b5a}{}\label{structLayer_aa92f4f42e91e5a9e2fcf8370095e8b5a}
+used to hold weights in fully-\/connected layer \index{Layer@{Layer}!filters\+\_\+flat@{filters\+\_\+flat}}
+\index{filters\+\_\+flat@{filters\+\_\+flat}!Layer@{Layer}}
+\subsubsection[{filters\+\_\+flat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vol\+\_\+t}$\ast$ Layer\+::filters\+\_\+flat}\hypertarget{structLayer_ad33732c7bae16b97250b1a235a801937}{}\label{structLayer_ad33732c7bae16b97250b1a235a801937}
+used to hold weights in convolutional layer \index{Layer@{Layer}!forward@{forward}}
+\index{forward@{forward}!Layer@{Layer}}
+\subsubsection[{forward}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Layer\+::forward) (const struct {\bf Layer} $\ast$l, const {\bf vol\+\_\+t} $\ast$$\ast${\bf in}, {\bf vol\+\_\+t} $\ast$$\ast${\bf out}, const int {\bf start}, const int {\bf end})}\hypertarget{structLayer_aec5e26e4dd832a4434d0285802024fc1}{}\label{structLayer_aec5e26e4dd832a4434d0285802024fc1}
+function pointer to layer specific forwarding function \index{Layer@{Layer}!in\+\_\+depth@{in\+\_\+depth}}
+\index{in\+\_\+depth@{in\+\_\+depth}!Layer@{Layer}}
+\subsubsection[{in\+\_\+depth}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::in\+\_\+depth}\hypertarget{structLayer_aeb96f45b8f41e8f9c7fa682110755339}{}\label{structLayer_aeb96f45b8f41e8f9c7fa682110755339}
+input image channel (or depth) \index{Layer@{Layer}!in\+\_\+sx@{in\+\_\+sx}}
+\index{in\+\_\+sx@{in\+\_\+sx}!Layer@{Layer}}
+\subsubsection[{in\+\_\+sx}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::in\+\_\+sx}\hypertarget{structLayer_ae4b3280c4ba2b29c7ddc9ba9e834ad3b}{}\label{structLayer_ae4b3280c4ba2b29c7ddc9ba9e834ad3b}
+input image width \index{Layer@{Layer}!in\+\_\+sy@{in\+\_\+sy}}
+\index{in\+\_\+sy@{in\+\_\+sy}!Layer@{Layer}}
+\subsubsection[{in\+\_\+sy}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::in\+\_\+sy}\hypertarget{structLayer_ac46fb025649047fafb2cb8206f954f31}{}\label{structLayer_ac46fb025649047fafb2cb8206f954f31}
+input image height \index{Layer@{Layer}!num\+\_\+inputs@{num\+\_\+inputs}}
+\index{num\+\_\+inputs@{num\+\_\+inputs}!Layer@{Layer}}
+\subsubsection[{num\+\_\+inputs}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::num\+\_\+inputs}\hypertarget{structLayer_ad9bc3c0e21161b03f604272605d8fffd}{}\label{structLayer_ad9bc3c0e21161b03f604272605d8fffd}
+batch size \index{Layer@{Layer}!out\+\_\+depth@{out\+\_\+depth}}
+\index{out\+\_\+depth@{out\+\_\+depth}!Layer@{Layer}}
+\subsubsection[{out\+\_\+depth}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::out\+\_\+depth}\hypertarget{structLayer_ad9871ba11cc56d38fdc754269d1dd551}{}\label{structLayer_ad9871ba11cc56d38fdc754269d1dd551}
+output channel (or depth) \index{Layer@{Layer}!out\+\_\+sx@{out\+\_\+sx}}
+\index{out\+\_\+sx@{out\+\_\+sx}!Layer@{Layer}}
+\subsubsection[{out\+\_\+sx}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::out\+\_\+sx}\hypertarget{structLayer_ac5003227f797ca48500d217d574a6c4a}{}\label{structLayer_ac5003227f797ca48500d217d574a6c4a}
+output image width \index{Layer@{Layer}!out\+\_\+sy@{out\+\_\+sy}}
+\index{out\+\_\+sy@{out\+\_\+sy}!Layer@{Layer}}
+\subsubsection[{out\+\_\+sy}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::out\+\_\+sy}\hypertarget{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}{}\label{structLayer_aec5ede8f8a6236e9c64bce289e1a63c3}
+output image height \index{Layer@{Layer}!pad@{pad}}
+\index{pad@{pad}!Layer@{Layer}}
+\subsubsection[{pad}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::pad}\hypertarget{structLayer_a188060ee891fc16630afb232b86d4d39}{}\label{structLayer_a188060ee891fc16630afb232b86d4d39}
+pad number, used in convolutional or spatial pooling layer \index{Layer@{Layer}!stride@{stride}}
+\index{stride@{stride}!Layer@{Layer}}
+\subsubsection[{stride}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::stride}\hypertarget{structLayer_a2a7d5301da0ed82b8d68b3400856ee00}{}\label{structLayer_a2a7d5301da0ed82b8d68b3400856ee00}
+stride number, used in convolutional and spatial pooling layer \index{Layer@{Layer}!sx@{sx}}
+\index{sx@{sx}!Layer@{Layer}}
+\subsubsection[{sx}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::sx}\hypertarget{structLayer_a55c6cca33bde137cd47294fdb86c9ec3}{}\label{structLayer_a55c6cca33bde137cd47294fdb86c9ec3}
+kernel width \index{Layer@{Layer}!sy@{sy}}
+\index{sy@{sy}!Layer@{Layer}}
+\subsubsection[{sy}]{\setlength{\rightskip}{0pt plus 5cm}int Layer\+::sy}\hypertarget{structLayer_a9852ef0522fef2248a0e8e0be2a5f7af}{}\label{structLayer_a9852ef0522fef2248a0e8e0be2a5f7af}
+kernel height \index{Layer@{Layer}!type@{type}}
+\index{type@{type}!Layer@{Layer}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\+A\+Y\+E\+R\+\_\+\+T\+Y\+PE} Layer\+::type}\hypertarget{structLayer_a4179463433524fb5ef7624f85d80241b}{}\label{structLayer_a4179463433524fb5ef7624f85d80241b}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{layer_8h}{layer.\+h}\end{DoxyCompactItemize}

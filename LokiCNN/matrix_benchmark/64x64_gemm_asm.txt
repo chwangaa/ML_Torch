@@ -1,0 +1,150 @@
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+Current cycle number: 1000000 [674381 operation(s) executed]
+takes 1730532 cycle to complete 
+takes 1191437 instructions 
+64 
+64 
+64 
+64 
+64 
+64 
+64 
+64 
+64 
+64 
+Simulation ended with sys_exit (arg 0) after 1849435 cycles.
+Total execution time: 1849435 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	1261608	82.5%	2.7%	14.7%	(21.8%|67.8%|0.0%|10.2%|0.0%|1.5%)
+  (1,1,1)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,2)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,3)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,4)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,5)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,6)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,7)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 1261608 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 1261609
+  Packet hit rate:         108083/116401 (92.9%)
+    Core 0: 108083/116401 (92.9%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  95336/95966 (99.3%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 95336/95966 (99.3%)
+    Core 0, input channel 2 (data):
+      Read hits:  102081/102887 (99.2%)
+      Write hits: 31188/33816 (92.2%)
+      Total hits: 133269/136703 (97.5%)
+    Core 0, input channel 3 (data):
+      Read hits:  65526/65536 (100.0%)
+      Write hits: 2048/2048 (100.0%)
+      Total hits: 67574/67584 (100.0%)
+  Instruction hits: 95336/95966 (99.3%)
+  L0+L1 inst hits:  1260979/1261609 (100.0%)
+  Data read hits:   167607/168423 (99.5%)
+  Data write hits:  33236/35864 (92.7%)
+  Total hits:       296179/300253 (98.6%)
+Average IPC: 0.68

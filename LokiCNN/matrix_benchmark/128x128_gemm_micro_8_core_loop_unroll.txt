@@ -1,0 +1,269 @@
+/*
+  128, 128, 128
+*/
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+Current cycle number: 1000000 [352133 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 2000000 [2469303 operation(s) executed]
+Current cycle number: 3000000 [5171952 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+takes 3136057 cycle to complete 
+takes 1121821 instructions 
+Simulation ended with sys_exit (arg 0) after 3804907 cycles.
+Total execution time: 3804907 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	1332660	43.2%	0.2%	56.5%	(21.9%|59.2%|1.4%|1.6%|0.0%|18.0%)
+  (1,1,1)	857198	29.1%	33.7%	37.2%	(31.3%|68.5%|2.2%|0.4%|0.0%|0.9%)
+  (1,1,2)	857198	29.1%	33.7%	37.2%	(32.2%|67.7%|2.0%|0.4%|0.0%|1.1%)
+  (1,1,3)	857198	29.0%	33.7%	37.2%	(32.6%|67.3%|2.0%|0.4%|0.0%|1.2%)
+  (1,1,4)	857198	29.1%	33.7%	37.2%	(32.1%|67.3%|2.5%|0.4%|0.0%|0.9%)
+  (1,1,5)	857198	29.1%	33.7%	37.2%	(32.1%|67.7%|2.1%|0.4%|0.0%|1.1%)
+  (1,1,6)	857198	29.1%	33.7%	37.2%	(30.9%|70.8%|0.0%|0.4%|0.0%|1.2%)
+  (1,1,7)	857196	29.1%	33.7%	37.2%	(31.3%|70.2%|0.2%|0.4%|0.0%|1.3%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 1332660 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 857198 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 857196 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 7332961
+  Packet hit rate:         37405/230420 (16.2%)
+    Core 0: 37188/62001 (60.0%)
+    Core 1: 31/24060 (0.1%)
+    Core 2: 31/24060 (0.1%)
+    Core 3: 31/24060 (0.1%)
+    Core 4: 31/24060 (0.1%)
+    Core 5: 31/24060 (0.1%)
+    Core 6: 31/24060 (0.1%)
+    Core 7: 31/24059 (0.1%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  862147/863793 (99.8%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 862147/863793 (99.8%)
+    Core 0, input channel 2 (data):
+      Read hits:  129691/137283 (94.5%)
+      Write hits: 51027/86117 (59.3%)
+      Total hits: 180718/223400 (80.9%)
+    Core 0, input channel 3 (data):
+      Read hits:  63921/66560 (96.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 63921/66560 (96.0%)
+    Core 1, input channel 1 (instructions):
+      Read hits:  855816/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 855816/856967 (99.9%)
+    Core 1, input channel 2 (data):
+      Read hits:  67000/70752 (94.7%)
+      Write hits: 3440/3454 (99.6%)
+      Total hits: 70440/74206 (94.9%)
+    Core 1, input channel 3 (data):
+      Read hits:  63536/66560 (95.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 63536/66560 (95.5%)
+    Core 2, input channel 1 (instructions):
+      Read hits:  856038/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 856038/856967 (99.9%)
+    Core 2, input channel 2 (data):
+      Read hits:  67579/70752 (95.5%)
+      Write hits: 3446/3454 (99.8%)
+      Total hits: 71025/74206 (95.7%)
+    Core 2, input channel 3 (data):
+      Read hits:  63952/66560 (96.1%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 63952/66560 (96.1%)
+    Core 3, input channel 1 (instructions):
+      Read hits:  856242/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 856242/856967 (99.9%)
+    Core 3, input channel 2 (data):
+      Read hits:  67439/70752 (95.3%)
+      Write hits: 3441/3454 (99.6%)
+      Total hits: 70880/74206 (95.5%)
+    Core 3, input channel 3 (data):
+      Read hits:  64082/66560 (96.3%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 64082/66560 (96.3%)
+    Core 4, input channel 1 (instructions):
+      Read hits:  856106/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 856106/856967 (99.9%)
+    Core 4, input channel 2 (data):
+      Read hits:  67995/70752 (96.1%)
+      Write hits: 3438/3454 (99.5%)
+      Total hits: 71433/74206 (96.3%)
+    Core 4, input channel 3 (data):
+      Read hits:  63210/66560 (95.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 63210/66560 (95.0%)
+    Core 5, input channel 1 (instructions):
+      Read hits:  855979/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 855979/856967 (99.9%)
+    Core 5, input channel 2 (data):
+      Read hits:  67708/70752 (95.7%)
+      Write hits: 3442/3454 (99.7%)
+      Total hits: 71150/74206 (95.9%)
+    Core 5, input channel 3 (data):
+      Read hits:  63575/66560 (95.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 63575/66560 (95.5%)
+    Core 6, input channel 1 (instructions):
+      Read hits:  856220/856967 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 856220/856967 (99.9%)
+    Core 6, input channel 2 (data):
+      Read hits:  67850/70752 (95.9%)
+      Write hits: 3417/3454 (98.9%)
+      Total hits: 71267/74206 (96.0%)
+    Core 6, input channel 3 (data):
+      Read hits:  62397/66560 (93.7%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 62397/66560 (93.7%)
+    Core 7, input channel 1 (instructions):
+      Read hits:  856110/856965 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 856110/856965 (99.9%)
+    Core 7, input channel 2 (data):
+      Read hits:  67746/70752 (95.8%)
+      Write hits: 3431/3454 (99.3%)
+      Total hits: 71177/74206 (95.9%)
+    Core 7, input channel 3 (data):
+      Read hits:  62358/66560 (93.7%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 62358/66560 (93.7%)
+  Instruction hits: 6854658/6862560 (99.9%)
+  L0+L1 inst hits:  7325059/7332961 (99.9%)
+  Data read hits:   1110039/1165027 (95.3%)
+  Data write hits:  75082/110295 (68.1%)
+  Total hits:       8039779/8137882 (98.8%)
+Average IPC: 1.93

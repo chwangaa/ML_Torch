@@ -1,0 +1,230 @@
+/*
+  32, 64, 128
+*/
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+Current cycle number: 1000000 [382573 operation(s) executed]
+Current cycle number: 2000000 [695741 operation(s) executed]
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+Current cycle number: 3000000 [1117919 operation(s) executed]
+Current cycle number: 4000000 [1814674 operation(s) executed]
+Current cycle number: 5000000 [2511380 operation(s) executed]
+Current cycle number: 6000000 [3172223 operation(s) executed]
+Current cycle number: 7000000 [3869266 operation(s) executed]
+Current cycle number: 8000000 [4571387 operation(s) executed]
+Current cycle number: 9000000 [5231821 operation(s) executed]
+Current cycle number: 10000000 [5928414 operation(s) executed]
+Current cycle number: 11000000 [6603656 operation(s) executed]
+Current cycle number: 12000000 [7291256 operation(s) executed]
+Current cycle number: 13000000 [7988188 operation(s) executed]
+Current cycle number: 14000000 [8677848 operation(s) executed]
+Current cycle number: 15000000 [9375184 operation(s) executed]
+Current cycle number: 16000000 [10077037 operation(s) executed]
+Current cycle number: 17000000 [10766604 operation(s) executed]
+Current cycle number: 18000000 [11463102 operation(s) executed]
+Current cycle number: 19000000 [12157234 operation(s) executed]
+Current cycle number: 20000000 [12854986 operation(s) executed]
+Current cycle number: 21000000 [13551880 operation(s) executed]
+Current cycle number: 22000000 [14241647 operation(s) executed]
+Current cycle number: 23000000 [14939068 operation(s) executed]
+Current cycle number: 24000000 [15640814 operation(s) executed]
+Current cycle number: 25000000 [16330310 operation(s) executed]
+Current cycle number: 26000000 [17026904 operation(s) executed]
+Current cycle number: 27000000 [17721645 operation(s) executed]
+Current cycle number: 28000000 [18418714 operation(s) executed]
+Current cycle number: 29000000 [19115618 operation(s) executed]
+Current cycle number: 30000000 [19805333 operation(s) executed]
+Current cycle number: 31000000 [20502699 operation(s) executed]
+Current cycle number: 32000000 [21204520 operation(s) executed]
+Current cycle number: 33000000 [21893997 operation(s) executed]
+Current cycle number: 34000000 [22590596 operation(s) executed]
+Current cycle number: 35000000 [23285857 operation(s) executed]
+Current cycle number: 36000000 [23982322 operation(s) executed]
+Current cycle number: 37000000 [24679206 operation(s) executed]
+Current cycle number: 38000000 [25369079 operation(s) executed]
+Current cycle number: 39000000 [26066510 operation(s) executed]
+Current cycle number: 40000000 [26768093 operation(s) executed]
+Current cycle number: 41000000 [27457742 operation(s) executed]
+Current cycle number: 42000000 [28154318 operation(s) executed]
+Current cycle number: 43000000 [28849647 operation(s) executed]
+Current cycle number: 44000000 [29546118 operation(s) executed]
+Current cycle number: 45000000 [30242997 operation(s) executed]
+Current cycle number: 46000000 [30903761 operation(s) executed]
+Current cycle number: 47000000 [31601554 operation(s) executed]
+Current cycle number: 48000000 [32302442 operation(s) executed]
+Current cycle number: 49000000 [32962945 operation(s) executed]
+Current cycle number: 50000000 [33659643 operation(s) executed]
+Current cycle number: 51000000 [34349142 operation(s) executed]
+Current cycle number: 52000000 [35022179 operation(s) executed]
+Current cycle number: 53000000 [35718610 operation(s) executed]
+Current cycle number: 54000000 [36383436 operation(s) executed]
+Current cycle number: 55000000 [37081086 operation(s) executed]
+Current cycle number: 56000000 [37777631 operation(s) executed]
+Current cycle number: 57000000 [38467312 operation(s) executed]
+Current cycle number: 58000000 [39164195 operation(s) executed]
+Current cycle number: 59000000 [39865964 operation(s) executed]
+Current cycle number: 60000000 [40555449 operation(s) executed]
+Current cycle number: 61000000 [41251875 operation(s) executed]
+Current cycle number: 62000000 [41943099 operation(s) executed]
+Current cycle number: 63000000 [42643272 operation(s) executed]
+Current cycle number: 64000000 [43339946 operation(s) executed]
+Current cycle number: 65000000 [44029725 operation(s) executed]
+Current cycle number: 66000000 [44726625 operation(s) executed]
+Current cycle number: 67000000 [45428397 operation(s) executed]
+Current cycle number: 68000000 [46117708 operation(s) executed]
+Current cycle number: 69000000 [46814140 operation(s) executed]
+Current cycle number: 70000000 [47505412 operation(s) executed]
+Current cycle number: 71000000 [48205552 operation(s) executed]
+Current cycle number: 72000000 [48902222 operation(s) executed]
+Current cycle number: 73000000 [49592008 operation(s) executed]
+Current cycle number: 74000000 [50288974 operation(s) executed]
+Current cycle number: 75000000 [50990685 operation(s) executed]
+Current cycle number: 76000000 [51680137 operation(s) executed]
+Current cycle number: 77000000 [52376568 operation(s) executed]
+Current cycle number: 78000000 [53067992 operation(s) executed]
+Current cycle number: 79000000 [53767904 operation(s) executed]
+Current cycle number: 80000000 [54464595 operation(s) executed]
+Current cycle number: 81000000 [55154479 operation(s) executed]
+Current cycle number: 82000000 [55851483 operation(s) executed]
+Current cycle number: 83000000 [56553131 operation(s) executed]
+Current cycle number: 84000000 [57242748 operation(s) executed]
+Current cycle number: 85000000 [57939147 operation(s) executed]
+Current cycle number: 86000000 [58630748 operation(s) executed]
+Current cycle number: 87000000 [59330701 operation(s) executed]
+Current cycle number: 88000000 [60027288 operation(s) executed]
+takes 85765343 cycle to complete 
+takes 59402819 instructions 
+Simulation ended with sys_exit (arg 0) after 88388333 cycles.
+Total execution time: 88388333 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	60293655	87.8%	0.0%	12.2%	(19.0%|57.2%|0.0%|11.9%|0.0%|13.4%)
+  (1,1,1)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,2)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,3)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,4)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,5)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,6)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,7)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 60293655 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 60293656
+  Packet hit rate:         1116275/1482288 (75.3%)
+    Core 0: 1116275/1482288 (75.3%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  4685567/4688022 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4685567/4688022 (99.9%)
+    Core 0, input channel 2 (data):
+      Read hits:  4712225/4804824 (98.1%)
+      Write hits: 499725/622703 (80.3%)
+      Total hits: 5211950/5427527 (96.0%)
+    Core 0, input channel 3 (data):
+      Read hits:  4268032/4325376 (98.7%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4268032/4325376 (98.7%)
+  Instruction hits: 4685567/4688022 (99.9%)
+  L0+L1 inst hits:  60291201/60293656 (100.0%)
+  Data read hits:   8980257/9130200 (98.4%)
+  Data write hits:  499725/622703 (80.3%)
+  Total hits:       14165549/14440925 (98.1%)
+Average IPC: 0.68

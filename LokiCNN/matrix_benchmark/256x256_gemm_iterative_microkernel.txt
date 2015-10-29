@@ -1,0 +1,587 @@
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+the matrices are of sizes: 65536 65536 65536Current cycle number: 1000000 [825668 operation(s) executed]
+Current cycle number: 2000000 [1652715 operation(s) executed]
+Current cycle number: 3000000 [2262221 operation(s) executed]
+Current cycle number: 4000000 [2873964 operation(s) executed]
+Current cycle number: 5000000 [3486057 operation(s) executed]
+Current cycle number: 6000000 [4097773 operation(s) executed]
+Current cycle number: 7000000 [4709995 operation(s) executed]
+Current cycle number: 8000000 [5316571 operation(s) executed]
+Current cycle number: 9000000 [5918640 operation(s) executed]
+Current cycle number: 10000000 [6523905 operation(s) executed]
+Current cycle number: 11000000 [7129320 operation(s) executed]
+Current cycle number: 12000000 [7735311 operation(s) executed]
+Current cycle number: 13000000 [8330775 operation(s) executed]
+Current cycle number: 14000000 [8935963 operation(s) executed]
+Current cycle number: 15000000 [9541720 operation(s) executed]
+Current cycle number: 16000000 [10146226 operation(s) executed]
+Current cycle number: 17000000 [10755037 operation(s) executed]
+Current cycle number: 18000000 [11364315 operation(s) executed]
+Current cycle number: 19000000 [11936260 operation(s) executed]
+Current cycle number: 20000000 [12548198 operation(s) executed]
+Current cycle number: 21000000 [13160040 operation(s) executed]
+Current cycle number: 22000000 [13772131 operation(s) executed]
+Current cycle number: 23000000 [14384157 operation(s) executed]
+Current cycle number: 24000000 [14995911 operation(s) executed]
+Current cycle number: 25000000 [15607945 operation(s) executed]
+Current cycle number: 26000000 [16215713 operation(s) executed]
+Current cycle number: 27000000 [16827939 operation(s) executed]
+Current cycle number: 28000000 [17440131 operation(s) executed]
+Current cycle number: 29000000 [18052249 operation(s) executed]
+Current cycle number: 30000000 [18649129 operation(s) executed]
+Current cycle number: 31000000 [19261207 operation(s) executed]
+Current cycle number: 32000000 [19873330 operation(s) executed]
+Current cycle number: 33000000 [20485359 operation(s) executed]
+Current cycle number: 34000000 [21094783 operation(s) executed]
+Current cycle number: 35000000 [21700535 operation(s) executed]
+Current cycle number: 36000000 [22305869 operation(s) executed]
+Current cycle number: 37000000 [22908283 operation(s) executed]
+Current cycle number: 38000000 [23514024 operation(s) executed]
+Current cycle number: 39000000 [24118258 operation(s) executed]
+Current cycle number: 40000000 [24718239 operation(s) executed]
+Current cycle number: 41000000 [25320491 operation(s) executed]
+Current cycle number: 42000000 [25926091 operation(s) executed]
+Current cycle number: 43000000 [26534114 operation(s) executed]
+Current cycle number: 44000000 [27141222 operation(s) executed]
+Current cycle number: 45000000 [27744143 operation(s) executed]
+Current cycle number: 46000000 [28324148 operation(s) executed]
+Current cycle number: 47000000 [28935721 operation(s) executed]
+Current cycle number: 48000000 [29548028 operation(s) executed]
+Current cycle number: 49000000 [30160053 operation(s) executed]
+Current cycle number: 50000000 [30772146 operation(s) executed]
+Current cycle number: 51000000 [31384040 operation(s) executed]
+Current cycle number: 52000000 [31996081 operation(s) executed]
+Current cycle number: 53000000 [32604124 operation(s) executed]
+Current cycle number: 54000000 [33215798 operation(s) executed]
+Current cycle number: 55000000 [33828074 operation(s) executed]
+Current cycle number: 56000000 [34436800 operation(s) executed]
+Current cycle number: 57000000 [35037012 operation(s) executed]
+Current cycle number: 58000000 [35649327 operation(s) executed]
+Current cycle number: 59000000 [36261311 operation(s) executed]
+Current cycle number: 60000000 [36873389 operation(s) executed]
+Current cycle number: 61000000 [37482992 operation(s) executed]
+Current cycle number: 62000000 [38085415 operation(s) executed]
+Current cycle number: 63000000 [38691084 operation(s) executed]
+Current cycle number: 64000000 [39296392 operation(s) executed]
+Current cycle number: 65000000 [39900179 operation(s) executed]
+Current cycle number: 66000000 [40498440 operation(s) executed]
+Current cycle number: 67000000 [41102835 operation(s) executed]
+Current cycle number: 68000000 [41708624 operation(s) executed]
+Current cycle number: 69000000 [42310913 operation(s) executed]
+Current cycle number: 70000000 [42921077 operation(s) executed]
+Current cycle number: 71000000 [43529568 operation(s) executed]
+Current cycle number: 72000000 [44119814 operation(s) executed]
+Current cycle number: 73000000 [44712238 operation(s) executed]
+Current cycle number: 74000000 [45324266 operation(s) executed]
+Current cycle number: 75000000 [45936243 operation(s) executed]
+Current cycle number: 76000000 [46548313 operation(s) executed]
+Current cycle number: 77000000 [47160030 operation(s) executed]
+Current cycle number: 78000000 [47772238 operation(s) executed]
+Current cycle number: 79000000 [48384096 operation(s) executed]
+Current cycle number: 80000000 [48992245 operation(s) executed]
+Current cycle number: 81000000 [49604283 operation(s) executed]
+Current cycle number: 82000000 [50216445 operation(s) executed]
+Current cycle number: 83000000 [50824862 operation(s) executed]
+Current cycle number: 84000000 [51422953 operation(s) executed]
+Current cycle number: 85000000 [52030659 operation(s) executed]
+Current cycle number: 86000000 [52632290 operation(s) executed]
+Current cycle number: 87000000 [53244756 operation(s) executed]
+Current cycle number: 88000000 [53857266 operation(s) executed]
+Current cycle number: 89000000 [54404789 operation(s) executed]
+Current cycle number: 90000000 [55016293 operation(s) executed]
+Current cycle number: 91000000 [55628273 operation(s) executed]
+Current cycle number: 92000000 [56240016 operation(s) executed]
+Current cycle number: 93000000 [56849096 operation(s) executed]
+Current cycle number: 94000000 [57454023 operation(s) executed]
+Current cycle number: 95000000 [58058458 operation(s) executed]
+Current cycle number: 96000000 [58659954 operation(s) executed]
+Current cycle number: 97000000 [59264943 operation(s) executed]
+Current cycle number: 98000000 [59867935 operation(s) executed]
+Current cycle number: 99000000 [60467348 operation(s) executed]
+Current cycle number: 100000000 [61068548 operation(s) executed]
+Current cycle number: 101000000 [61673638 operation(s) executed]
+Current cycle number: 102000000 [62280778 operation(s) executed]
+Current cycle number: 103000000 [62886963 operation(s) executed]
+Current cycle number: 104000000 [63489369 operation(s) executed]
+Current cycle number: 105000000 [64071956 operation(s) executed]
+Current cycle number: 106000000 [64683029 operation(s) executed]
+Current cycle number: 107000000 [65294508 operation(s) executed]
+Current cycle number: 108000000 [65905536 operation(s) executed]
+Current cycle number: 109000000 [66516547 operation(s) executed]
+Current cycle number: 110000000 [67127544 operation(s) executed]
+Current cycle number: 111000000 [67739319 operation(s) executed]
+Current cycle number: 112000000 [68346465 operation(s) executed]
+Current cycle number: 113000000 [68957426 operation(s) executed]
+Current cycle number: 114000000 [69568615 operation(s) executed]
+Current cycle number: 115000000 [70165074 operation(s) executed]
+Current cycle number: 116000000 [70775544 operation(s) executed]
+Current cycle number: 117000000 [71386941 operation(s) executed]
+Current cycle number: 118000000 [71998203 operation(s) executed]
+Current cycle number: 119000000 [72609179 operation(s) executed]
+Current cycle number: 120000000 [73214843 operation(s) executed]
+Current cycle number: 121000000 [73819978 operation(s) executed]
+Current cycle number: 122000000 [74424796 operation(s) executed]
+Current cycle number: 123000000 [75028518 operation(s) executed]
+Current cycle number: 124000000 [75630652 operation(s) executed]
+Current cycle number: 125000000 [76228366 operation(s) executed]
+Current cycle number: 126000000 [76833409 operation(s) executed]
+Current cycle number: 127000000 [77435028 operation(s) executed]
+Current cycle number: 128000000 [78039565 operation(s) executed]
+Current cycle number: 129000000 [78647805 operation(s) executed]
+Current cycle number: 130000000 [79255683 operation(s) executed]
+Current cycle number: 131000000 [79841686 operation(s) executed]
+Current cycle number: 132000000 [80441521 operation(s) executed]
+Current cycle number: 133000000 [81052384 operation(s) executed]
+Current cycle number: 134000000 [81663712 operation(s) executed]
+Current cycle number: 135000000 [82274630 operation(s) executed]
+Current cycle number: 136000000 [82885790 operation(s) executed]
+Current cycle number: 137000000 [83496932 operation(s) executed]
+Current cycle number: 138000000 [84106562 operation(s) executed]
+Current cycle number: 139000000 [84715273 operation(s) executed]
+Current cycle number: 140000000 [85326564 operation(s) executed]
+Current cycle number: 141000000 [85937982 operation(s) executed]
+Current cycle number: 142000000 [86533633 operation(s) executed]
+Current cycle number: 143000000 [87144883 operation(s) executed]
+Current cycle number: 144000000 [87756134 operation(s) executed]
+Current cycle number: 145000000 [88367246 operation(s) executed]
+Current cycle number: 146000000 [88978650 operation(s) executed]
+Current cycle number: 147000000 [89581603 operation(s) executed]
+Current cycle number: 148000000 [90186002 operation(s) executed]
+Current cycle number: 149000000 [90790385 operation(s) executed]
+Current cycle number: 150000000 [91395027 operation(s) executed]
+Current cycle number: 151000000 [91996808 operation(s) executed]
+Current cycle number: 152000000 [92594690 operation(s) executed]
+Current cycle number: 153000000 [93199459 operation(s) executed]
+Current cycle number: 154000000 [93802334 operation(s) executed]
+Current cycle number: 155000000 [94407844 operation(s) executed]
+Current cycle number: 156000000 [95014946 operation(s) executed]
+Current cycle number: 157000000 [95622162 operation(s) executed]
+Current cycle number: 158000000 [96199489 operation(s) executed]
+Current cycle number: 159000000 [96810429 operation(s) executed]
+Current cycle number: 160000000 [97421509 operation(s) executed]
+Current cycle number: 161000000 [98033100 operation(s) executed]
+Current cycle number: 162000000 [98644066 operation(s) executed]
+Current cycle number: 163000000 [99255140 operation(s) executed]
+Current cycle number: 164000000 [99866152 operation(s) executed]
+Current cycle number: 165000000 [100473565 operation(s) executed]
+Current cycle number: 166000000 [101084823 operation(s) executed]
+Current cycle number: 167000000 [101695913 operation(s) executed]
+Current cycle number: 168000000 [102307172 operation(s) executed]
+Current cycle number: 169000000 [102913568 operation(s) executed]
+Current cycle number: 170000000 [103509843 operation(s) executed]
+Current cycle number: 171000000 [104117134 operation(s) executed]
+Current cycle number: 172000000 [104720620 operation(s) executed]
+Current cycle number: 173000000 [105332108 operation(s) executed]
+Current cycle number: 174000000 [105880399 operation(s) executed]
+Current cycle number: 175000000 [106491125 operation(s) executed]
+Current cycle number: 176000000 [107102363 operation(s) executed]
+Current cycle number: 177000000 [107713582 operation(s) executed]
+Current cycle number: 178000000 [108324461 operation(s) executed]
+Current cycle number: 179000000 [108930581 operation(s) executed]
+Current cycle number: 180000000 [109535169 operation(s) executed]
+Current cycle number: 181000000 [110136552 operation(s) executed]
+Current cycle number: 182000000 [110741119 operation(s) executed]
+Current cycle number: 183000000 [111345840 operation(s) executed]
+Current cycle number: 184000000 [111943625 operation(s) executed]
+Current cycle number: 185000000 [112545322 operation(s) executed]
+Current cycle number: 186000000 [113150261 operation(s) executed]
+Current cycle number: 187000000 [113754814 operation(s) executed]
+Current cycle number: 188000000 [114361729 operation(s) executed]
+Current cycle number: 189000000 [114970611 operation(s) executed]
+Current cycle number: 190000000 [115546265 operation(s) executed]
+Current cycle number: 191000000 [116156568 operation(s) executed]
+Current cycle number: 192000000 [116767644 operation(s) executed]
+Current cycle number: 193000000 [117378779 operation(s) executed]
+Current cycle number: 194000000 [117990321 operation(s) executed]
+Current cycle number: 195000000 [118601063 operation(s) executed]
+Current cycle number: 196000000 [119212462 operation(s) executed]
+Current cycle number: 197000000 [119819733 operation(s) executed]
+Current cycle number: 198000000 [120430683 operation(s) executed]
+Current cycle number: 199000000 [121042136 operation(s) executed]
+Current cycle number: 200000000 [121653158 operation(s) executed]
+Current cycle number: 201000000 [122248977 operation(s) executed]
+Current cycle number: 202000000 [122860043 operation(s) executed]
+Current cycle number: 203000000 [123471340 operation(s) executed]
+Current cycle number: 204000000 [124082814 operation(s) executed]
+Current cycle number: 205000000 [124691373 operation(s) executed]
+Current cycle number: 206000000 [125296281 operation(s) executed]
+Current cycle number: 207000000 [125900743 operation(s) executed]
+Current cycle number: 208000000 [126502273 operation(s) executed]
+Current cycle number: 209000000 [127107241 operation(s) executed]
+Current cycle number: 210000000 [127710408 operation(s) executed]
+Current cycle number: 211000000 [128309934 operation(s) executed]
+Current cycle number: 212000000 [128911421 operation(s) executed]
+Current cycle number: 213000000 [129516186 operation(s) executed]
+Current cycle number: 214000000 [130123224 operation(s) executed]
+Current cycle number: 215000000 [130729471 operation(s) executed]
+Current cycle number: 216000000 [131332277 operation(s) executed]
+Current cycle number: 217000000 [131914636 operation(s) executed]
+Current cycle number: 218000000 [132525605 operation(s) executed]
+Current cycle number: 219000000 [133137126 operation(s) executed]
+Current cycle number: 220000000 [133748201 operation(s) executed]
+Current cycle number: 221000000 [134359233 operation(s) executed]
+Current cycle number: 222000000 [134970065 operation(s) executed]
+Current cycle number: 223000000 [135581655 operation(s) executed]
+Current cycle number: 224000000 [136189017 operation(s) executed]
+Current cycle number: 225000000 [136799847 operation(s) executed]
+Current cycle number: 226000000 [137411168 operation(s) executed]
+Current cycle number: 227000000 [138007388 operation(s) executed]
+Current cycle number: 228000000 [138617949 operation(s) executed]
+Current cycle number: 229000000 [139229538 operation(s) executed]
+Current cycle number: 230000000 [139840683 operation(s) executed]
+Current cycle number: 231000000 [140451823 operation(s) executed]
+Current cycle number: 232000000 [141057468 operation(s) executed]
+Current cycle number: 233000000 [141662429 operation(s) executed]
+Current cycle number: 234000000 [142267277 operation(s) executed]
+Current cycle number: 235000000 [142871432 operation(s) executed]
+Current cycle number: 236000000 [143473111 operation(s) executed]
+Current cycle number: 237000000 [144070948 operation(s) executed]
+Current cycle number: 238000000 [144675829 operation(s) executed]
+Current cycle number: 239000000 [145277615 operation(s) executed]
+Current cycle number: 240000000 [145882179 operation(s) executed]
+Current cycle number: 241000000 [146490363 operation(s) executed]
+Current cycle number: 242000000 [147098377 operation(s) executed]
+Current cycle number: 243000000 [147684891 operation(s) executed]
+Current cycle number: 244000000 [148284123 operation(s) executed]
+Current cycle number: 245000000 [148894952 operation(s) executed]
+Current cycle number: 246000000 [149506308 operation(s) executed]
+Current cycle number: 247000000 [150117234 operation(s) executed]
+Current cycle number: 248000000 [150728244 operation(s) executed]
+Current cycle number: 249000000 [151339592 operation(s) executed]
+Current cycle number: 250000000 [151949069 operation(s) executed]
+Current cycle number: 251000000 [152557910 operation(s) executed]
+Current cycle number: 252000000 [153169023 operation(s) executed]
+Current cycle number: 253000000 [153780569 operation(s) executed]
+Current cycle number: 254000000 [154387556 operation(s) executed]
+Current cycle number: 255000000 [154984021 operation(s) executed]
+Current cycle number: 256000000 [155591776 operation(s) executed]
+Current cycle number: 257000000 [156193692 operation(s) executed]
+Current cycle number: 258000000 [156805675 operation(s) executed]
+Current cycle number: 259000000 [157389599 operation(s) executed]
+Current cycle number: 260000000 [157964773 operation(s) executed]
+Current cycle number: 261000000 [158576093 operation(s) executed]
+Current cycle number: 262000000 [159187660 operation(s) executed]
+Current cycle number: 263000000 [159798657 operation(s) executed]
+Current cycle number: 264000000 [160407493 operation(s) executed]
+Current cycle number: 265000000 [161012155 operation(s) executed]
+Current cycle number: 266000000 [161613976 operation(s) executed]
+Current cycle number: 267000000 [162218515 operation(s) executed]
+Current cycle number: 268000000 [162823158 operation(s) executed]
+Current cycle number: 269000000 [163420128 operation(s) executed]
+Current cycle number: 270000000 [164022146 operation(s) executed]
+Current cycle number: 271000000 [164627343 operation(s) executed]
+Current cycle number: 272000000 [165232149 operation(s) executed]
+Current cycle number: 273000000 [165838287 operation(s) executed]
+Current cycle number: 274000000 [166445365 operation(s) executed]
+Current cycle number: 275000000 [167041913 operation(s) executed]
+Current cycle number: 276000000 [167630434 operation(s) executed]
+Current cycle number: 277000000 [168241805 operation(s) executed]
+Current cycle number: 278000000 [168853089 operation(s) executed]
+Current cycle number: 279000000 [169464372 operation(s) executed]
+Current cycle number: 280000000 [170075362 operation(s) executed]
+Current cycle number: 281000000 [170687170 operation(s) executed]
+Current cycle number: 282000000 [171298626 operation(s) executed]
+Current cycle number: 283000000 [171905489 operation(s) executed]
+Current cycle number: 284000000 [172516722 operation(s) executed]
+Current cycle number: 285000000 [173127802 operation(s) executed]
+Current cycle number: 286000000 [173723757 operation(s) executed]
+Current cycle number: 287000000 [174334732 operation(s) executed]
+Current cycle number: 288000000 [174945873 operation(s) executed]
+Current cycle number: 289000000 [175557190 operation(s) executed]
+Current cycle number: 290000000 [176168047 operation(s) executed]
+Current cycle number: 291000000 [176774071 operation(s) executed]
+Current cycle number: 292000000 [177378815 operation(s) executed]
+Current cycle number: 293000000 [177980255 operation(s) executed]
+Current cycle number: 294000000 [178584833 operation(s) executed]
+Current cycle number: 295000000 [179189525 operation(s) executed]
+Current cycle number: 296000000 [179787459 operation(s) executed]
+Current cycle number: 297000000 [180388916 operation(s) executed]
+Current cycle number: 298000000 [180993884 operation(s) executed]
+Current cycle number: 299000000 [181598426 operation(s) executed]
+Current cycle number: 300000000 [182205606 operation(s) executed]
+Current cycle number: 301000000 [182814177 operation(s) executed]
+Current cycle number: 302000000 [183390797 operation(s) executed]
+Current cycle number: 303000000 [184000327 operation(s) executed]
+Current cycle number: 304000000 [184611456 operation(s) executed]
+Current cycle number: 305000000 [185222617 operation(s) executed]
+Current cycle number: 306000000 [185833919 operation(s) executed]
+Current cycle number: 307000000 [186444829 operation(s) executed]
+Current cycle number: 308000000 [187056222 operation(s) executed]
+Current cycle number: 309000000 [187663691 operation(s) executed]
+Current cycle number: 310000000 [188274332 operation(s) executed]
+Current cycle number: 311000000 [188885857 operation(s) executed]
+Current cycle number: 312000000 [189496929 operation(s) executed]
+Current cycle number: 313000000 [190092461 operation(s) executed]
+Current cycle number: 314000000 [190703644 operation(s) executed]
+Current cycle number: 315000000 [191314790 operation(s) executed]
+Current cycle number: 316000000 [191926325 operation(s) executed]
+Current cycle number: 317000000 [192535034 operation(s) executed]
+Current cycle number: 318000000 [193140082 operation(s) executed]
+Current cycle number: 319000000 [193744723 operation(s) executed]
+Current cycle number: 320000000 [194346558 operation(s) executed]
+Current cycle number: 321000000 [194950798 operation(s) executed]
+Current cycle number: 322000000 [195554283 operation(s) executed]
+Current cycle number: 323000000 [196153490 operation(s) executed]
+Current cycle number: 324000000 [196754902 operation(s) executed]
+Current cycle number: 325000000 [197359464 operation(s) executed]
+Current cycle number: 326000000 [197966757 operation(s) executed]
+Current cycle number: 327000000 [198573041 operation(s) executed]
+Current cycle number: 328000000 [199176340 operation(s) executed]
+Current cycle number: 329000000 [199758229 operation(s) executed]
+Current cycle number: 330000000 [200369071 operation(s) executed]
+Current cycle number: 331000000 [200980610 operation(s) executed]
+Current cycle number: 332000000 [201591838 operation(s) executed]
+Current cycle number: 333000000 [202202752 operation(s) executed]
+Current cycle number: 334000000 [202813750 operation(s) executed]
+Current cycle number: 335000000 [203425201 operation(s) executed]
+Current cycle number: 336000000 [204032682 operation(s) executed]
+Current cycle number: 337000000 [204643538 operation(s) executed]
+Current cycle number: 338000000 [205254706 operation(s) executed]
+Current cycle number: 339000000 [205862418 operation(s) executed]
+Current cycle number: 340000000 [206466215 operation(s) executed]
+Current cycle number: 341000000 [207066660 operation(s) executed]
+Current cycle number: 342000000 [207675264 operation(s) executed]
+Current cycle number: 343000000 [208279314 operation(s) executed]
+Current cycle number: 344000000 [208890877 operation(s) executed]
+Current cycle number: 345000000 [209439057 operation(s) executed]
+Current cycle number: 346000000 [210049866 operation(s) executed]
+Current cycle number: 347000000 [210661220 operation(s) executed]
+Current cycle number: 348000000 [211272358 operation(s) executed]
+Current cycle number: 349000000 [211883678 operation(s) executed]
+Current cycle number: 350000000 [212488131 operation(s) executed]
+Current cycle number: 351000000 [213090917 operation(s) executed]
+Current cycle number: 352000000 [213695250 operation(s) executed]
+Current cycle number: 353000000 [214299985 operation(s) executed]
+Current cycle number: 354000000 [214901787 operation(s) executed]
+Current cycle number: 355000000 [215499659 operation(s) executed]
+Current cycle number: 356000000 [216104389 operation(s) executed]
+Current cycle number: 357000000 [216708659 operation(s) executed]
+Current cycle number: 358000000 [217312771 operation(s) executed]
+Current cycle number: 359000000 [217920018 operation(s) executed]
+Current cycle number: 360000000 [218527688 operation(s) executed]
+Current cycle number: 361000000 [219104551 operation(s) executed]
+Current cycle number: 362000000 [219715731 operation(s) executed]
+Current cycle number: 363000000 [220326817 operation(s) executed]
+Current cycle number: 364000000 [220938394 operation(s) executed]
+Current cycle number: 365000000 [221549421 operation(s) executed]
+Current cycle number: 366000000 [222160555 operation(s) executed]
+Current cycle number: 367000000 [222771681 operation(s) executed]
+Current cycle number: 368000000 [223378958 operation(s) executed]
+Current cycle number: 369000000 [223990263 operation(s) executed]
+Current cycle number: 370000000 [224601318 operation(s) executed]
+Current cycle number: 371000000 [225212608 operation(s) executed]
+Current cycle number: 372000000 [225808247 operation(s) executed]
+Current cycle number: 373000000 [226419492 operation(s) executed]
+Current cycle number: 374000000 [227030989 operation(s) executed]
+Current cycle number: 375000000 [227642145 operation(s) executed]
+Current cycle number: 376000000 [228250801 operation(s) executed]
+Current cycle number: 377000000 [228855558 operation(s) executed]
+Current cycle number: 378000000 [229457300 operation(s) executed]
+Current cycle number: 379000000 [230061869 operation(s) executed]
+Current cycle number: 380000000 [230666572 operation(s) executed]
+Current cycle number: 381000000 [231264159 operation(s) executed]
+Current cycle number: 382000000 [231865687 operation(s) executed]
+Current cycle number: 383000000 [232470915 operation(s) executed]
+Current cycle number: 384000000 [233075734 operation(s) executed]
+Current cycle number: 385000000 [233681911 operation(s) executed]
+Current cycle number: 386000000 [234288898 operation(s) executed]
+Current cycle number: 387000000 [234886283 operation(s) executed]
+Current cycle number: 388000000 [235474074 operation(s) executed]
+Current cycle number: 389000000 [236085231 operation(s) executed]
+Current cycle number: 390000000 [236696474 operation(s) executed]
+Current cycle number: 391000000 [237307613 operation(s) executed]
+Current cycle number: 392000000 [237918373 operation(s) executed]
+Current cycle number: 393000000 [238529950 operation(s) executed]
+Current cycle number: 394000000 [239141279 operation(s) executed]
+Current cycle number: 395000000 [239748284 operation(s) executed]
+Current cycle number: 396000000 [240359363 operation(s) executed]
+Current cycle number: 397000000 [240970533 operation(s) executed]
+Current cycle number: 398000000 [241566972 operation(s) executed]
+Current cycle number: 399000000 [242177884 operation(s) executed]
+Current cycle number: 400000000 [242789054 operation(s) executed]
+Current cycle number: 401000000 [243400279 operation(s) executed]
+Current cycle number: 402000000 [244011270 operation(s) executed]
+Current cycle number: 403000000 [244617250 operation(s) executed]
+Current cycle number: 404000000 [245221938 operation(s) executed]
+Current cycle number: 405000000 [245823486 operation(s) executed]
+Current cycle number: 406000000 [246427936 operation(s) executed]
+Current cycle number: 407000000 [247032615 operation(s) executed]
+Current cycle number: 408000000 [247630869 operation(s) executed]
+Current cycle number: 409000000 [248232466 operation(s) executed]
+Current cycle number: 410000000 [248837079 operation(s) executed]
+Current cycle number: 411000000 [249441651 operation(s) executed]
+Current cycle number: 412000000 [250048867 operation(s) executed]
+Current cycle number: 413000000 [250657380 operation(s) executed]
+Current cycle number: 414000000 [251234546 operation(s) executed]
+Current cycle number: 415000000 [251843526 operation(s) executed]
+Current cycle number: 416000000 [252454563 operation(s) executed]
+Current cycle number: 417000000 [253065793 operation(s) executed]
+Current cycle number: 418000000 [253677070 operation(s) executed]
+Current cycle number: 419000000 [254287913 operation(s) executed]
+Current cycle number: 420000000 [254899450 operation(s) executed]
+Current cycle number: 421000000 [255506828 operation(s) executed]
+Current cycle number: 422000000 [256117482 operation(s) executed]
+Current cycle number: 423000000 [256728979 operation(s) executed]
+Current cycle number: 424000000 [257340228 operation(s) executed]
+Current cycle number: 425000000 [257947087 operation(s) executed]
+Current cycle number: 426000000 [258543443 operation(s) executed]
+Current cycle number: 427000000 [259151256 operation(s) executed]
+Current cycle number: 428000000 [259753559 operation(s) executed]
+Current cycle number: 429000000 [260364981 operation(s) executed]
+Current cycle number: 430000000 [260953064 operation(s) executed]
+Current cycle number: 431000000 [261510911 operation(s) executed]
+Current cycle number: 432000000 [262067887 operation(s) executed]
+Current cycle number: 433000000 [262624743 operation(s) executed]
+Current cycle number: 434000000 [263181935 operation(s) executed]
+Current cycle number: 435000000 [263737427 operation(s) executed]
+Current cycle number: 436000000 [264294475 operation(s) executed]
+Current cycle number: 437000000 [264850867 operation(s) executed]
+Current cycle number: 438000000 [265407882 operation(s) executed]
+Current cycle number: 439000000 [265963314 operation(s) executed]
+Current cycle number: 440000000 [266520030 operation(s) executed]
+Current cycle number: 441000000 [267076980 operation(s) executed]
+Current cycle number: 442000000 [267633751 operation(s) executed]
+Current cycle number: 443000000 [268190543 operation(s) executed]
+Current cycle number: 444000000 [268747621 operation(s) executed]
+takes 442230381 cycle to complete 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+value is 256 
+Simulation ended with sys_exit (arg 0) after 444582080 cycles.
+Total execution time: 444582080 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	269067194	68.5%	0.0%	31.5%	(7.2%|80.6%|0.0%|12.6%|0.0%|0.1%)
+  (1,1,1)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,2)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,3)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,4)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,5)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,6)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+  (1,1,7)	0	100.0%	0.0%	0.0%	(0.0%|0.0%|0.0%|0.0%|0.0%|0.0%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 269067194 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 0 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 269067195
+  Packet hit rate:         16795521/18600757 (90.3%)
+    Core 0: 16795521/18600757 (90.3%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  15592609/15631453 (99.8%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 15592609/15631453 (99.8%)
+    Core 0, input channel 2 (data):
+      Read hits:  35239836/35520209 (99.2%)
+      Write hits: 1870532/1928043 (97.0%)
+      Total hits: 37110368/37448252 (99.1%)
+  Instruction hits: 15592609/15631453 (99.8%)
+  L0+L1 inst hits:  269028351/269067195 (100.0%)
+  Data read hits:   35239836/35520209 (99.2%)
+  Data write hits:  1870532/1928043 (97.0%)
+  Total hits:       52702977/53079705 (99.3%)
+Average IPC: 0.61

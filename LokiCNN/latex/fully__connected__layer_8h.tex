@@ -1,0 +1,112 @@
+\hypertarget{fully__connected__layer_8h}{}\section{src/fully\+\_\+connected\+\_\+layer.h File Reference}
+\label{fully__connected__layer_8h}\index{src/fully\+\_\+connected\+\_\+layer.\+h@{src/fully\+\_\+connected\+\_\+layer.\+h}}
+
+
+FC layer.  
+
+
+{\ttfamily \#include \char`\"{}layer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math\+\_\+functions.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structLayer}{Layer} \hyperlink{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}{fc\+\_\+layer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fully__connected__layer_8h_aed008ae3fe5189b555fc57a0b2fe5207}{fc\+\_\+forward} (const \hyperlink{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}{fc\+\_\+layer\+\_\+t} $\ast$l, const \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_ab943d53559ea6283e896bd8bf603b626}{in}, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_abc600ae3097d3509f83258671cf3701e}{out}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, const int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\begin{DoxyCompactList}\small\item\em FC layer forward routine. \end{DoxyCompactList}\item 
+\hyperlink{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}{fc\+\_\+layer\+\_\+t} $\ast$ \hyperlink{fully__connected__layer_8h_a1fb2ac479851f37159b6bb76f77b3eb1}{make\+\_\+fc\+\_\+layer} (int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int out\+\_\+depth)
+\begin{DoxyCompactList}\small\item\em constructor of fully connected layer \end{DoxyCompactList}\item 
+void \hyperlink{fully__connected__layer_8h_a4dbba49846ec688f51a7db35d3694a84}{fc\+\_\+load} (\hyperlink{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}{fc\+\_\+layer\+\_\+t} $\ast$l, const int $\ast$params, const \hyperlink{setting_8h_ac7889bf9b3596f63c57011af217212dd}{weight\+\_\+t} $\ast$weights)
+\begin{DoxyCompactList}\small\item\em default fully connected layer weight loader \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+FC layer. 
+
+
+
+\subsection{Typedef Documentation}
+\index{fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}!fc\+\_\+layer\+\_\+t@{fc\+\_\+layer\+\_\+t}}
+\index{fc\+\_\+layer\+\_\+t@{fc\+\_\+layer\+\_\+t}!fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}}
+\subsubsection[{fc\+\_\+layer\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Layer} {\bf fc\+\_\+layer\+\_\+t}}\hypertarget{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}{}\label{fully__connected__layer_8h_acda77f28c85b289bb787d3c78e0c51aa}
+
+
+\subsection{Function Documentation}
+\index{fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}!fc\+\_\+forward@{fc\+\_\+forward}}
+\index{fc\+\_\+forward@{fc\+\_\+forward}!fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}}
+\subsubsection[{fc\+\_\+forward(const fc\+\_\+layer\+\_\+t $\ast$l, const vol\+\_\+t $\ast$$\ast$in, vol\+\_\+t $\ast$$\ast$out, const int start, const int end)}]{\setlength{\rightskip}{0pt plus 5cm}void fc\+\_\+forward (
+\begin{DoxyParamCaption}
+\item[{const {\bf fc\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{const {\bf vol\+\_\+t} $\ast$$\ast$}]{in, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{out, }
+\item[{const int}]{start, }
+\item[{const int}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{fully__connected__layer_8h_aed008ae3fe5189b555fc57a0b2fe5207}{}\label{fully__connected__layer_8h_aed008ae3fe5189b555fc57a0b2fe5207}
+
+
+FC layer forward routine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & the FC layer pointer \\
+\hline
+{\em in} & the input images \\
+\hline
+{\em out} & the ouput images \\
+\hline
+{\em start} & the index in the input batch from which to perform forwarding \\
+\hline
+{\em end} & the index in the input batch from which to stop perform forwarding\\
+\hline
+\end{DoxyParams}
+It is not difficult to see that FC layer is by nature matrix-\/vector multiplication, hence calling gemv is default \index{fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}!fc\+\_\+load@{fc\+\_\+load}}
+\index{fc\+\_\+load@{fc\+\_\+load}!fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}}
+\subsubsection[{fc\+\_\+load(fc\+\_\+layer\+\_\+t $\ast$l, const int $\ast$params, const weight\+\_\+t $\ast$weights)}]{\setlength{\rightskip}{0pt plus 5cm}void fc\+\_\+load (
+\begin{DoxyParamCaption}
+\item[{{\bf fc\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{const int $\ast$}]{params, }
+\item[{const {\bf weight\+\_\+t} $\ast$}]{weights}
+\end{DoxyParamCaption}
+)}\hypertarget{fully__connected__layer_8h_a4dbba49846ec688f51a7db35d3694a84}{}\label{fully__connected__layer_8h_a4dbba49846ec688f51a7db35d3694a84}
+
+
+default fully connected layer weight loader 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & pointer to the FC layer \\
+\hline
+{\em params} & specifiers of FC layer parameters, used to track whether the weight file matches the layer\textquotesingle{}s requirement \\
+\hline
+{\em weights} & pointer to the starting point of weight array\\
+\hline
+\end{DoxyParams}
+this is just one way of loading values, one can easily define its own loader according to specific needs for loading from weights trained by caffe, this is an easy approach \index{fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}!make\+\_\+fc\+\_\+layer@{make\+\_\+fc\+\_\+layer}}
+\index{make\+\_\+fc\+\_\+layer@{make\+\_\+fc\+\_\+layer}!fully\+\_\+connected\+\_\+layer.\+h@{fully\+\_\+connected\+\_\+layer.\+h}}
+\subsubsection[{make\+\_\+fc\+\_\+layer(int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int out\+\_\+depth)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fc\+\_\+layer\+\_\+t}$\ast$ make\+\_\+fc\+\_\+layer (
+\begin{DoxyParamCaption}
+\item[{int}]{in\+\_\+sx, }
+\item[{int}]{in\+\_\+sy, }
+\item[{int}]{in\+\_\+depth, }
+\item[{int}]{out\+\_\+depth}
+\end{DoxyParamCaption}
+)}\hypertarget{fully__connected__layer_8h_a1fb2ac479851f37159b6bb76f77b3eb1}{}\label{fully__connected__layer_8h_a1fb2ac479851f37159b6bb76f77b3eb1}
+
+
+constructor of fully connected layer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+sx} & the width of input image \\
+\hline
+{\em in\+\_\+sy} & the height of input image \\
+\hline
+{\em in\+\_\+depth} & the channel number of input image \\
+\hline
+{\em out\+\_\+depth} & the number of outputs \\
+\hline
+\end{DoxyParams}

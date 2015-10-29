@@ -1,0 +1,186 @@
+\hypertarget{math__functions_8h}{}\section{src/math\+\_\+functions.h File Reference}
+\label{math__functions_8h}\index{src/math\+\_\+functions.\+h@{src/math\+\_\+functions.\+h}}
+
+
+various math functions including gemm, gemv, etc  
+
+
+{\ttfamily \#include \char`\"{}setting.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$cblas.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}im2col.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_abfd037900f3e840a08868f67853cc9e4}{multiply} (\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d1, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d2)
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_af549ce8a01cd5914f53d488509949c90}{add} (\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d1, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d2)
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_aa8ac5e1c9e250bc130e47b6455b48096}{divide} (\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d1, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} d2)
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_a3e0fd832dabc381b1729ce95b9cff7c7}{exp\+\_\+t} (\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} input)
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_a0696aeac98a643392c2fb72fd2f549e4}{read\+Double} (double input)
+\item 
+\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} \hyperlink{math__functions_8h_a51eac2b2d594134f1e1db40984e27fe9}{add\+\_\+multiply} (\hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} s1, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} m1, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} m2)
+\item 
+void \hyperlink{math__functions_8h_ad1fff41d98845e0b64b010454ccf2629}{assign\+\_\+bias} (const int layer, const int layer\+\_\+size, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} $\ast$biases, \hyperlink{setting_8h_a3529be440b2ef96493a3e8c22fcfcecc}{storage\+\_\+t} $\ast$outputs)
+\begin{DoxyCompactList}\small\item\em initialize output with the given biases \end{DoxyCompactList}\item 
+void \hyperlink{math__functions_8h_a35dd27072f34f8da263297a72c5d5519}{cblas\+\_\+gemm} (int \hyperlink{gemv__test_8c_a9edc6895d567e0ddcdd3cc20df3f3b4b}{M}, int \hyperlink{gemv__test_8c_ab2b6b0c222cd1ce70d6a831f57241e59}{N}, int \hyperlink{gemv__test_8c_a7b63ccc35ac484b9f41e37ccd0cb31bd}{K}, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$A, int inc\+RowA, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$B, int inc\+RowB, \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$C, int inc\+RowC)
+\begin{DoxyCompactList}\small\item\em matrix multiplication routine, performs C += A$\ast$B \end{DoxyCompactList}\item 
+void \hyperlink{math__functions_8h_adbaefd101b5cc906e70f8c548120b833}{cblas\+\_\+gemv} (int \hyperlink{gemv__test_8c_a9edc6895d567e0ddcdd3cc20df3f3b4b}{M}, int \hyperlink{gemv__test_8c_a7b63ccc35ac484b9f41e37ccd0cb31bd}{K}, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$A, int inc\+RowA, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$B, \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$C)
+\begin{DoxyCompactList}\small\item\em matrix-\/vector multiplication routine, performs C += A$\ast$b \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+various math functions including gemm, gemv, etc 
+
+
+
+\subsection{Function Documentation}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!add@{add}}
+\index{add@{add}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{add(storage\+\_\+t d1, storage\+\_\+t d2)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} add (
+\begin{DoxyParamCaption}
+\item[{{\bf storage\+\_\+t}}]{d1, }
+\item[{{\bf storage\+\_\+t}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_af549ce8a01cd5914f53d488509949c90}{}\label{math__functions_8h_af549ce8a01cd5914f53d488509949c90}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!add\+\_\+multiply@{add\+\_\+multiply}}
+\index{add\+\_\+multiply@{add\+\_\+multiply}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{add\+\_\+multiply(storage\+\_\+t s1, storage\+\_\+t m1, storage\+\_\+t m2)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} add\+\_\+multiply (
+\begin{DoxyParamCaption}
+\item[{{\bf storage\+\_\+t}}]{s1, }
+\item[{{\bf storage\+\_\+t}}]{m1, }
+\item[{{\bf storage\+\_\+t}}]{m2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_a51eac2b2d594134f1e1db40984e27fe9}{}\label{math__functions_8h_a51eac2b2d594134f1e1db40984e27fe9}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!assign\+\_\+bias@{assign\+\_\+bias}}
+\index{assign\+\_\+bias@{assign\+\_\+bias}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{assign\+\_\+bias(const int layer, const int layer\+\_\+size, storage\+\_\+t $\ast$biases, storage\+\_\+t $\ast$outputs)}]{\setlength{\rightskip}{0pt plus 5cm}void assign\+\_\+bias (
+\begin{DoxyParamCaption}
+\item[{const int}]{layer, }
+\item[{const int}]{layer\+\_\+size, }
+\item[{{\bf storage\+\_\+t} $\ast$}]{biases, }
+\item[{{\bf storage\+\_\+t} $\ast$}]{outputs}
+\end{DoxyParamCaption}
+)}\hypertarget{math__functions_8h_ad1fff41d98845e0b64b010454ccf2629}{}\label{math__functions_8h_ad1fff41d98845e0b64b010454ccf2629}
+
+
+initialize output with the given biases 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & the number of biases, and the number of layers in outputs \\
+\hline
+{\em layer\+\_\+size} & the size of output should be layer$\ast$layer\+\_\+size \\
+\hline
+{\em biases} & an array of size layer, the first layer\+\_\+size pixels of output will be assigned the first term of biases, and so on \\
+\hline
+{\em outputs} & an flat array corresponding to the output image \\
+\hline
+\end{DoxyParams}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!cblas\+\_\+gemm@{cblas\+\_\+gemm}}
+\index{cblas\+\_\+gemm@{cblas\+\_\+gemm}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{cblas\+\_\+gemm(int M, int N, int K, const Dtype $\ast$\+A, int inc\+Row\+A, const Dtype $\ast$\+B, int inc\+Row\+B, Dtype $\ast$\+C, int inc\+Row\+C)}]{\setlength{\rightskip}{0pt plus 5cm}void cblas\+\_\+gemm (
+\begin{DoxyParamCaption}
+\item[{int}]{M, }
+\item[{int}]{N, }
+\item[{int}]{K, }
+\item[{const {\bf Dtype} $\ast$}]{A, }
+\item[{int}]{inc\+RowA, }
+\item[{const {\bf Dtype} $\ast$}]{B, }
+\item[{int}]{inc\+RowB, }
+\item[{{\bf Dtype} $\ast$}]{C, }
+\item[{int}]{inc\+RowC}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_a35dd27072f34f8da263297a72c5d5519}{}\label{math__functions_8h_a35dd27072f34f8da263297a72c5d5519}
+
+
+matrix multiplication routine, performs C += A$\ast$B 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & height of A and C \\
+\hline
+{\em N} & width of B and C \\
+\hline
+{\em K} & width of A, height of B \\
+\hline
+{\em A} & input matrix A \\
+\hline
+{\em inc\+RowA} & specifies how to find the next row, this add flexbility to get to the next row, i.\+e. after taking K entries, there can be a gap between the next row \\
+\hline
+{\em B} & input matrix B \\
+\hline
+{\em inc\+RowB} & specifies how to find the next row in B \\
+\hline
+{\em C} & output matrix C \\
+\hline
+{\em inc\+RowC} & specifies how to find the next row in C\\
+\hline
+\end{DoxyParams}
+note that for our purpose, inc\+RowA, inc\+RowB, inc\+RowC may be redundant in cblas, there are also inc\+ColA, inc\+ColB, inc\+ColC, performance in Loki increases a little when eliminating some unnecessary variables \index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!cblas\+\_\+gemv@{cblas\+\_\+gemv}}
+\index{cblas\+\_\+gemv@{cblas\+\_\+gemv}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{cblas\+\_\+gemv(int M, int K, const Dtype $\ast$\+A, int inc\+Row\+A, const Dtype $\ast$\+B, Dtype $\ast$\+C)}]{\setlength{\rightskip}{0pt plus 5cm}void cblas\+\_\+gemv (
+\begin{DoxyParamCaption}
+\item[{int}]{M, }
+\item[{int}]{K, }
+\item[{const {\bf Dtype} $\ast$}]{A, }
+\item[{int}]{inc\+RowA, }
+\item[{const {\bf Dtype} $\ast$}]{B, }
+\item[{{\bf Dtype} $\ast$}]{C}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_adbaefd101b5cc906e70f8c548120b833}{}\label{math__functions_8h_adbaefd101b5cc906e70f8c548120b833}
+
+
+matrix-\/vector multiplication routine, performs C += A$\ast$b 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & height of A and C \\
+\hline
+{\em K} & width of A, height of B \\
+\hline
+{\em A} & input matrix A \\
+\hline
+{\em inc\+RowA} & specifies how to find the next row, this add flexbility to get to the next row, i.\+e. after taking K entries, there can be a gap between the next row \\
+\hline
+{\em B} & input vector B \\
+\hline
+{\em inc\+RowB} & specifies how to find the next row in B \\
+\hline
+{\em C} & output matrix C \\
+\hline
+{\em inc\+RowC} & specifies how to find the next row in C \\
+\hline
+\end{DoxyParams}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!divide@{divide}}
+\index{divide@{divide}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{divide(storage\+\_\+t d1, storage\+\_\+t d2)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} divide (
+\begin{DoxyParamCaption}
+\item[{{\bf storage\+\_\+t}}]{d1, }
+\item[{{\bf storage\+\_\+t}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_aa8ac5e1c9e250bc130e47b6455b48096}{}\label{math__functions_8h_aa8ac5e1c9e250bc130e47b6455b48096}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!exp\+\_\+t@{exp\+\_\+t}}
+\index{exp\+\_\+t@{exp\+\_\+t}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{exp\+\_\+t(storage\+\_\+t input)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} exp\+\_\+t (
+\begin{DoxyParamCaption}
+\item[{{\bf storage\+\_\+t}}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_a3e0fd832dabc381b1729ce95b9cff7c7}{}\label{math__functions_8h_a3e0fd832dabc381b1729ce95b9cff7c7}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!multiply@{multiply}}
+\index{multiply@{multiply}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{multiply(storage\+\_\+t d1, storage\+\_\+t d2)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} multiply (
+\begin{DoxyParamCaption}
+\item[{{\bf storage\+\_\+t}}]{d1, }
+\item[{{\bf storage\+\_\+t}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_abfd037900f3e840a08868f67853cc9e4}{}\label{math__functions_8h_abfd037900f3e840a08868f67853cc9e4}
+\index{math\+\_\+functions.\+h@{math\+\_\+functions.\+h}!read\+Double@{read\+Double}}
+\index{read\+Double@{read\+Double}!math\+\_\+functions.\+h@{math\+\_\+functions.\+h}}
+\subsubsection[{read\+Double(double input)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf storage\+\_\+t} read\+Double (
+\begin{DoxyParamCaption}
+\item[{double}]{input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{math__functions_8h_a0696aeac98a643392c2fb72fd2f549e4}{}\label{math__functions_8h_a0696aeac98a643392c2fb72fd2f549e4}

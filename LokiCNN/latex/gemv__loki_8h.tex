@@ -1,0 +1,90 @@
+\hypertarget{gemv__loki_8h}{}\section{src/gemv\+\_\+loki.h File Reference}
+\label{gemv__loki_8h}\index{src/gemv\+\_\+loki.\+h@{src/gemv\+\_\+loki.\+h}}
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}setting.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$loki/lokilib.\+h$>$}\\*
+{\ttfamily \#include $<$loki/scratchpad.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structgemv__data__}{gemv\+\_\+data\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gemv__loki_8h_ac841329b595248110054bdf0e225992b}{M\+C2}~32
+\item 
+\#define \hyperlink{gemv__loki_8h_ae47655a1840ac044b91077e5df804d79}{K\+C2}~64
+\item 
+\#define \hyperlink{gemv__loki_8h_a5b6c7ea27d9d77683a47fefd0ad7ace4}{N\+C2}~128
+\item 
+\#define \hyperlink{gemv__loki_8h_a3dd8cadc4e687fd63f399c948d19d50e}{M\+R2}~4
+\item 
+\#define \hyperlink{gemv__loki_8h_a6d256419c8470062584d13d26c605597}{N\+R2}~1
+\item 
+\#define \hyperlink{gemv__loki_8h_ac207a8cac40667e977769743a763e64d}{M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE}~8
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structgemv__data__}{gemv\+\_\+data\+\_\+} \hyperlink{gemv__loki_8h_a042f26f3f9e8c15c89f109989450633f}{gemv\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gemv__loki_8h_a2d1274acec66430b3d6dda13ff1da3fa}{dgemv\+\_\+nn\+\_\+worker} (const void $\ast$data1)
+\item 
+void \hyperlink{gemv__loki_8h_a809ae9800d3ffc0f51d9965c252f3717}{dgemv\+\_\+nn} (int m, int n, int k, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$A, int inc\+RowA, const \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$B, int inc\+RowB,   \hyperlink{setting_8h_a4cf883a2c584175fecfaeb45a2cd75e8}{Dtype} $\ast$C, int inc\+RowC)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!K\+C2@{K\+C2}}
+\index{K\+C2@{K\+C2}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{K\+C2}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+C2~64}\hypertarget{gemv__loki_8h_ae47655a1840ac044b91077e5df804d79}{}\label{gemv__loki_8h_ae47655a1840ac044b91077e5df804d79}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE@{M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE}}
+\index{M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE@{M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+T\+R\+I\+X\+\_\+\+N\+U\+M\+\_\+\+C\+O\+RE~8}\hypertarget{gemv__loki_8h_ac207a8cac40667e977769743a763e64d}{}\label{gemv__loki_8h_ac207a8cac40667e977769743a763e64d}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!M\+C2@{M\+C2}}
+\index{M\+C2@{M\+C2}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{M\+C2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+C2~32}\hypertarget{gemv__loki_8h_ac841329b595248110054bdf0e225992b}{}\label{gemv__loki_8h_ac841329b595248110054bdf0e225992b}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!M\+R2@{M\+R2}}
+\index{M\+R2@{M\+R2}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{M\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+R2~4}\hypertarget{gemv__loki_8h_a3dd8cadc4e687fd63f399c948d19d50e}{}\label{gemv__loki_8h_a3dd8cadc4e687fd63f399c948d19d50e}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!N\+C2@{N\+C2}}
+\index{N\+C2@{N\+C2}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{N\+C2}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+C2~128}\hypertarget{gemv__loki_8h_a5b6c7ea27d9d77683a47fefd0ad7ace4}{}\label{gemv__loki_8h_a5b6c7ea27d9d77683a47fefd0ad7ace4}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!N\+R2@{N\+R2}}
+\index{N\+R2@{N\+R2}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{N\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+R2~1}\hypertarget{gemv__loki_8h_a6d256419c8470062584d13d26c605597}{}\label{gemv__loki_8h_a6d256419c8470062584d13d26c605597}
+
+
+\subsection{Typedef Documentation}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!gemv\+\_\+data@{gemv\+\_\+data}}
+\index{gemv\+\_\+data@{gemv\+\_\+data}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{gemv\+\_\+data}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf gemv\+\_\+data\+\_\+}  {\bf gemv\+\_\+data}}\hypertarget{gemv__loki_8h_a042f26f3f9e8c15c89f109989450633f}{}\label{gemv__loki_8h_a042f26f3f9e8c15c89f109989450633f}
+
+
+\subsection{Function Documentation}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!dgemv\+\_\+nn@{dgemv\+\_\+nn}}
+\index{dgemv\+\_\+nn@{dgemv\+\_\+nn}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{dgemv\+\_\+nn(int m, int n, int k, const Dtype $\ast$\+A, int inc\+Row\+A, const Dtype $\ast$\+B, int inc\+Row\+B,   Dtype $\ast$\+C, int inc\+Row\+C)}]{\setlength{\rightskip}{0pt plus 5cm}void dgemv\+\_\+nn (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{k, }
+\item[{const {\bf Dtype} $\ast$}]{A, }
+\item[{int}]{inc\+RowA, }
+\item[{const {\bf Dtype} $\ast$}]{B, }
+\item[{int}]{inc\+RowB, }
+\item[{{\bf Dtype} $\ast$}]{C, }
+\item[{int}]{inc\+RowC}
+\end{DoxyParamCaption}
+)}\hypertarget{gemv__loki_8h_a809ae9800d3ffc0f51d9965c252f3717}{}\label{gemv__loki_8h_a809ae9800d3ffc0f51d9965c252f3717}
+\index{gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}!dgemv\+\_\+nn\+\_\+worker@{dgemv\+\_\+nn\+\_\+worker}}
+\index{dgemv\+\_\+nn\+\_\+worker@{dgemv\+\_\+nn\+\_\+worker}!gemv\+\_\+loki.\+h@{gemv\+\_\+loki.\+h}}
+\subsubsection[{dgemv\+\_\+nn\+\_\+worker(const void $\ast$data1)}]{\setlength{\rightskip}{0pt plus 5cm}void dgemv\+\_\+nn\+\_\+worker (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{data1}
+\end{DoxyParamCaption}
+)}\hypertarget{gemv__loki_8h_a2d1274acec66430b3d6dda13ff1da3fa}{}\label{gemv__loki_8h_a2d1274acec66430b3d6dda13ff1da3fa}

@@ -1,0 +1,529 @@
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+Current cycle number: 1000000 [382585 operation(s) executed]
+Current cycle number: 2000000 [695758 operation(s) executed]
+Current cycle number: 3000000 [1021242 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 4000000 [3125268 operation(s) executed]
+Current cycle number: 5000000 [5850698 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+Current cycle number: 6000000 [8108716 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 7000000 [10739084 operation(s) executed]
+Current cycle number: 8000000 [13458766 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+Current cycle number: 9000000 [15156346 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 10000000 [17345688 operation(s) executed]
+Current cycle number: 11000000 [20088068 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+Current cycle number: 12000000 [22241948 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 13000000 [24970756 operation(s) executed]
+Current cycle number: 14000000 [27775849 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+Current cycle number: 15000000 [29293748 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 16000000 [31657683 operation(s) executed]
+Current cycle number: 17000000 [34465584 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 18000000 [36446362 operation(s) executed]
+Current cycle number: 19000000 [39297828 operation(s) executed]
+Current cycle number: 20000000 [42053896 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+Current cycle number: 21000000 [43433940 operation(s) executed]
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 22000000 [45953047 operation(s) executed]
+Current cycle number: 23000000 [48698525 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,1) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: (1,1,0,10) -> (m11111110,0)
+SETCHMAP: (1,1,0,11) -> (m11111110,7)
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,1) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,2) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,3) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,4) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,5) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,6) data, banks 8-15, line size 8
+SETCHMAP: core (1,1,7) data, banks 8-15, line size 8
+Current cycle number: 24000000 [50708684 operation(s) executed]
+Current cycle number: 25000000 [53561596 operation(s) executed]
+Current cycle number: 26000000 [56314648 operation(s) executed]
+SETCHMAP: (1,1,7,10) -> (m01000000,6)
+SETCHMAP: (1,1,6,10) -> (m00100000,6)
+SETCHMAP: (1,1,5,10) -> (m00010000,6)
+SETCHMAP: (1,1,4,10) -> (m00001000,6)
+SETCHMAP: (1,1,3,10) -> (m00000100,6)
+SETCHMAP: (1,1,2,10) -> (m00000010,6)
+SETCHMAP: (1,1,1,10) -> (m00000001,6)
+SETCHMAP: (1,1,0,10) -> (m11111110,6)
+takes 23759213 cycle to complete 
+takes 8445805 instructions 
+Simulation ended with sys_exit (arg 0) after 26381919 cycles.
+Total execution time: 26381919 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	9336617	44.0%	0.2%	55.8%	(22.6%|68.0%|1.7%|1.2%|0.0%|10.6%)
+  (1,1,1)	6857584	33.2%	25.0%	41.8%	(29.5%|72.6%|1.6%|0.4%|0.0%|1.1%)
+  (1,1,2)	6857584	33.2%	25.0%	41.8%	(30.1%|71.9%|1.8%|0.4%|0.0%|1.2%)
+  (1,1,3)	6857584	33.2%	25.0%	41.8%	(30.1%|71.6%|2.3%|0.4%|0.0%|1.1%)
+  (1,1,4)	6857584	33.2%	25.0%	41.8%	(29.3%|73.0%|1.5%|0.4%|0.0%|1.1%)
+  (1,1,5)	6857584	33.2%	25.0%	41.8%	(29.7%|72.6%|1.4%|0.4%|0.0%|1.2%)
+  (1,1,6)	6857584	33.2%	25.0%	41.8%	(29.0%|73.9%|0.8%|0.4%|0.0%|1.1%)
+  (1,1,7)	6857568	33.2%	25.0%	41.8%	(28.6%|74.9%|0.1%|0.4%|0.0%|1.3%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 9336617 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 6857584 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 6857568 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 57339018
+  Packet hit rate:         183082/1722715 (10.6%)
+    Core 0: 181346/375363 (48.3%)
+    Core 1: 248/192480 (0.1%)
+    Core 2: 248/192480 (0.1%)
+    Core 3: 248/192480 (0.1%)
+    Core 4: 248/192480 (0.1%)
+    Core 5: 248/192480 (0.1%)
+    Core 6: 248/192480 (0.1%)
+    Core 7: 248/192472 (0.1%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  6861850/6871035 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6861850/6871035 (99.9%)
+    Core 0, input channel 2 (data):
+      Read hits:  895457/961836 (93.1%)
+      Write hits: 278116/422288 (65.9%)
+      Total hits: 1173573/1384124 (84.8%)
+    Core 0, input channel 3 (data):
+      Read hits:  512332/532480 (96.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 512332/532480 (96.2%)
+    Core 1, input channel 1 (instructions):
+      Read hits:  6848572/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6848572/6855736 (99.9%)
+    Core 1, input channel 2 (data):
+      Read hits:  542425/566016 (95.8%)
+      Write hits: 27494/27632 (99.5%)
+      Total hits: 569919/593648 (96.0%)
+    Core 1, input channel 3 (data):
+      Read hits:  508529/532480 (95.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 508529/532480 (95.5%)
+    Core 2, input channel 1 (instructions):
+      Read hits:  6849218/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6849218/6855736 (99.9%)
+    Core 2, input channel 2 (data):
+      Read hits:  542197/566016 (95.8%)
+      Write hits: 27493/27632 (99.5%)
+      Total hits: 569690/593648 (96.0%)
+    Core 2, input channel 3 (data):
+      Read hits:  512765/532480 (96.3%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 512765/532480 (96.3%)
+    Core 3, input channel 1 (instructions):
+      Read hits:  6847978/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6847978/6855736 (99.9%)
+    Core 3, input channel 2 (data):
+      Read hits:  538543/566016 (95.1%)
+      Write hits: 27460/27632 (99.4%)
+      Total hits: 566003/593648 (95.3%)
+    Core 3, input channel 3 (data):
+      Read hits:  513203/532480 (96.4%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 513203/532480 (96.4%)
+    Core 4, input channel 1 (instructions):
+      Read hits:  6849106/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6849106/6855736 (99.9%)
+    Core 4, input channel 2 (data):
+      Read hits:  542989/566016 (95.9%)
+      Write hits: 27470/27632 (99.4%)
+      Total hits: 570459/593648 (96.1%)
+    Core 4, input channel 3 (data):
+      Read hits:  506785/532480 (95.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 506785/532480 (95.2%)
+    Core 5, input channel 1 (instructions):
+      Read hits:  6849164/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6849164/6855736 (99.9%)
+    Core 5, input channel 2 (data):
+      Read hits:  541888/566016 (95.7%)
+      Write hits: 27509/27632 (99.6%)
+      Total hits: 569397/593648 (95.9%)
+    Core 5, input channel 3 (data):
+      Read hits:  508784/532480 (95.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 508784/532480 (95.5%)
+    Core 6, input channel 1 (instructions):
+      Read hits:  6848586/6855736 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6848586/6855736 (99.9%)
+    Core 6, input channel 2 (data):
+      Read hits:  540636/566016 (95.5%)
+      Write hits: 27485/27632 (99.5%)
+      Total hits: 568121/593648 (95.7%)
+    Core 6, input channel 3 (data):
+      Read hits:  502176/532480 (94.3%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 502176/532480 (94.3%)
+    Core 7, input channel 1 (instructions):
+      Read hits:  6849311/6855720 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 6849311/6855720 (99.9%)
+    Core 7, input channel 2 (data):
+      Read hits:  542250/566016 (95.8%)
+      Write hits: 27272/27632 (98.7%)
+      Total hits: 569522/593648 (95.9%)
+    Core 7, input channel 3 (data):
+      Read hits:  499541/532480 (93.8%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 499541/532480 (93.8%)
+  Instruction hits: 54803785/54861171 (99.9%)
+  L0+L1 inst hits:  57281632/57339018 (99.9%)
+  Data read hits:   8750500/9183788 (95.3%)
+  Data write hits:  470299/615712 (76.4%)
+  Total hits:       64024584/64660671 (99.0%)
+Average IPC: 2.17
+SETCHMAP: core (1,1,0) insts, banks 8-15, line size 8
+SETCHMAP: core (1,1,0) data, banks 8-15, line size 8

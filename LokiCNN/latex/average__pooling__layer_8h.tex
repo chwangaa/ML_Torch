@@ -1,0 +1,70 @@
+\hypertarget{average__pooling__layer_8h}{}\section{src/average\+\_\+pooling\+\_\+layer.h File Reference}
+\label{average__pooling__layer_8h}\index{src/average\+\_\+pooling\+\_\+layer.\+h@{src/average\+\_\+pooling\+\_\+layer.\+h}}
+{\ttfamily \#include \char`\"{}layer.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structLayer}{Layer} \hyperlink{average__pooling__layer_8h_a82e5a5f824406e9b93d242466a293324}{ave\+\_\+pool\+\_\+layer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{average__pooling__layer_8h_aadc97d4729f74766342d45dbab3b1835}{ave\+\_\+pool\+\_\+forward} (\hyperlink{average__pooling__layer_8h_a82e5a5f824406e9b93d242466a293324}{ave\+\_\+pool\+\_\+layer\+\_\+t} $\ast$l, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_ab943d53559ea6283e896bd8bf603b626}{in}, \hyperlink{data__structure_8h_a051bd2b17d42e70d86b4314e0dd8881e}{vol\+\_\+t} $\ast$$\ast$\hyperlink{max__pooling__layer__MultiCore_8h_abc600ae3097d3509f83258671cf3701e}{out}, int \hyperlink{max__pooling__layer__MultiCore_8h_a79cb7003c3528d3096592502cbd07fb9}{start}, int \hyperlink{max__pooling__layer__MultiCore_8h_a3efd06bf9a5c88624e60c85040903747}{end})
+\item 
+\hyperlink{average__pooling__layer_8h_a82e5a5f824406e9b93d242466a293324}{ave\+\_\+pool\+\_\+layer\+\_\+t} $\ast$ \hyperlink{average__pooling__layer_8h_a11f7afe6a93b6a3cc42585aeeafbea2c}{make\+\_\+average\+\_\+pool\+\_\+layer} (int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int sx, int stride)
+\begin{DoxyCompactList}\small\item\em constructor of average pooling layer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}!ave\+\_\+pool\+\_\+layer\+\_\+t@{ave\+\_\+pool\+\_\+layer\+\_\+t}}
+\index{ave\+\_\+pool\+\_\+layer\+\_\+t@{ave\+\_\+pool\+\_\+layer\+\_\+t}!average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}}
+\subsubsection[{ave\+\_\+pool\+\_\+layer\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Layer} {\bf ave\+\_\+pool\+\_\+layer\+\_\+t}}\hypertarget{average__pooling__layer_8h_a82e5a5f824406e9b93d242466a293324}{}\label{average__pooling__layer_8h_a82e5a5f824406e9b93d242466a293324}
+
+
+\subsection{Function Documentation}
+\index{average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}!ave\+\_\+pool\+\_\+forward@{ave\+\_\+pool\+\_\+forward}}
+\index{ave\+\_\+pool\+\_\+forward@{ave\+\_\+pool\+\_\+forward}!average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}}
+\subsubsection[{ave\+\_\+pool\+\_\+forward(ave\+\_\+pool\+\_\+layer\+\_\+t $\ast$l, vol\+\_\+t $\ast$$\ast$in, vol\+\_\+t $\ast$$\ast$out, int start, int end)}]{\setlength{\rightskip}{0pt plus 5cm}void ave\+\_\+pool\+\_\+forward (
+\begin{DoxyParamCaption}
+\item[{{\bf ave\+\_\+pool\+\_\+layer\+\_\+t} $\ast$}]{l, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{in, }
+\item[{{\bf vol\+\_\+t} $\ast$$\ast$}]{out, }
+\item[{int}]{start, }
+\item[{int}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{average__pooling__layer_8h_aadc97d4729f74766342d45dbab3b1835}{}\label{average__pooling__layer_8h_aadc97d4729f74766342d45dbab3b1835}
+\index{average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}!make\+\_\+average\+\_\+pool\+\_\+layer@{make\+\_\+average\+\_\+pool\+\_\+layer}}
+\index{make\+\_\+average\+\_\+pool\+\_\+layer@{make\+\_\+average\+\_\+pool\+\_\+layer}!average\+\_\+pooling\+\_\+layer.\+h@{average\+\_\+pooling\+\_\+layer.\+h}}
+\subsubsection[{make\+\_\+average\+\_\+pool\+\_\+layer(int in\+\_\+sx, int in\+\_\+sy, int in\+\_\+depth, int sx, int stride)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ave\+\_\+pool\+\_\+layer\+\_\+t}$\ast$ make\+\_\+average\+\_\+pool\+\_\+layer (
+\begin{DoxyParamCaption}
+\item[{int}]{in\+\_\+sx, }
+\item[{int}]{in\+\_\+sy, }
+\item[{int}]{in\+\_\+depth, }
+\item[{int}]{sx, }
+\item[{int}]{stride}
+\end{DoxyParamCaption}
+)}\hypertarget{average__pooling__layer_8h_a11f7afe6a93b6a3cc42585aeeafbea2c}{}\label{average__pooling__layer_8h_a11f7afe6a93b6a3cc42585aeeafbea2c}
+
+
+constructor of average pooling layer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+sx} & the width of input image \\
+\hline
+{\em in\+\_\+sy} & the height of input image \\
+\hline
+{\em in\+\_\+depth} & the channel number of input image \\
+\hline
+{\em sx} & the width of pooling kernel, note the kernel must be square \\
+\hline
+{\em stride} & the number of pixels between consecutive convolutional kernel movement, usually 1\\
+\hline
+\end{DoxyParams}
+in this simple implementation, we assume the pooling layer has padding be 0, although one can simply insert one extra parameter and the forward layer already supports none-\/zero padding. The output dimension is calculated as following\+:
+
+out\+\_\+sx = floor((l-\/$>$in\+\_\+sx + pad $\ast$ 2 -\/ sx) / stride + 1);
+
+out\+\_\+sy = floor((l-\/$>$in\+\_\+sy + pad $\ast$ 2 -\/ sy) / stride + 1);
+
+usually, the output size is reduced by a factor of the kernel size 

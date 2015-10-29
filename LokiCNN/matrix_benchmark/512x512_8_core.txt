@@ -1,0 +1,328 @@
+takes 100253554 cycle to complete 
+takes 63656251 instructions 
+Current cycle number: 108000000 [480777110 operation(s) executed]
+Current cycle number: 109000000 [481436117 operation(s) executed]
+Current cycle number: 110000000 [482095138 operation(s) executed]
+Current cycle number: 111000000 [482754144 operation(s) executed]
+Current cycle number: 112000000 [483413165 operation(s) executed]
+Simulation ended with sys_exit (arg 0) after 112841066 cycles.
+Total execution time: 112841066 cycles
+Core activity:
+  Core	Insts	Active	Idle	Stalled (inst|mem|core|fwd|fetch|out)
+  (1,1,0)	72719674	81.3%	0.0%	18.7%	(30.3%|60.5%|0.0%|6.0%|0.0%|9.6%)
+  (1,1,1)	58749465	72.0%	6.2%	21.8%	(21.8%|35.8%|40.6%|0.6%|0.0%|5.2%)
+  (1,1,2)	58749465	72.0%	6.2%	21.8%	(20.8%|36.0%|40.1%|0.6%|0.0%|8.3%)
+  (1,1,3)	58749465	72.0%	6.2%	21.8%	(22.1%|34.4%|40.2%|0.6%|0.0%|7.7%)
+  (1,1,4)	58749465	72.0%	6.2%	21.8%	(22.8%|34.7%|40.4%|0.6%|0.0%|7.4%)
+  (1,1,5)	58749465	72.0%	6.2%	21.8%	(23.2%|33.6%|40.3%|0.6%|0.0%|7.1%)
+  (1,1,6)	58749465	72.0%	6.2%	21.8%	(24.4%|34.1%|40.7%|0.6%|0.0%|6.4%)
+  (1,1,7)	58749465	72.0%	6.2%	21.8%	(21.6%|37.8%|40.2%|0.6%|0.0%|5.1%)
+
+Distribution of instructions:
+  (1,1,0)
+Total: 72719674 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,1)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,2)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,3)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,4)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,5)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,6)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+  (1,1,7)
+Total: 58749465 (100%)
+numMemLoads: 0 (0.0%)
+numMergedMemLoads: 0 (0.0%)
+numMemStores: 0 (0.0%)
+numChanReads: 0 (0.0%)
+numMergedChanReads: 0 (0.0%)
+numChanWrites: 0 (0.0%)
+numMergedChanWrites: 0 (0.0%)
+numArithOps: 0 (0.0%)
+numCondOps: 0 (0.0%)
+
+L0 cache activity:
+  Total instruction reads: 483965846
+  Packet hit rate:         9729607/12477223 (78.0%)
+    Core 0: 2493511/2840967 (87.8%)
+    Core 1: 1033728/1376608 (75.1%)
+    Core 2: 1033728/1376608 (75.1%)
+    Core 3: 1033728/1376608 (75.1%)
+    Core 4: 1033728/1376608 (75.1%)
+    Core 5: 1033728/1376608 (75.1%)
+    Core 6: 1033728/1376608 (75.1%)
+    Core 7: 1033728/1376608 (75.1%)
+L1 cache activity:
+  By channel:
+    Core 0, input channel 1 (instructions):
+      Read hits:  3973787/4087813 (97.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 3973787/4087813 (97.2%)
+    Core 0, input channel 2 (data):
+      Read hits:  609293/653388 (93.3%)
+      Write hits: 2049041/2176517 (94.1%)
+      Total hits: 2658334/2829905 (93.9%)
+    Core 0, input channel 4 (data):
+      Read hits:  2276426/2495488 (91.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2276426/2495488 (91.2%)
+    Core 0, input channel 5 (data):
+      Read hits:  2458582/2495488 (98.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2458582/2495488 (98.5%)
+    Core 0, input channel 6 (data):
+      Read hits:  2458523/2495488 (98.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2458523/2495488 (98.5%)
+    Core 0, input channel 7 (data):
+      Read hits:  2458032/2495488 (98.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2458032/2495488 (98.5%)
+    Core 1, input channel 1 (instructions):
+      Read hits:  4009204/4032523 (99.4%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4009204/4032523 (99.4%)
+    Core 1, input channel 2 (data):
+      Read hits:  362871/374209 (97.0%)
+      Write hits: 53337/58122 (91.8%)
+      Total hits: 416208/432331 (96.3%)
+    Core 1, input channel 4 (data):
+      Read hits:  1981490/2162688 (91.6%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 1981490/2162688 (91.6%)
+    Core 1, input channel 5 (data):
+      Read hits:  2162459/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162459/2162688 (100.0%)
+    Core 1, input channel 6 (data):
+      Read hits:  2162430/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162430/2162688 (100.0%)
+    Core 1, input channel 7 (data):
+      Read hits:  2162311/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162311/2162688 (100.0%)
+    Core 2, input channel 1 (instructions):
+      Read hits:  4013845/4032523 (99.5%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4013845/4032523 (99.5%)
+    Core 2, input channel 2 (data):
+      Read hits:  362904/374209 (97.0%)
+      Write hits: 53332/58122 (91.8%)
+      Total hits: 416236/432331 (96.3%)
+    Core 2, input channel 4 (data):
+      Read hits:  2036341/2162688 (94.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2036341/2162688 (94.2%)
+    Core 2, input channel 5 (data):
+      Read hits:  2161974/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2161974/2162688 (100.0%)
+    Core 2, input channel 6 (data):
+      Read hits:  2161763/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2161763/2162688 (100.0%)
+    Core 2, input channel 7 (data):
+      Read hits:  2161520/2162688 (99.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2161520/2162688 (99.9%)
+    Core 3, input channel 1 (instructions):
+      Read hits:  4021812/4032523 (99.7%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4021812/4032523 (99.7%)
+    Core 3, input channel 2 (data):
+      Read hits:  373015/374209 (99.7%)
+      Write hits: 57598/58122 (99.1%)
+      Total hits: 430613/432331 (99.6%)
+    Core 3, input channel 4 (data):
+      Read hits:  2117305/2162688 (97.9%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2117305/2162688 (97.9%)
+    Core 3, input channel 5 (data):
+      Read hits:  2162528/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162528/2162688 (100.0%)
+    Core 3, input channel 6 (data):
+      Read hits:  2162503/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162503/2162688 (100.0%)
+    Core 3, input channel 7 (data):
+      Read hits:  2162550/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162550/2162688 (100.0%)
+    Core 4, input channel 1 (instructions):
+      Read hits:  3991849/4032523 (99.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 3991849/4032523 (99.0%)
+    Core 4, input channel 2 (data):
+      Read hits:  372920/374209 (99.7%)
+      Write hits: 57641/58122 (99.2%)
+      Total hits: 430561/432331 (99.6%)
+    Core 4, input channel 4 (data):
+      Read hits:  2080903/2162688 (96.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2080903/2162688 (96.2%)
+    Core 4, input channel 5 (data):
+      Read hits:  2162505/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162505/2162688 (100.0%)
+    Core 4, input channel 6 (data):
+      Read hits:  2162478/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162478/2162688 (100.0%)
+    Core 4, input channel 7 (data):
+      Read hits:  2162531/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162531/2162688 (100.0%)
+    Core 5, input channel 1 (instructions):
+      Read hits:  4021960/4032523 (99.7%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4021960/4032523 (99.7%)
+    Core 5, input channel 2 (data):
+      Read hits:  372958/374209 (99.7%)
+      Write hits: 57667/58122 (99.2%)
+      Total hits: 430625/432331 (99.6%)
+    Core 5, input channel 4 (data):
+      Read hits:  2127429/2162688 (98.4%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2127429/2162688 (98.4%)
+    Core 5, input channel 5 (data):
+      Read hits:  2162594/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162594/2162688 (100.0%)
+    Core 5, input channel 6 (data):
+      Read hits:  2162586/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162586/2162688 (100.0%)
+    Core 5, input channel 7 (data):
+      Read hits:  2162596/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162596/2162688 (100.0%)
+    Core 6, input channel 1 (instructions):
+      Read hits:  3985702/4032523 (98.8%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 3985702/4032523 (98.8%)
+    Core 6, input channel 2 (data):
+      Read hits:  364873/374209 (97.5%)
+      Write hits: 53900/58122 (92.7%)
+      Total hits: 418773/432331 (96.9%)
+    Core 6, input channel 4 (data):
+      Read hits:  2076706/2162688 (96.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2076706/2162688 (96.0%)
+    Core 6, input channel 5 (data):
+      Read hits:  2162582/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162582/2162688 (100.0%)
+    Core 6, input channel 6 (data):
+      Read hits:  2162576/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162576/2162688 (100.0%)
+    Core 6, input channel 7 (data):
+      Read hits:  2162595/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162595/2162688 (100.0%)
+    Core 7, input channel 1 (instructions):
+      Read hits:  4000834/4032523 (99.2%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 4000834/4032523 (99.2%)
+    Core 7, input channel 2 (data):
+      Read hits:  263624/374209 (70.4%)
+      Write hits: 38338/58122 (66.0%)
+      Total hits: 301962/432331 (69.8%)
+    Core 7, input channel 4 (data):
+      Read hits:  2126644/2162688 (98.3%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2126644/2162688 (98.3%)
+    Core 7, input channel 5 (data):
+      Read hits:  2162478/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162478/2162688 (100.0%)
+    Core 7, input channel 6 (data):
+      Read hits:  2162509/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162509/2162688 (100.0%)
+    Core 7, input channel 7 (data):
+      Read hits:  2162529/2162688 (100.0%)
+      Write hits: 0/0 (0.0%)
+      Total hits: 2162529/2162688 (100.0%)
+  Instruction hits: 32018993/32315474 (99.1%)
+  L0+L1 inst hits:  483669365/483965846 (99.9%)
+  Data read hits:   72691436/73810067 (98.5%)
+  Data write hits:  2420854/2583371 (93.7%)
+  Total hits:       107131283/108708912 (98.5%)
+Average IPC: 4.29
