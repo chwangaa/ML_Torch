@@ -13,7 +13,7 @@
 #include "util.h"
 
 #ifdef LOKI
-  #include "max_pooling_layer_MultiCore.h"
+  #include "max_pooling_layer.h"
 #else
   #include "max_pooling_layer.h"
 #endif

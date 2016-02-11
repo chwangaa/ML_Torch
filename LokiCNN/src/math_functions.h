@@ -8,7 +8,7 @@
 #include "setting.h"
 
 #ifdef LOKI
-  #include "im2col_loki.h"
+  #include "im2col.h"
 #else
   #include <cblas.h>
   #include "im2col.h"

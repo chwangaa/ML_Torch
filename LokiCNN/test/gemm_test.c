@@ -22,6 +22,7 @@
 // #include "gemm_block_simple_integer_full_asm.h"
 // #include "util.h"
 #include <loki/lokilib.h>
+#include <fix8_loki.h>
 /*
   test for when both conv layer is parallized by MultiCore
 */
@@ -37,19 +38,7 @@ void* aligned_malloc(size_t size, size_t alignment) {
 }
 
 
-int main(int argc, char** argv) {
-  int M, N, K;
-  if (argc < 4) {
-    fprintf(stderr, "Usage: please give the value of M, N, K\n");
-    return 2;
-  }
-  else{
-    M = atoi(argv[1]);
-    N = atoi(argv[2]);
-    K = atoi(argv[3]);
-  }
-
-
+int test_gemm1(int M, int N, int K){
     int M1_incRow = K + (8 - (K % 8)) % 8;
     int M2_incRow = N + (8 - (N % 8)) % 8;
     int M3_incRow = N + (8 - (N % 8)) % 8;
@@ -57,19 +46,19 @@ int main(int argc, char** argv) {
     fprintf(stderr, "M2 has dimension %d x %d \n", K, M2_incRow);
     fprintf(stderr, "M3 has dimension %d x %d \n", M, M3_incRow);
 
-	int* M1 = (int*)aligned_malloc(sizeof(int)*M*M1_incRow, 32);
-	int* M2 = (int*)aligned_malloc(sizeof(int)*K*M2_incRow, 32);
-	int* M3 = (int*)aligned_malloc(sizeof(int)*M*M3_incRow, 32);
+    int* M1 = (int*)aligned_malloc(sizeof(int)*M*M1_incRow, 32);
+    int* M2 = (int*)aligned_malloc(sizeof(int)*K*M2_incRow, 32);
+    int* M3 = (int*)aligned_malloc(sizeof(int)*M*M3_incRow, 32);
 
     for(int i = 0; i < M; i++){
         for(int j = 0; j < K; j++){
-            M1[i*M1_incRow+j] = 1;
+            M1[i*M1_incRow+j] = read_from_int(1);
         }
     }
     
     for(int i = 0; i < K; i++){
         for(int j = 0; j < N; j++){
-            M2[i*M2_incRow+j] = 1;
+            M2[i*M2_incRow+j] = read_from_int(1);
         }
     }
     
@@ -88,7 +77,7 @@ int main(int argc, char** argv) {
     unsigned long cycle_count = get_cycle_count();
 
 
-	unsigned long instr_count = get_instruction_count();
+    unsigned long instr_count = get_instruction_count();
 
     dgemm_nn(M, N, K,
             M1, M1_incRow,
@@ -99,16 +88,34 @@ int main(int argc, char** argv) {
     instr_count = get_instruction_count() - instr_count;
     int error = 0;
     for(int i = 0; i < M; i++){
-    // 	// fprintf(stderr, "%d \n", fix16_to_int(M3[i]));
-    	for(int j = 0; j < N; j++){
-            if(M3[i*M3_incRow+j] != M){
+        for(int j = 0; j < N; j++){
+            if(M3[i*M3_incRow+j] != read_from_int(M)){
                 error++;
-    		    // fprintf(stderr, "%d  at %d, %d \n", M3[i*M3_incRow+j], i, j);
             }
         }
-    	// fprintf(stderr, "\n\n");
     }
     printf("M,  N,  K,  cycle,  instr,  #error \n");
     printf("%d, %d, %d, %d, %d, %d \n", M, N, K, cycle_count, instr_count, error);
+    if(error){
+        printf("TEST1 FAILS \n");
+    }
+    else{
+        printf("TEST1 PASSES \n");
+    }
+}
 
+
+int main(int argc, char** argv) {
+  int M, N, K;
+  if (argc < 4) {
+    fprintf(stderr, "Usage: please give the value of M, N, K\n");
+    return 2;
+  }
+  else{
+    M = atoi(argv[1]);
+    N = atoi(argv[2]);
+    K = atoi(argv[3]);
+  }
+  test_gemm1(M, N, K);
+  // test_gemm2(M, N, K);
 }

@@ -24,7 +24,7 @@ Network* construct_mnist_net() {
   network_add(net, make_softmax_layer(net->layers[6]->out_sx, net->layers[6]->out_sy, net->layers[6]->out_depth));
   
   // load pre-trained weights
-  
+  fprintf(stderr, "loading weights \n");
   conv_load(net->layers[0], mnist_conv1_params, mnist_conv1_data);
   conv_load(net->layers[2], mnist_conv2_params, mnist_conv2_data);
   fc_load(net->layers[4], mnist_ip1_params, mnist_ip1_data);

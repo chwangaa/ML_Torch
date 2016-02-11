@@ -43,7 +43,7 @@
 /*!
     \brief flag for printing debug information e.g. number of cycles taken by each layer, will be printed to stderr
 */
-#define DEBUG 1
+#define DEBUG 0
 
 /*! 
     \brief flag for choosing which algorithm to use in convolutional layer, currently support GEMM, DIRECT
@@ -67,10 +67,10 @@ typedef double weight_t;
 
 typedef storage_t Dtype;
 
-const int FC_LAYER_NUM_CORE = 8;
-const int MAX_POOLING_LAYER_NUM_CORE = 8;
-const int IM2COL_NUM_CORE = 8;
-const int CONV_NUM_CORE = 8;
+const int FC_LAYER_NUM_CORE = 1;
+const int MAX_POOLING_LAYER_NUM_CORE = 1;
+const int IM2COL_NUM_CORE = 1;
+const int CONV_NUM_CORE = 1;
 
 /*!
     \brief flag determining whether or not to initialize memory for storage of image and weights
