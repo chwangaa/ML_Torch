@@ -110,7 +110,7 @@ static void
 pack_kxNR(int k, const Dtype *B, int incRowB, int incColB,
           Dtype *buffer)
 {
-    Dtype * limit = &B[k*incRowB];
+    const Dtype * limit = &B[k*incRowB];
 
     /*
     * the below is the original version
@@ -393,17 +393,17 @@ dgemm_macro_kernel(const int     mc,
     int np = (nc+NR-1) / NR;
 
     // int i, j;
-    const int LIMIT = &B[np*kc*NR];
+    const Dtype* LIMIT = &B[np*kc*NR];
     B = &B[core*kc*NR];
     C = &C[core*NR];
-    scratchpad_write(5, incRowC*4);   // integer of size 4 byte
-    scratchpad_write(1, A-1);         // index 1 stores the address of A
-    scratchpad_write(4, &A[mp*kc*MR]-4);
+    scratchpad_write(5, (int)(incRowC*4));   // integer of size 4 byte
+    scratchpad_write(1, (int)(A-1));         // index 1 stores the address of A
+    scratchpad_write(4, (int)(&A[mp*kc*MR]-4));
     
     for (; B < LIMIT; B += cores*kc*NR, C+= cores*NR) {
-        scratchpad_write(0, B);       // index 0 stores the address of B
-        scratchpad_write(2, B + kc*NR);
-        scratchpad_write(3, C);       // index 3 stores the address of AB
+        scratchpad_write(0, (int)B);       // index 0 stores the address of B
+        scratchpad_write(2, (int)(B + kc*NR));
+        scratchpad_write(3, (int)C);       // index 3 stores the address of AB
         dgemm_micro_kernel();
     }
 }

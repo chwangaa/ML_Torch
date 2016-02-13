@@ -1,65 +1,87 @@
-# Optimisations to apply to standard compilations.
-OPTIMISATIONS=-O3
+# Options: HOST, LOKI, GPU (eventually?)
+PLATFORM ?= LOKI
 
-# Optimisations to apply to Loki compilations (different compiler).
-LOKI_OPTIMISATIONS=-O3
+BUILD_DIR ?= build
 
-# Libraries required.
-LIBRARIES=-lm -Iinclude -Isrc -lcblas
-LOKI_LIBRARIES = -lm -Iinclude -Isrc -lloki
-LIBLOKI_DIR ?= /Workspace/libloki
+# Basic Linear Algorithms Subprograms library.
+# Options: blas, cblas, openblas
+# Host only. Usually available with `sudo apt-get install lib<option>`.
+BLAS ?= openblas
 
-DEPENDENCIES = 
+# libloki - a collection of tools allowing parallelism on Loki.
+LIBLOKI_DIR ?= /usr/groups/comparch-loki/tools/releases/libloki/current/
 
-all: host
+# Compiler.
+HOST_CC := gcc
+LOKI_CC := lokicc
+CC := $($(PLATFORM)_CC)
 
-host: host-mnist host-cifar
+# Linker.
+HOST_LD := ld
+LOKI_LD := loki-elf-ld
+LD := $($(PLATFORM)_LD)
 
-tests:
-	loki-clang -ccc-host-triple loki-elf-linux $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib src/mat_test.c -o mat_test2 $(LIBRARIES) -lloki
+# Include paths.
+# TODO: remove src
+HOST_INCLUDES := include src
+LOKI_INCLUDES := include src $(LIBLOKI_DIR)/include
+INCLUDES := $(addprefix -I,$($(PLATFORM)_INCLUDES))
 
-loki: loki-mnist loki-cifar loki-german
+# Library paths.
+HOST_LIB_PATHS := 
+LOKI_LIB_PATHS := $(LIBLOKI_DIR)/lib
+LIB_PATHS := $(addprefix -L,$($(PLATFORM)_LIB_PATHS))
 
-host-mnist:
-	ld -r -b binary -o data.o data/mnist/data.bin
-	ld -r -b binary -o labels.o data/mnist/labels.bin
-	gcc -std=c99 $(OPTIMISATIONS) examples/mnist.c $(DEPENDENCIES) data.o labels.o -o build/mnist $(LIBRARIES)
-	rm -f data.o labels.o
+# Libraries.
+HOST_LIBS := m $(BLAS)
+LOKI_LIBS := m loki
+LIBS := $(addprefix -l,$($(PLATFORM)_LIBS))
 
-host-cifar:
-	ld -r -b binary -o data.o data/cifar/data_batch_1.bin
-	gcc -std=c99 $(OPTIMISATIONS) examples/cifar.c $(DEPENDENCIES) data.o -o build/cifar $(LIBRARIES)
-	rm -f data.o
+# Any remaining compiler flags.
+HOST_CFLAGS := -O3 -std=c99
+LOKI_CFLAGS := -O3 -DLOKI -mllvm -unroll-threshold=48
+CFLAGS := $($(PLATFORM)_CFLAGS)
 
-host-german:
-	gcc -std=c99 $(OPTIMISATIONS) examples/GTM.c $(DEPENDENCIES) -o build/german $(LIBRARIES)
+.PHONY: all
+all: debug mnist cifar
 
-host-vgg:
-	gcc -std=c99 $(OPTIMISATIONS) examples/VGG.c $(DEPENDENCIES) -o build/vgg $(LIBRARIES)
+.PHONY: debug
+debug:
+	
+$(BUILD_DIR):
+	mkdir $@
 
-
-loki-mnist:
-	loki-elf-ld -r -b binary -o data.o data/mnist/data.bin
-	loki-elf-ld -r -b binary -o labels.o data/mnist/labels.bin
-	lokicc -ccc-host-triple loki-elf-linux $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib examples/mnist.c data.o labels.o -o mnist-loki $(LOKI_LIBRARIES) -DLOKI
-	rm -f data.o labels.o
-
-loki-german:
-	lokicc -ccc-host-triple loki-elf-linux $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib examples/GTM.c -o loki-german $(LIBRARIES) -lloki -DLOKI
-	rm -f data.o labels.o
-
-loki-gemm-test:
-	lokicc -ccc-host-triple loki-elf-linux $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib test/gemm_test.c -o build/loki-gemm-test $(LOKI_LIBRARIES) -DLOKI
-
-loki-gemv-test:
-	lokicc -ccc-host-triple loki-elf-linux $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib test/gemv_test.c -o build/loki-gemv-test $(LOKI_LIBRARIES) -DLOKI
+# Network parameters.
+%.o: %.bin
+	$(LD) -r -b binary -o $@ $^
 
 
-loki-cifar:
-	loki-elf-ld -r -b binary -o data.o data/cifar/data_batch_1.bin
-	lokicc $(LOKI_OPTIMISATIONS) $(DEPENDENCIES) -I$(LIBLOKI_DIR)/include -L$(LIBLOKI_DIR)/lib examples/cifar.c data.o -o cifar-loki $(LOKI_LIBRARIES) -DLOKI
-	rm -f data.o
+# Network models.
+mnist: examples/mnist.c data/mnist/data.o data/mnist/labels.o | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
+
+cifar: examples/cifar.c data/cifar/data_batch_1.o | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
+
+german: examples/GTM.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
+
+vgg: examples/VGG.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
+
+
+# Tests.
+.PHONY:
+tests: src/mat_test.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o mat_test2 $(LIBS)
+	
+gemm-test: test/gemm_test.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
+
+gemv-test: test/gemv_test.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) $(LIB_PATHS) $^ -o $(BUILD_DIR)/$@ $(LIBS)
 
 
 clean:
-	rm -f mnist mnist-loki cifar cifar-loki
+	rm -r $(BUILD_DIR)
+	rm -r data/*/*.o

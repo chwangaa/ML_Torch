@@ -1,3 +1,6 @@
+#ifndef GEMV_H
+#define GEMV_H
+
 // #include "math_functions.h"
 #include "util.h"
 #include "setting.h"
@@ -307,3 +310,5 @@ dgemv_nn(int            m,
                   config->data_size = sizeof(gemv_data);
                   loki_execute(config);
 }
+
+#endif

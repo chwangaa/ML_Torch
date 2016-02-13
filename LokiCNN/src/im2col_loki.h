@@ -103,6 +103,16 @@ inline Dtype im2col_get_pixel(Dtype *im, int height, int width, int channels,
 ///refer to im2col.h for reference
 void im2col_workerCore(const void* data) 
 {
+    int core = get_core_id();
+    int addr = loki_mem_address(0, core, CH_REGISTER_4, GROUPSIZE_8, false, false, false, false);  
+    set_channel_map(10, addr);
+    addr = loki_mem_address(0, core, CH_REGISTER_5, GROUPSIZE_8, false, false, false, false);  
+    set_channel_map(11, addr);
+    addr = loki_mem_address(0, core, CH_REGISTER_6, GROUPSIZE_8, false, false, false, false);  
+    set_channel_map(12, addr);
+    addr = loki_mem_address(0, core, CH_REGISTER_7, GROUPSIZE_8, false, false, false, false);  
+    set_channel_map(13, addr);
+  
     im2col_global_data* d = (im2col_global_data*)data;
     if(d->pad == 0){
         im2col_loki_zero_padding(d->data_im, d->channels, d->height, d->width,
@@ -155,16 +165,6 @@ void im2col(const Dtype* data_im,
   
   const int cores = IM2COL_NUM_CORE;
   loki_init_default(cores, 0);
-
-  int core = get_core_id();
-  int addr = loki_mem_address(0, core, CH_REGISTER_4, GROUPSIZE_8, false, false, false, false);  
-  set_channel_map(10, addr);
-  addr = loki_mem_address(0, core, CH_REGISTER_5, GROUPSIZE_8, false, false, false, false);  
-  set_channel_map(11, addr);
-  addr = loki_mem_address(0, core, CH_REGISTER_6, GROUPSIZE_8, false, false, false, false);  
-  set_channel_map(12, addr);
-  addr = loki_mem_address(0, core, CH_REGISTER_7, GROUPSIZE_8, false, false, false, false);  
-  set_channel_map(13, addr);
 
   /* construct a closure for the worker core */
   im2col_global_data* data = malloc(sizeof(im2col_global_data));

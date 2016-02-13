@@ -67,10 +67,10 @@ typedef double weight_t;
 
 typedef storage_t Dtype;
 
-const int FC_LAYER_NUM_CORE = 1;
-const int MAX_POOLING_LAYER_NUM_CORE = 1;
-const int IM2COL_NUM_CORE = 1;
-const int CONV_NUM_CORE = 1;
+const int FC_LAYER_NUM_CORE = 8;
+const int MAX_POOLING_LAYER_NUM_CORE = 8;
+const int IM2COL_NUM_CORE = 8;
+const int CONV_NUM_CORE = 8;
 
 /*!
     \brief flag determining whether or not to initialize memory for storage of image and weights

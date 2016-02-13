@@ -9,6 +9,7 @@
 
 #ifdef LOKI
   #include "im2col.h"
+  //#include "im2col_loki.h"
 #else
   #include <cblas.h>
   #include "im2col.h"
@@ -26,6 +27,28 @@ inline storage_t divide(storage_t d1, storage_t d2) {return d1/d2;}
 inline storage_t exp_t(storage_t input) { return exp(input); }
 inline storage_t readDouble(double input) { return input; }
 inline storage_t add_multiply(storage_t s1, storage_t m1, storage_t m2){ return s1 + m1*m2;}
+#endif
+
+#if defined(DOUBLE)
+  #define to_double(x) (x)
+  #define to_int(x)    ((int)x)
+  #define ONE          1.0
+#elif defined(FLOAT)
+  #define to_double(x) ((double)x)
+  #define to_int(x)    ((int)x)
+  #define ONE          1.0f
+#elif defined(FIX16)
+  #define to_double(x) fix16_to_dbl(x)
+  #define to_int(x)    fix16_to_int(x)
+  #define ONE          fix16_one
+#elif defined(FIX8)
+  #define to_double(x) fix8_to_dbl(x)
+  #define to_int(x)    fix8_to_int(x)
+  #define ONE          fix8_one
+#else
+  #define to_double(x) "No datatype defined"
+  #define to_int(x)    "No datatype defined"
+  #define ONE          "No datatype defined"
 #endif
 
 /*! \fn void assign_bias(const int layer, const int layer_size, storage_t* biases, storage_t* outputs)

@@ -10,8 +10,9 @@
 // #include "gemm_block_multicore_loopunroll_4.h"
 // #include "gemm_block_multicore_dataflow_parallelize_micro.h"
 // #include "data_structure.h"
+#include "math_functions.h"
 
-#include "gemv_loki.h"
+#include "../src/gemv_loki.h"
 // #include "gemm_blocks.h"
 // #include "gemm_block_simple_integer.h"
 
@@ -42,33 +43,21 @@ int main(){
 	int* M2 = (int*)aligned_malloc(sizeof(int)*N*K, 32);
 	int* M3 = (int*)aligned_malloc(sizeof(int)*M*N, 32);
 
-    // int* M1 = (int*)malloc(sizeof(int)*M*K);
-    // int* M2 = (int*)malloc(sizeof(int)*N*K);
-    // int* M3 = (int*)malloc(sizeof(int)*M*N);
-
-    // for(int i = 0; i < MATRIX_SIZE; i++){
-    //     M1[i] = read_from_int(_M1[i]);
-    //     M2[i] = read_from_int(_M2[i]);
-    //     M3[i] = read_from_int(_M3[i]);
-    // }
     for(int i = 0; i < M; i++){
         for(int j = 0; j < K; j++){
-            M1[i*K+j] = 1;
-            // M1[i*K+j] = read_from_int(1);
+            M1[i*K+j] = ONE;
         }
     }
     
     for(int i = 0; i < K; i++){
         for(int j = 0; j < N; j++){
-            M2[i*N+j] = 1;
-            // M2[i*N+j] = read_from_int(1);
+            M2[i*N+j] = ONE;
         }
     }
     
     for(int i = 0; i < M; i++){
         for(int j = 0; j < N; j++){
             M3[i*N+j] = 0;
-            // M3[i*N+j] = read_from_int(0);
         }
     }
 
@@ -106,11 +95,12 @@ int main(){
     for(int i = 0; i < M; i++){
     // 	// fprintf(stderr, "%d \n", fix16_to_int(M3[i]));
     	for(int j = 0; j < N; j++){
-            if(M3[i*N+j] != M)
-    		  fprintf(stderr, "%d  at %d, %d \n", M3[i*N+j], i, j);
-            // fprintf(stderr, "%d ", fix8_to_int(M3[i*N+j]));
-            // fprintf(stderr, "%d ", M3[i*N+j]);
-        }
+    	  int val = to_int(M3[i*N + j]);
+        if(val != M)
+  		    fprintf(stderr, "%d  at %d, %d \n", val, i, j);
+          // fprintf(stderr, "%d ", fix8_to_int(M3[i*N+j]));
+          // fprintf(stderr, "%d ", M3[i*N+j]);
+      }
     	// fprintf(stderr, "\n\n");
     }
 }
