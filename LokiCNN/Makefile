@@ -13,7 +13,7 @@ LIBLOKI_DIR ?= /usr/groups/comparch-loki/tools/releases/libloki/current/
 
 # Compiler.
 HOST_CC := gcc
-LOKI_CC := lokicc
+LOKI_CC := CLANG_VER=20151104 loki-clang -ccc-host-triple loki-elf-linux
 CC := $($(PLATFORM)_CC)
 
 # Linker.
