@@ -12,7 +12,7 @@
 
 #define MR2  4
 #define NR2  1
-#define MATRIX_NUM_CORE 1
+#define MATRIX_NUM_CORE 8
 //
 //  Local buffers for storing panels from A, B and C
 //
@@ -49,6 +49,7 @@ pack_MRxk_mv(int k, const Dtype *A, int incRowA, int incColA,
         // for (int i=0; i<MR; ++i) {
         //     buffer[i] = A[i*incRowA];
         // }
+        
       asm volatile(
         "0: "
         "fetchr 1f \n"
@@ -95,7 +96,7 @@ pack_A_mv(int mc, int kc, const Dtype *A, int incRowA, int incColA,
         A      += MR2*incRowA*MATRIX_NUM_CORE;
     }
     
-    if (_mr>0 && core == mp % MATRIX_NUM_CORE) {
+    if ((_mr>0) && (core == mp % MATRIX_NUM_CORE)) {
         for (j=0; j<kc; ++j) {
             for (i=0; i<_mr; ++i) {
                 buffer[i] = A[i*incRowA];
