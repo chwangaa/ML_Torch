@@ -1,9 +1,8 @@
 #ifndef IM2COL_H
 #define IM2COL_H
 #include <stdio.h>
-#include "setting.h"
-#include "util.h"
 
+#define IM2COL_NUM_CORE 8
 
 typedef struct im2col_global_data_ {
     Dtype* data_im;
@@ -16,6 +15,7 @@ typedef struct im2col_global_data_ {
     int pad;
     int cores;
 } im2col_global_data;
+
 
 ///refer to im2col.h for reference
 void im2col_loki_zero_padding(const Dtype* data_im,
@@ -42,10 +42,8 @@ void im2col_loki_zero_padding(const Dtype* data_im,
             // the size of the width itself.
             for (w = 0; w < width_col - 4; w+=4) {
               asm volatile(
-                  "fetchr.eop 0f \n"
-                  "0:"
                   "fetchr 1f \n"
-                  "addu %0, %0, %2 -> 10 \n"
+                  "addu %0, %0, r0 -> 10 \n"
                   "addu %0, %0, %2 -> 11 \n"
                   "addu %0, %0, %2 -> 12 \n"
                   "addu %0, %0, %2 -> 13 \n"
@@ -56,30 +54,13 @@ void im2col_loki_zero_padding(const Dtype* data_im,
                   "stw.eop r7, 0xc(%1) ->13\n"
                   "1:"
                   : 
-                  : "r"(&data_im[_offset] - 4), "r"(&data_col[col_index]), "r"(stride*4)
+                  : "r"(&data_im[_offset]), "r"(&data_col[col_index]), "r"(stride*4)
                 );
               _offset += 4*stride;
               col_index += 4;
             }
-            // asm volatile(
-            //   "fetchr.eop 0f \n"
-            //   "0: "
-            //   "addu %0, %0, %2 -> 10 \n"
-            //   "addu %0, %0, %2 -> 11 \n"
-            //   "addu %0, %0, %2 -> 11 \n"
-            //   "addu %0, %0, %2 -> 11 \n"
-              
-            //   "stw r4, 0x0(%1) \n"
-            //   "stw r4, 0x4(%1) \n"
-            //   "stw r4, 0x8(%1) \n"
-            //   "stw r4, 0xc(%1) \n"
-            //   "setlt.p r0, %0, %3 \n"     // compare if first limit has reached
-            //   "addu %1, %1, 0x10 \n"
-            //   "psel.fetchr.eop 0b, 1f\n"
-            //   "1: "
-            //   : 
-            //   );
-
+            
+            // Final few iterations.
             for(; w < width_col; w++){
                 data_col[col_index++] = data_im[_offset];
                 _offset += stride;
@@ -155,7 +136,7 @@ void im2col_workerCore(const void* data)
             }
         }
     }
-    loki_sync_simple(d->cores);
+    loki_tile_sync(d->cores);
 }
 
 ///this is Loki's one-tile parallel version of im2col, each core takes a column and computes it
